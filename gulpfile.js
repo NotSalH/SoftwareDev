@@ -1,41 +1,55 @@
 const gulp = require('gulp');
 const noop = require("gulp-noop");
+const minimist = require("minimist");
+const del = require('del');
 
 const fs = require('fs');
-const sqlite3 = require('sqlite3').verbose();
+
+const encryption = require('./MedicalDoctor/Login/encryption');
+
+var argstemplate = {
+    string: ['password'],
+    default: {
+        password: '',
+    }
+};
+
+var args = minimist(process.argv.slice(2), argstemplate);
 
 var tables = ['Table.User.sql'];
 var records = ['Users.sql'];
 
-function createTables(db) {
-    console.log('CREATING TABLES');
-    for (var i = 0; i < tables.length; i++) {
-        console.log(tables[i]);
-        var sql = fs.readFileSync('./data/tables/' + tables[i], 'utf8');
-        db.run(sql);
-    }
-}
-
-function createTestRecords(db) {
-    console.log('CREATING TEST RECORDS');
-    for (var i = 0; i < records.length; i++) {
-        console.log(records[i]);
-        var sql = fs.readFileSync('./data/setup/' + records[i], 'utf8');
-        db.run(sql);
-    }
-}
+gulp.task('deleteDatabase', function () {
+    return del(['data/MedicalDoctor.db']);
+});
 
 gulp.task('createDatabase', async function () {
-    fs.copyFileSync('./data/MedicalDoctor-empty.db', './data/MedicalDoctor.db');
-    var db;
+    console.log('CREATING DATABASE');
+    const db = require('./MedicalDoctor/database');
+    const t = await db.Database.transaction();
     try {
-        db = new sqlite3.Database('./data/MedicalDoctor.db');
-        createTables(db);
-        createTestRecords(db);
+        await db.Database.sync();
+        console.log('CREATING TEST RECORDS');
+        require('./data/testRecords').createTestRecords(db, encryption);
+        await t.commit();
+    } catch (ex) {
+        await t.rollback();
+        throw ex;
     } finally {
-        if (db) {
-            db.close();
-        }
+        await db.Database.close();
     }
+    return noop();
+});
+
+gulp.task('setupDatabase', gulp.series('deleteDatabase', 'createDatabase'))
+
+gulp.task('hashPassword', async function () {
+    var result = encryption.hashPassword(args.password);
+    console.log('ENCRYPTING PASSWORD: ' + args.password);
+    console.log('COPY THE FOLLOWING');
+    console.log('PASSWORD HASH');
+    console.log(result.hash);
+    console.log('PASSWORD SALT');
+    console.log(result.salt);
     return noop();
 });

@@ -14,7 +14,12 @@ fi
 
 if [ $1 = "all" ] || [ $1 = "db" ]
 then
-    gulp createDatabase
+    gulp setupDatabase
+fi
+
+if [ $1 = "password" ]
+then
+    gulp hashPassword --password $2
 fi
 
 read -n 1 -s -r -p "Press any key to continue..."
