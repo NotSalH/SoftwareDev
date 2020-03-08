@@ -1,5 +1,5 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const Config = require('./config').options
+const Config = require('./config').options;
 
 const Database = new Sequelize(null, null, Config.databasePassword, {
     dialect: 'sqlite',
@@ -10,6 +10,8 @@ const Database = new Sequelize(null, null, Config.databasePassword, {
 
 Database.query('PRAGMA cipher_compatibility = 3');
 Database.query("PRAGMA key = '" + Config.databasePassword + "'");
+
+console.log('OPEN DATABASE');
 
 const User = Database.define('User', {
     id: {

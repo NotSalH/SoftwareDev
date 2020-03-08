@@ -1,6 +1,8 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
+const Database = require('./MedicalDoctor/Database').Database;
+
 function createWindow() {
     const mainWindow = new BrowserWindow({
         width: 800,
@@ -11,7 +13,6 @@ function createWindow() {
         },
     });
 
-
     mainWindow.loadFile('./MedicalDoctor/index.html');
 }
 
@@ -21,6 +22,7 @@ app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
         app.quit();
     }
+    Database.close();
 })
 
 app.on('activate', function () {
