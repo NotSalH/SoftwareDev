@@ -7,10 +7,12 @@ function createWindow() {
         height: 600,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
+            nodeIntegration: true,
         },
     });
 
-    mainWindow.loadFile('index.html');
+
+    mainWindow.loadFile('./MedicalDoctor/index.html');
 }
 
 app.on('ready', createWindow);
