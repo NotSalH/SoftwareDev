@@ -3,8 +3,6 @@ const noop = require("gulp-noop");
 const minimist = require("minimist");
 const del = require('del');
 
-const fs = require('fs');
-
 const encryption = require('./MedicalDoctor/Login/encryption');
 
 var argstemplate = {
@@ -15,9 +13,6 @@ var argstemplate = {
 };
 
 var args = minimist(process.argv.slice(2), argstemplate);
-
-var tables = ['Table.User.sql'];
-var records = ['Users.sql'];
 
 gulp.task('deleteDatabase', function () {
     return del(['data/MedicalDoctor.db']);

@@ -15,5 +15,5 @@ function createTestUsers(db, encryption){
 }
 
 module.exports = {
-    createTestRecords
+    createTestRecords,
 }

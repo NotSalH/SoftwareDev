@@ -37,7 +37,7 @@ const User = Database.define('User', {
     passwordSalt: {
         type: Sequelize.STRING(128),
         allowNull: false,
-    }
+    },
 });
 
 module.exports = {
