@@ -3,7 +3,7 @@ const noop = require("gulp-noop");
 const minimist = require("minimist");
 const del = require('del');
 
-const encryption = require('./MedicalDoctor/Login/encryption');
+const Encryption = require('./MedicalDoctor/Login/Encryption');
 
 var argstemplate = {
     string: ['password'],
@@ -20,12 +20,12 @@ gulp.task('deleteDatabase', function () {
 
 gulp.task('createDatabase', async function () {
     console.log('CREATING DATABASE');
-    const db = require('./MedicalDoctor/database');
+    const db = require('./MedicalDoctor/Database');
     const t = await db.Database.transaction();
     try {
         await db.Database.sync();
         console.log('CREATING TEST RECORDS');
-        require('./data/testRecords').createTestRecords(db, encryption);
+        require('./data/testRecords').createTestRecords(db, Encryption);
         await t.commit();
     } catch (ex) {
         await t.rollback();
@@ -39,7 +39,7 @@ gulp.task('createDatabase', async function () {
 gulp.task('setupDatabase', gulp.series('deleteDatabase', 'createDatabase'))
 
 gulp.task('hashPassword', async function () {
-    var result = encryption.hashPassword(args.password);
+    var result = Encryption.hashPassword(args.password);
     console.log('ENCRYPTING PASSWORD: ' + args.password);
     console.log('COPY THE FOLLOWING');
     console.log('PASSWORD HASH');

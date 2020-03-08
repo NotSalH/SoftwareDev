@@ -1,15 +1,15 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const config = require('./config')
+const Config = require('./config').options
 
-const Database = new Sequelize(null, null, config.options.databasePassword, {
+const Database = new Sequelize(null, null, Config.databasePassword, {
     dialect: 'sqlite',
     dialectModulePath: '@journeyapps/sqlcipher',
-    storage: config.options.databasePath,
+    storage: Config.databasePath,
     logging: console.log,
 });
 
 Database.query('PRAGMA cipher_compatibility = 3');
-Database.query("PRAGMA key = '" + config.options.databasePassword + "'");
+Database.query("PRAGMA key = '" + Config.databasePassword + "'");
 
 const User = Database.define('User', {
     id: {
