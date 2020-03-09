@@ -1,18 +1,18 @@
 
 echo $1
 
-if [ $1 = "first" ]
+if [ $1 = "first" ] || [ $1 = "buildtools" ]
 then
     npm install --global gulp
     npm install --global gulp-cli
 fi
 
-if [ $1 = "packages" ] || [ $1 = "first" ]
+if [ $1 = "first" ] || [ $1 = "packages" ] 
 then
     npm install
 fi
 
-if [ $1 = "db" ] || [ $1 = "first" ]
+if [ $1 = "first" ] || [ $1 = "db" ]
 then
     gulp setupDatabase
 fi
