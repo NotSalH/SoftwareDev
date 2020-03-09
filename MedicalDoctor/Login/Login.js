@@ -6,6 +6,10 @@ const Dashboard = require('../Dashboard/Dashboard').controller
 
 const controller = App.buildEmptyController('#inject-main', './Login/Login.html');
 
+controller._init = function () {
+    $('#submit').click(submit_click);
+}
+
 function submit_click() {
     ipcRenderer.send('send/login/get', $('#username').val());
 }
@@ -13,19 +17,14 @@ function submit_click() {
 ipcRenderer.on('reply/login/get', (event, data) => {
     if (data) {
         if (Encryption.isPasswordCorrect($('#password').val(), data.passwordHash, data.passwordSalt)) {
-    Dashboard._load();
+            Dashboard._load();
         } else {
             console.log('incorrect password');
         }
     } else {
         console.log('incorrect username');
-}
+    }
 });
-
-controller._init = function () {
-    console.log('LOGIN INIT');
-    $('#submit').click(submit_click);
-}
 
 module.exports = {
     controller,

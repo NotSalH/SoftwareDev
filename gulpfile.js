@@ -3,8 +3,6 @@ const noop = require("gulp-noop");
 const minimist = require("minimist");
 const del = require('del');
 
-const Encryption = require('./MedicalDoctor/Login/Encryption');
-
 var argstemplate = {
     string: ['password'],
     default: {
@@ -25,6 +23,7 @@ gulp.task('createDatabase', async function () {
     try {
         await db.Database.sync();
         console.log('CREATING TEST RECORDS');
+        const Encryption = require('./MedicalDoctor/Login/Encryption');
         require('./data/testRecords').createTestRecords(db, Encryption);
         await t.commit();
     } catch (ex) {
