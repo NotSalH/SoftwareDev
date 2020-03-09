@@ -13,22 +13,30 @@ This repo is for CS461 Software Dev
 
 > cd SoftwareDev
 
-4. Run first time setup (build tools, node packages, database).
+4. Run `.\setup.cmd` on Windows, else `.\setup.sh` on Mac and Linux.
 
-> .\setup.sh first
+> .\setup.cmd
+
+> .\setup.sh
 
 5. Run the application.
 
-> .\run.sh
+> npm start
+
+6. If after running, you encounter an error that says something about "sqlite". Resolve by:
+
+> npm install windows-build-tools --global
+
+> npm run rebuild
 
 # Additional commands
 
-> .\setup.sh packages
+> gulp setupPackages
 
 Install required node packages, convenient if new dependencies are added during development. 
 Also called during first time setup.
 
-> .\setup.sh db
+> gulp setupDatabase
 
 Setup a new database from scratch, and insert testing records.
 Also called during first time setup.
@@ -38,3 +46,4 @@ Also called during first time setup.
 * [Build Script](gulpfile.js)
 * [Database Table Specification](MedicalDoctor/database.js)
 * [IPC calls for database querying](main.js)
+* [Test User Login Information](data/_notes.txt)

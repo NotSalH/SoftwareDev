@@ -1,16 +1,7 @@
 const gulp = require('gulp');
 const noop = require("gulp-noop");
-const minimist = require("minimist");
+const run = require('gulp-run-command').default
 const del = require('del');
-
-var argstemplate = {
-    string: ['password'],
-    default: {
-        password: '',
-    }
-};
-
-var args = minimist(process.argv.slice(2), argstemplate);
 
 gulp.task('deleteDatabase', function () {
     return del(['data/MedicalDoctor.db']);
@@ -35,15 +26,10 @@ gulp.task('createDatabase', async function () {
     return noop();
 });
 
-gulp.task('setupDatabase', gulp.series('deleteDatabase', 'createDatabase'))
+gulp.task('setupDatabase', gulp.series('deleteDatabase', 'createDatabase'));
 
-gulp.task('hashPassword', async function () {
-    var result = Encryption.hashPassword(args.password);
-    console.log('ENCRYPTING PASSWORD: ' + args.password);
-    console.log('COPY THE FOLLOWING');
-    console.log('PASSWORD HASH');
-    console.log(result.hash);
-    console.log('PASSWORD SALT');
-    console.log(result.salt);
-    return noop();
+gulp.task('setupPackages', async function(){
+    return run('npm install');
 });
+
+gulp.task('first', gulp.series('setupPackages', 'setupDatabase'));
