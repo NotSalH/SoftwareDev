@@ -32,11 +32,11 @@ app.on('activate', function () {
     }
 });
 
-ipcMain.on('send/login/get', function (event, data) {
+ipcMain.on('send/login/get', function (event, username) {
     Models.User.findAll({
         attributes: ['passwordHash', 'passwordSalt'],
         where: {
-            username: data,
+            username: username,
         },
     }).then(function (data) {
         if (data.length === 0) {
