@@ -8,10 +8,7 @@ const Database = new Sequelize(null, null, Config.databasePassword, {
     logging: console.log,
 });
 
-Database.query('PRAGMA cipher_compatibility = 3');
-Database.query("PRAGMA key = '" + Config.databasePassword + "'");
-
-console.log('OPEN DATABASE');
+console.log('=== OPEN DATABASE');
 
 const User = Database.define('User', {
     id: {
