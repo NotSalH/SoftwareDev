@@ -1,13 +1,13 @@
 # SoftwareDev
 This repo is for CS461 Software Dev
 
-# Setup
+## Setup
 
-1. Make sure Node.js is installed (or install it).
+1. Make sure git and Node.js are installed (or install them).
 
 2. Clone the repository.
 
-> git clone <main repository or fork>
+> git clone *main repository or fork*
 
 3. Enter newly created repository directory.
 
@@ -23,13 +23,14 @@ This repo is for CS461 Software Dev
 
 > npm start
 
-6. If after running, you encounter an error that says something about "sqlite". Resolve by:
+6. If after running, you encounter an error that says something about "Unable to find dialect". 
+In an administrator terminal, resolve by:
 
 > npm install windows-build-tools --global
 
 > npm run rebuild
 
-# Additional commands
+## Additional commands
 
 > gulp setupPackages
 
@@ -41,8 +42,9 @@ Also called during first time setup.
 Setup a new database from scratch, and insert testing records.
 Also called during first time setup.
 
-# Code Highlights
+## Points of Interest
 
+* [Development Help](devnotes.md)
 * [Build Script](gulpfile.js)
 * [Database Table Specification](MedicalDoctor/database.js)
 * [IPC calls for database querying](main.js)
