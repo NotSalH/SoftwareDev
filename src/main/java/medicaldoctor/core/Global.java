@@ -1,4 +1,4 @@
-package medicaldoctor;
+package medicaldoctor.core;
 
 import medicaldoctor.entities.User;
 import org.hibernate.SessionFactory;

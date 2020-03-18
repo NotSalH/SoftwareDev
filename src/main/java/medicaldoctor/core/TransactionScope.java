@@ -1,4 +1,4 @@
-package medicaldoctor;
+package medicaldoctor.core;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
