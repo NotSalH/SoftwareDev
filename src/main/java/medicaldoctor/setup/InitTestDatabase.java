@@ -1,7 +1,7 @@
 package medicaldoctor.setup;
 
-import medicaldoctor.Global;
-import medicaldoctor.TransactionScope;
+import medicaldoctor.core.Global;
+import medicaldoctor.core.TransactionScope;
 import medicaldoctor.entities.User;
 
 public final class InitTestDatabase {
