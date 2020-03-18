@@ -1,3 +1,0 @@
-LOGINS
-USERNAME | PASSWORD
-admin | password123
