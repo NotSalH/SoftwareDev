@@ -1,41 +1,45 @@
 package medicaldoctor.setup;
 
-import medicaldoctor.core.Global;
-import medicaldoctor.core.TransactionScope;
+import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.User;
+import medicaldoctor.util.Encryption;
 
 public final class InitTestDatabase {
 
     private InitTestDatabase() {
     }
 
-    private static TransactionScope t;
+    private static DatabaseScope s;
 
     public static void main(String[] args) throws Exception {
-        try (TransactionScope t_ = new TransactionScope()) {
-            t = t_;
+        try (DatabaseScope s_ = new DatabaseScope()) {
+            s = s_;
+            s.beginTransaction();
             deletePreviousData();
             insertUsers();
-            t.commit();
+            s.commit();
+        } catch (Exception e) {
+            s.rollback();
+            throw e;
         } finally {
-            Global.shutdown();
+            DatabaseScope._shutdown();
         }
     }
 
     private static void deletePreviousData() {
-        t.run("DELETE FROM User");
+        s.runUpdate("DELETE FROM User");
     }
 
-    private static void insertUsers() {
+    private static void insertUsers() throws Exception {
+        Encryption encryption = new Encryption();
         User user;
 
         user = new User();
         user.setFirstName("Network");
         user.setLastName("Admin");
         user.setUserName("admin");
-        user.setPasswordHash("123");
-        user.setPasswordSalt("456");
-        t.save(user);
+        user.setPasswordHashAndSalt(encryption.hashPassword("password123"));
+        user.save();
     }
 
 }

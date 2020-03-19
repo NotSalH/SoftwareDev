@@ -1,6 +1,5 @@
 package medicaldoctor.entities;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,13 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import medicaldoctor.core.DatabaseScope;
+import medicaldoctor.util.HashAndSalt;
+import org.hibernate.query.Query;
 
 @Entity
 @Table(name = "User", uniqueConstraints = {
-    @UniqueConstraint(columnNames = "Id")
-    , @UniqueConstraint(columnNames = "UserName")})
+    @UniqueConstraint(columnNames = "Id"),
+    @UniqueConstraint(columnNames = "UserName")})
 @SuppressWarnings("PersistenceUnitPresent")
-public class User implements Serializable {
+public class User extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +39,6 @@ public class User implements Serializable {
     private String passwordSalt;
 
     public User() {
-        // hibernate
     }
 
     public Integer getId() {
@@ -68,20 +69,20 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public HashAndSalt getPasswordHashAndSalt() {
+        return new HashAndSalt(passwordHash, passwordSalt);
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPasswordHashAndSalt(HashAndSalt hashAndSalt) {
+        this.passwordHash = hashAndSalt.getHash();
+        this.passwordSalt = hashAndSalt.getSalt();
     }
 
-    public String getPasswordSalt() {
-        return passwordSalt;
-    }
-
-    public void setPasswordSalt(String passwordSalt) {
-        this.passwordSalt = passwordSalt;
+    public static User byUsername(String username) {
+        Query<User> q = DatabaseScope._getSession()
+                .createQuery("FROM User WHERE UserName = :username", User.class);
+        q.setParameter("username", username);
+        return q.uniqueResult();
     }
 
 }

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import medicaldoctor.core.DatabaseScope;
 
 public class Program extends Application {
 
@@ -20,7 +21,11 @@ public class Program extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        try {
         launch(args);
+        } finally {
+            DatabaseScope._shutdown();
+        }
     }
     
 }
