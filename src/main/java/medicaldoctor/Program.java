@@ -11,7 +11,7 @@ public class Program extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -22,10 +22,10 @@ public class Program extends Application {
      */
     public static void main(String[] args) {
         try {
-        launch(args);
+            launch(args);
         } finally {
             DatabaseScope._shutdown();
         }
     }
-    
+
 }
