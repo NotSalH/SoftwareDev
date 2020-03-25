@@ -17,10 +17,11 @@ public final class AppSession {
     }
 
     public static void setActiveUser(User user) {
-        if (activeUser != null) {
-            throw new IllegalStateException("User already logged on");
-        }
         activeUser = user;
+    }
+
+    public static boolean isLoggedIn() {
+        return activeUser != null;
     }
 
 }

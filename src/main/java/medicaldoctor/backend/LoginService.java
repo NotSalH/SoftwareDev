@@ -24,11 +24,25 @@ public class LoginService {
             boolean passwordMatches = ENCRYPTION
                     .checkPassword(password, user.getPasswordHashAndSalt());
             if (passwordMatches) {
+                if (AppSession.isLoggedIn()) {
+                    throw new IllegalStateException("User already logged on");
+                }
                 AppSession.setActiveUser(user);
                 return LoginResult.SUCCESS;
             } else {
                 return LoginResult.WRONG_PASSWORD;
             }
+        }
+    }
+
+    public static LoginResult checkAdditionalPassword(String password) throws Exception {
+        User user = AppSession.getActiveUser();
+        boolean passwordMatches = ENCRYPTION
+                .checkPassword(password, user.getAdditionalPasswordHashAndSalt());
+        if (passwordMatches) {
+            return LoginResult.SUCCESS;
+        } else {
+            return LoginResult.WRONG_PASSWORD;
         }
     }
 

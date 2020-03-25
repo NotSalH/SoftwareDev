@@ -40,6 +40,7 @@ public final class InitTestDatabase {
         user.setLastName("Admin");
         user.setUserName("admin");
         user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("password123"));
+        user.setAdditionalPasswordHashAndSalt(ENCRYPTION.hashPassword("secure@123"));
         user.save();
     }
 
