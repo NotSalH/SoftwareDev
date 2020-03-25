@@ -10,6 +10,8 @@ public class LoginService {
     private LoginService() {
     }
 
+    private static final Encryption ENCRYPTION = new Encryption();
+
     public static LoginResult checkLogin(String username, String password)
             throws Exception {
         User user;
@@ -19,8 +21,7 @@ public class LoginService {
         if (user == null) {
             return LoginResult.WRONG_USERNAME;
         } else {
-            Encryption encryption = new Encryption();
-            boolean passwordMatches = encryption
+            boolean passwordMatches = ENCRYPTION
                     .checkPassword(password, user.getPasswordHashAndSalt());
             if (passwordMatches) {
                 AppSession.setActiveUser(user);

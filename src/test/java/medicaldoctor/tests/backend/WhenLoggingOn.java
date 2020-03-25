@@ -48,11 +48,12 @@ public class WhenLoggingOn {
         FakeDatabase.setDatabase(q, otherUser, user);
     }
 
+    private static final Encryption ENCRYPTION = new Encryption();
+
     private User createUser(String username, String password) throws Exception {
-        Encryption encryption = new Encryption();
         User user = new User();
         user.setUserName(username);
-        user.setPasswordHashAndSalt(encryption.hashPassword(password));
+        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword(password));
         return user;
     }
 

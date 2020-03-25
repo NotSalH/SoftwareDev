@@ -9,6 +9,8 @@ public final class InitTestDatabase {
     private InitTestDatabase() {
     }
 
+    private static final Encryption ENCRYPTION = new Encryption();
+
     private static DatabaseScope s;
 
     public static void main(String[] args) throws Exception {
@@ -31,14 +33,13 @@ public final class InitTestDatabase {
     }
 
     private static void insertUsers() throws Exception {
-        Encryption encryption = new Encryption();
         User user;
 
         user = new User();
         user.setFirstName("Network");
         user.setLastName("Admin");
         user.setUserName("admin");
-        user.setPasswordHashAndSalt(encryption.hashPassword("password123"));
+        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("password123"));
         user.save();
     }
 
