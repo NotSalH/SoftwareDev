@@ -46,6 +46,7 @@ make sure you follow the key configuration changes on any other setup.
 
 ### Notes
 
+* [Logins](logins.md)
 * [Git Help](devnotes.md)
 * [JavaFX Help](javafx.md)
 * On Windows, start and stop the server using `.\startdb.cmd` and `.\stopdb.cmd`. You must run these as administrator.
