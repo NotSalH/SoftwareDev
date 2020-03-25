@@ -13,8 +13,8 @@ import org.hibernate.query.Query;
 
 @Entity
 @Table(name = "User", uniqueConstraints = {
-    @UniqueConstraint(columnNames = "Id"),
-    @UniqueConstraint(columnNames = "UserName")})
+    @UniqueConstraint(columnNames = "Id")
+    , @UniqueConstraint(columnNames = "UserName")})
 @SuppressWarnings("PersistenceUnitPresent")
 public class User extends AbstractEntity {
 
