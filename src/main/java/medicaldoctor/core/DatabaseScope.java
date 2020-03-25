@@ -80,7 +80,9 @@ public class DatabaseScope implements AutoCloseable {
      * Closes the session factory, used only in highest program scope.
      */
     public static void _shutdown() {
+        if (sessionFactory != null) {
         sessionFactory.close();
+    }
     }
 
     /**
