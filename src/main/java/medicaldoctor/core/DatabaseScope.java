@@ -17,7 +17,7 @@ public class DatabaseScope implements AutoCloseable {
 
     private static Session session;
     private static Transaction transaction;
-    private static final SessionFactory SESSION_FACTORY = buildSessionFactory();
+    private static SessionFactory sessionFactory;
 
     /**
      * Open a new database session.
@@ -26,7 +26,10 @@ public class DatabaseScope implements AutoCloseable {
         if (session != null) {
             throw new IllegalStateException("Database session already open");
         }
-        session = SESSION_FACTORY.openSession();
+        if (sessionFactory == null || _sessionFactoryOverride != null) {
+            sessionFactory = buildSessionFactory();
+        }
+        session = sessionFactory.openSession();
     }
 
     /**
@@ -77,7 +80,7 @@ public class DatabaseScope implements AutoCloseable {
      * Closes the session factory, used only in highest program scope.
      */
     public static void _shutdown() {
-        SESSION_FACTORY.close();
+        sessionFactory.close();
     }
 
     /**
@@ -93,7 +96,21 @@ public class DatabaseScope implements AutoCloseable {
         return session;
     }
 
+    /**
+     * Apply a fake session factory for testing.
+     *
+     * @param sf the fake session factory.
+     */
+    public static void _overrideSessionFactory(SessionFactory sf) {
+        _sessionFactoryOverride = sf;
+    }
+
+    private static SessionFactory _sessionFactoryOverride;
+
     private static SessionFactory buildSessionFactory() {
+        if (_sessionFactoryOverride != null) {
+            return _sessionFactoryOverride;
+        }
         Configuration config = new Configuration();
         config.configure("hibernate.cfg.xml");
         config.addAnnotatedClass(User.class);

@@ -13,8 +13,8 @@ import org.hibernate.query.Query;
 
 @Entity
 @Table(name = "User", uniqueConstraints = {
-    @UniqueConstraint(columnNames = "Id"),
-    @UniqueConstraint(columnNames = "UserName")})
+    @UniqueConstraint(columnNames = "Id")
+    , @UniqueConstraint(columnNames = "UserName")})
 @SuppressWarnings("PersistenceUnitPresent")
 public class User extends AbstractEntity {
 
@@ -37,6 +37,12 @@ public class User extends AbstractEntity {
 
     @Column(name = "PasswordSalt", nullable = false, length = 128)
     private String passwordSalt;
+
+    @Column(name = "AdditionalPasswordHash", nullable = false, length = 128)
+    private String additionalPasswordHash;
+
+    @Column(name = "AdditionalPasswordSalt", nullable = false, length = 128)
+    private String additionalPasswordSalt;
 
     public User() {
     }
@@ -76,6 +82,19 @@ public class User extends AbstractEntity {
     public void setPasswordHashAndSalt(HashAndSalt hashAndSalt) {
         this.passwordHash = hashAndSalt.getHash();
         this.passwordSalt = hashAndSalt.getSalt();
+    }
+
+    public HashAndSalt getAdditionalPasswordHashAndSalt() {
+        return new HashAndSalt(additionalPasswordHash, additionalPasswordSalt);
+    }
+
+    public void setAdditionalPasswordHashAndSalt(HashAndSalt hashAndSalt) {
+        this.additionalPasswordHash = hashAndSalt.getHash();
+        this.additionalPasswordSalt = hashAndSalt.getSalt();
+    }
+
+    public boolean hasAdditionalPassword() {
+        return this.additionalPasswordHash != null;
     }
 
     public static User byUsername(String username) {
