@@ -39,8 +39,10 @@ make sure you follow the key configuration changes on any other setup.
     17. After "MySQL Connections" click the "(+)"
     18. Enter `MedicalDoctor` as the connection name.
     19. Click password "Store in Vault" and enter the password and click "OK".
-    20. Connect to the connection, and run the following query: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'hydrogiraffe';`
-    21. Click "Create a new schema in the connected server", enter "MedicalDoctor" as the name, and click "Apply".
+    20. Click "Create a new schema in the connected server", enter "MedicalDoctor" as the name, and click "Apply".
+    21. Connect to the connection, and run the following query: 
+    
+> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'hydrogiraffe';   
 
 ### Notes
 
