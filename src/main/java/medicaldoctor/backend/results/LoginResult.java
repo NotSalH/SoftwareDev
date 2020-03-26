@@ -1,4 +1,4 @@
-package medicaldoctor.backend;
+package medicaldoctor.backend.results;
 
 public enum LoginResult {
     WRONG_USERNAME, WRONG_PASSWORD, SUCCESS;

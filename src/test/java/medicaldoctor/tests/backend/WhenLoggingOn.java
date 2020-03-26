@@ -1,6 +1,6 @@
 package medicaldoctor.tests.backend;
 
-import medicaldoctor.backend.LoginResult;
+import medicaldoctor.backend.results.LoginResult;
 import medicaldoctor.backend.LoginService;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.User;
