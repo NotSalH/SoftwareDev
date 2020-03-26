@@ -21,6 +21,7 @@ public class FakeDatabase {
         queries = new LinkedList();
         params = new HashMap();
         savedEntities = new LinkedList();
+        DatabaseScope._overrideSessionFactory(new FakeSessionFactory(this));
     }
 
     /**
@@ -31,11 +32,11 @@ public class FakeDatabase {
      * @param records the records in the test database
      */
     public FakeDatabase(QueryFunc func, AbstractEntity... records) {
+        this();
         for (AbstractEntity record : records) {
             addRecord(record);
         }
         addQuery(func);
-        DatabaseScope._overrideSessionFactory(new FakeSessionFactory(this));
     }
 
     public FakeDatabase addRecord(AbstractEntity o) {

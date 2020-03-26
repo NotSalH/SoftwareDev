@@ -33,16 +33,20 @@ public class Encryption {
     }
 
     public boolean checkPassword(String password, HashAndSalt check) {
+        String actual = hashPassword(password, check.getSalt()).getHash();
+        String expected = check.getHash();
+        return actual.equals(expected);
+    }
+
+    public HashAndSalt hashPassword(String password, String salt) {
         try {
-            String actual = hashPassword(password, Hex.decodeHex(check.getSalt())).getHash();
-            String expected = check.getHash();
-            return actual.equals(expected);
+            return hashPassword(password, Hex.decodeHex(salt));
         } catch (DecoderException de) {
             throw new EncryptionException(de);
         }
     }
 
-    private HashAndSalt hashPassword(String password, byte[] salt) {
+    public HashAndSalt hashPassword(String password, byte[] salt) {
         try {
             PBEKeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, iterations, size * 4);
             byte[] hash = hashFactory.generateSecret(keySpec).getEncoded();

@@ -52,6 +52,11 @@ public class FakeSession implements Session {
     public <T> org.hibernate.query.Query<T> createQuery(String string, Class<T> type) {
         return new FakeQuery<T>(db);
     }
+
+    @Override
+    public Serializable save(Object o) {
+        db.savedEntities.add(o);
+        return null;
     }
 
     @Override
@@ -181,11 +186,6 @@ public class FakeSession implements Session {
 
     @Override
     public void replicate(String string, Object o, ReplicationMode rm) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Serializable save(Object o) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
