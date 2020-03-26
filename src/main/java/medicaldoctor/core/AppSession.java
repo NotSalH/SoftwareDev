@@ -1,11 +1,14 @@
 package medicaldoctor.core;
 
 import medicaldoctor.entities.User;
+import medicaldoctor.util.Encryption;
 
 /**
  * Static global state of the program session.
  */
 public final class AppSession {
+
+    public static Encryption ENCRYPTION = new Encryption();
 
     private static User activeUser;
 

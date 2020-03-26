@@ -1,5 +1,6 @@
 package medicaldoctor.utils.tests;
 
+import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.User;
 import medicaldoctor.util.Encryption;
 import medicaldoctor.util.HashAndSalt;
@@ -9,7 +10,7 @@ public class TestEntities {
     private TestEntities() {
     }
 
-    private static final Encryption ENCRYPTION = new Encryption();
+    private static final Encryption ENCRYPTION = AppSession.ENCRYPTION;
 
     public static final String TEST_STAFF_USERNAME = "receptionistusername";
     public static final String TEST_STAFF_PASSWORD = "receptionistnursepassword";

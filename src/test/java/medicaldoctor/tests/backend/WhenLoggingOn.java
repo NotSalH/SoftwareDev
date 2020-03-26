@@ -6,8 +6,8 @@ import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.User;
 import medicaldoctor.util.Encryption;
 import medicaldoctor.utils.tests.FakeDatabase;
+import medicaldoctor.utils.tests.FakeQueries;
 import medicaldoctor.utils.tests.LoginScope;
-import medicaldoctor.utils.tests.QueryFunc;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -73,16 +73,11 @@ public class WhenLoggingOn {
         User user = createUser(USERNAME, PASSWORD);
         user.setAdditionalPasswordHashAndSalt(ENCRYPTION.hashPassword(ADDITIONAL_PASSWORD));
         User otherUser = createUser("admin", "test");
-        QueryFunc q = (x, db) -> {
-            String usename = ((User) x).getUserName();
-            String param = (String) db.getParam("username");
-            return usename.equals(param);
-        };
-        new FakeDatabase(q, otherUser, user);
+        new FakeDatabase(FakeQueries.USER_BY_USERNAME, otherUser, user);
         return user;
     }
 
-    private static final Encryption ENCRYPTION = new Encryption();
+    private static final Encryption ENCRYPTION = AppSession.ENCRYPTION;
 
     private User createUser(String username, String password) throws Exception {
         User user = new User();

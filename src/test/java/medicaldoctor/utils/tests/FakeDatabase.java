@@ -32,11 +32,25 @@ public class FakeDatabase {
      * @param records the records in the test database
      */
     public FakeDatabase(QueryFunc func, AbstractEntity... records) {
+        this(func, 1, records);
+    }
+
+    /**
+     * Set up database for testing with a single query, and a list of records in
+     * the database.
+     *
+     * @param func the query
+     * @param repeatQuery number of times query should be run
+     * @param records the records in the test database
+     */
+    public FakeDatabase(QueryFunc func, int queryCount, AbstractEntity... records) {
         this();
         for (AbstractEntity record : records) {
             addRecord(record);
         }
-        addQuery(func);
+        for (int i = 0; i < queryCount; i++) {
+            addQuery(func);
+        }
     }
 
     public FakeDatabase addRecord(AbstractEntity o) {

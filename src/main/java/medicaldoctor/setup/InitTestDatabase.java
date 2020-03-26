@@ -1,5 +1,6 @@
 package medicaldoctor.setup;
 
+import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.core.Permission;
 import medicaldoctor.entities.User;
@@ -11,7 +12,7 @@ public final class InitTestDatabase {
     private InitTestDatabase() {
     }
 
-    private static final Encryption ENCRYPTION = new Encryption();
+    private static final Encryption ENCRYPTION = AppSession.ENCRYPTION;
 
     private static DatabaseScope s;
 

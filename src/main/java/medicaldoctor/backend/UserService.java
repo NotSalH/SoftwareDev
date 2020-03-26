@@ -4,7 +4,6 @@ import medicaldoctor.backend.data.ChangePasswordResult;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.User;
-import medicaldoctor.util.Encryption;
 import medicaldoctor.util.HashAndSalt;
 
 public class UserService {
@@ -14,6 +13,15 @@ public class UserService {
 
     private static final Encryption ENCRYPTION = new Encryption();
 
+    /**
+     * Will check to make sure the provide passwords are the same, and different
+     * than the current password, then update the active user record.
+     *
+     * @param newPassword
+     * @param confirmPassword
+     * @return ChangePasswordResult
+     * @throws Exception
+     */
     public static ChangePasswordResult changePassword(String newPassword,
             String confirmPassword) throws Exception {
         User user = AppSession.getActiveUser();

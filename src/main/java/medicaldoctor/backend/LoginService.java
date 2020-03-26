@@ -4,15 +4,20 @@ import medicaldoctor.backend.data.LoginResult;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.User;
-import medicaldoctor.util.Encryption;
 
 public class LoginService {
 
     private LoginService() {
     }
 
-    private static final Encryption ENCRYPTION = new Encryption();
-
+    /**
+     * Will check the if the provided username and password is a valid login.
+     *
+     * @param username
+     * @param password
+     * @return LoginResult
+     * @throws Exception
+     */
     public static LoginResult checkLogin(String username, String password)
             throws Exception {
         User user;
@@ -22,7 +27,7 @@ public class LoginService {
         if (user == null) {
             return LoginResult.WRONG_USERNAME;
         } else {
-            boolean passwordMatches = ENCRYPTION
+            boolean passwordMatches = AppSession.ENCRYPTION
                     .checkPassword(password, user.getPasswordHashAndSalt());
             if (passwordMatches) {
                 if (AppSession.isLoggedIn()) {
@@ -36,9 +41,17 @@ public class LoginService {
         }
     }
 
+    /**
+     * Check if the provided additional password is valid for login for the
+     * active user.
+     *
+     * @param password
+     * @return LoginResult
+     * @throws Exception
+     */
     public static LoginResult checkAdditionalPassword(String password) throws Exception {
         User user = AppSession.getActiveUser();
-        boolean passwordMatches = ENCRYPTION
+        boolean passwordMatches = AppSession.ENCRYPTION
                 .checkPassword(password, user.getAdditionalPasswordHashAndSalt());
         if (passwordMatches) {
             return LoginResult.SUCCESS;

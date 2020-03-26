@@ -3,6 +3,7 @@ package medicaldoctor.tests.backend;
 import junit.framework.Assert;
 import medicaldoctor.backend.UserService;
 import medicaldoctor.backend.data.ChangePasswordResult;
+import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.User;
 import medicaldoctor.util.Encryption;
 import medicaldoctor.utils.tests.FakeDatabase;
@@ -32,7 +33,7 @@ public class WhenChangingPassword {
         }
     }
 
-    private static final Encryption ENCRYPTION = new Encryption();
+    private static final Encryption ENCRYPTION = AppSession.ENCRYPTION;
 
     @Test
     public void shouldResultSuccessful() throws Exception {
