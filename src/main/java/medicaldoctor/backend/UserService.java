@@ -1,6 +1,6 @@
 package medicaldoctor.backend;
 
-import medicaldoctor.backend.results.ChangePasswordResult;
+import medicaldoctor.backend.data.ChangePasswordResult;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.User;

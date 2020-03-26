@@ -2,7 +2,7 @@ package medicaldoctor.tests.backend;
 
 import junit.framework.Assert;
 import medicaldoctor.backend.UserService;
-import medicaldoctor.backend.results.ChangePasswordResult;
+import medicaldoctor.backend.data.ChangePasswordResult;
 import medicaldoctor.entities.User;
 import medicaldoctor.util.Encryption;
 import medicaldoctor.utils.tests.FakeDatabase;
