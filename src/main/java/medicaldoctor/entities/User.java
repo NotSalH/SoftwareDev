@@ -1,13 +1,17 @@
 package medicaldoctor.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import medicaldoctor.core.DatabaseScope;
+import medicaldoctor.core.Permission;
 import medicaldoctor.util.HashAndSalt;
 import org.hibernate.query.Query;
 
@@ -43,6 +47,16 @@ public class User extends AbstractEntity {
 
     @Column(name = "AdditionalPasswordSalt", nullable = false, length = 128)
     private String additionalPasswordSalt;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "UserTypeId", nullable = false)
+    private UserType userType;
+
+    @Column(name = "Department", length = 100)
+    private String department;
+
+    @Column(name = "OfficeNum", length = 100)
+    private Integer officeNum;
 
     public User() {
     }
@@ -95,6 +109,34 @@ public class User extends AbstractEntity {
 
     public boolean hasAdditionalPassword() {
         return this.additionalPasswordHash != null;
+    }
+
+    public void setType(UserType userType) {
+        this.userType = userType;
+    }
+
+    public UserType getType() {
+        return userType;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public Integer getOfficeNum() {
+        return officeNum;
+    }
+
+    public void setOfficeNum(Integer officeNum) {
+        this.officeNum = officeNum;
+    }
+
+    public boolean hasPermission(Permission permission) {
+        return getType().hasPermission(permission);
     }
 
     public static User byUsername(String username) {
