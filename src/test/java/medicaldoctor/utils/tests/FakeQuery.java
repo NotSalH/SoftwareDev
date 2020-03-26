@@ -18,7 +18,6 @@ import javax.persistence.LockModeType;
 import javax.persistence.Parameter;
 import javax.persistence.TemporalType;
 import medicaldoctor.entities.AbstractEntity;
-import medicaldoctor.entities.User;
 import org.hibernate.CacheMode;
 import org.hibernate.FlushMode;
 import org.hibernate.LockMode;
@@ -37,29 +36,29 @@ import org.hibernate.type.Type;
 
 public class FakeQuery<R> implements org.hibernate.query.Query<R> {
 
-    public QueryResults results;
+    public FakeDatabase db;
 
-    public FakeQuery(QueryResults results) {
-        this.results = results;
+    public FakeQuery(FakeDatabase db) {
+        this.db = db;
     }
 
     @Override
     public Query<R> setParameter(String string, Object o) {
-        results.setParam(string, o);
+        db.setParam(string, o);
         return this;
     }
 
     @Override
     public R uniqueResult() {
         R r = null;
-        QueryFunc f = results.queries.remove();
-        for (AbstractEntity x : results.items) {
-            if (f.call(x, results)) {
+        QueryFunc f = db.queries.remove();
+        for (AbstractEntity x : db.items) {
+            if (f.call(x, db)) {
                 r = (R) x;
                 break;
             }
         }
-        results.clearParams();
+        db.clearParams();
         return r;
     }
 

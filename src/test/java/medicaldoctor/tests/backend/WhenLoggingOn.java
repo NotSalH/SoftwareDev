@@ -72,12 +72,12 @@ public class WhenLoggingOn {
         User user = createUser(USERNAME, PASSWORD);
         user.setAdditionalPasswordHashAndSalt(ENCRYPTION.hashPassword(ADDITIONAL_PASSWORD));
         User otherUser = createUser("admin", "test");
-        QueryFunc q = (x, qr) -> {
+        QueryFunc q = (x, db) -> {
             String usename = ((User) x).getUserName();
-            String param = (String) qr.getParam("username");
+            String param = (String) db.getParam("username");
             return usename.equals(param);
         };
-        FakeDatabase.setDatabase(q, otherUser, user);
+        new FakeDatabase(q, otherUser, user);
         return user;
     }
 

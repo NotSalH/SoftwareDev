@@ -1,5 +1,8 @@
 package medicaldoctor.utils.tests;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.AbstractEntity;
 
@@ -8,14 +11,16 @@ import medicaldoctor.entities.AbstractEntity;
  */
 public class FakeDatabase {
 
-    private FakeDatabase() {
-    }
+    public LinkedList<AbstractEntity> items;
+    public Queue<QueryFunc> queries;
+    public HashMap<String, Object> params;
+    public LinkedList<Object> savedEntities;
 
-    public static QueryResults results;
-
-    public static void setDatabase(QueryResults results) {
-        FakeDatabase.results = results;
-        DatabaseScope._overrideSessionFactory(new FakeSessionFactory(results));
+    public FakeDatabase() {
+        items = new LinkedList();
+        queries = new LinkedList();
+        params = new HashMap();
+        savedEntities = new LinkedList();
     }
 
     /**
@@ -25,13 +30,36 @@ public class FakeDatabase {
      * @param func the single query
      * @param records the records in the test database
      */
-    public static void setDatabase(QueryFunc func, AbstractEntity... records) {
-        QueryResults results = new QueryResults();
+    public FakeDatabase(QueryFunc func, AbstractEntity... records) {
         for (AbstractEntity record : records) {
-            results.addRecord(record);
+            addRecord(record);
         }
-        results.addQuery(func);
-        setDatabase(results);
+        addQuery(func);
+        DatabaseScope._overrideSessionFactory(new FakeSessionFactory(this));
+    }
+
+    public FakeDatabase addRecord(AbstractEntity o) {
+        items.add(o);
+        return this;
+    }
+
+    public FakeDatabase addQuery(QueryFunc f) {
+        queries.add(f);
+        return this;
+    }
+
+    public FakeDatabase clearParams() {
+        params.clear();
+        return this;
+    }
+
+    public FakeDatabase setParam(String key, Object o) {
+        params.put(key, o);
+        return this;
+    }
+
+    public Object getParam(String key) {
+        return params.get(key);
     }
 
 }

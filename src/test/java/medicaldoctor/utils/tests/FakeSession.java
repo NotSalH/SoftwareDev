@@ -42,15 +42,16 @@ import org.hibernate.stat.SessionStatistics;
 
 public class FakeSession implements Session {
 
-    public QueryResults results;
+    public FakeDatabase db;
 
-    public FakeSession(QueryResults results) {
-        this.results = results;
+    public FakeSession(FakeDatabase db) {
+        this.db = db;
     }
 
     @Override
     public <T> org.hibernate.query.Query<T> createQuery(String string, Class<T> type) {
-        return new FakeQuery<T>(results);
+        return new FakeQuery<T>(db);
+    }
     }
 
     @Override

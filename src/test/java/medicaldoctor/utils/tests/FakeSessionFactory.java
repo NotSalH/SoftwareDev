@@ -29,17 +29,17 @@ import org.hibernate.stat.Statistics;
 
 public class FakeSessionFactory implements SessionFactory {
 
-    public QueryResults results;
+    public FakeDatabase db;
 
     private boolean isClosed = false;
 
-    public FakeSessionFactory(QueryResults results) {
-        this.results = results;
+    public FakeSessionFactory(FakeDatabase db) {
+        this.db = db;
     }
 
     @Override
     public Session openSession() throws HibernateException {
-        return new FakeSession(results);
+        return new FakeSession(db);
     }
 
     @Override
