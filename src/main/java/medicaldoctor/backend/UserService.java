@@ -28,10 +28,10 @@ public class UserService {
         if (!newPassword.equals(confirmPassword)) {
             return ChangePasswordResult.PASSWORDS_NOT_MATCHING;
         }
-        if (ENCRYPTION.checkPassword(newPassword, user.getPasswordHashAndSalt())) {
+        if (AppSession.ENCRYPTION.checkPassword(newPassword, user.getPasswordHashAndSalt())) {
             return ChangePasswordResult.PASSWORD_NOT_CHANGED;
         }
-        HashAndSalt newHash = ENCRYPTION.hashPassword(newPassword);
+        HashAndSalt newHash = AppSession.ENCRYPTION.hashPassword(newPassword);
         user.setPasswordHashAndSalt(newHash);
         try (DatabaseScope scope = new DatabaseScope()) {
             user.save();
