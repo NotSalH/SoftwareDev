@@ -1,6 +1,7 @@
 package medicaldoctor.setup;
 
 import medicaldoctor.core.DatabaseScope;
+import medicaldoctor.core.Permission;
 import medicaldoctor.entities.User;
 import medicaldoctor.entities.UserType;
 import medicaldoctor.util.Encryption;
@@ -19,6 +20,7 @@ public final class InitTestDatabase {
             s = s_;
             s.beginTransaction();
             deletePreviousData();
+            updatePermissions();
             insertUserTypes();
             insertUsers();
             s.commit();
@@ -31,6 +33,19 @@ public final class InitTestDatabase {
     }
 
     private static void deletePreviousData() {
+    private static void updatePermissions() {
+        update(UserType.ADMIN, Permission.values());
+        update(UserType.EXECUTIVE, Permission.values());
+        update(UserType.STAFF,
+                Permission.REGISTER_PATIENT);
+    }
+
+    private static void update(UserType userType, Permission... permissions) {
+        for (Permission permission : permissions) {
+            userType.addPermission(permission);
+        }
+    }
+
     private static void insertUserTypes() {
         UserType.ADMIN.save();
         UserType.EXECUTIVE.save();

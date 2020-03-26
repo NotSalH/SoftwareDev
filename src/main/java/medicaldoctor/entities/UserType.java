@@ -1,5 +1,7 @@
 package medicaldoctor.entities;
 
+import java.util.LinkedList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import medicaldoctor.core.Permission;
+
 @Entity
 @Table(name = "UserType", uniqueConstraints = {
     @UniqueConstraint(columnNames = "Id")
@@ -36,6 +40,10 @@ public class UserType extends AbstractEntity {
     @Column(name = "HasAdditionalPassword", nullable = false)
     private boolean hasAdditionalPassword;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "UserTypeId", nullable = false)
+    private List<UserTypePermission> permissions = new LinkedList<>();
+
     public UserType() {
         // hibernate
     }
@@ -55,6 +63,19 @@ public class UserType extends AbstractEntity {
 
     public boolean hasAdditionalPassword() {
         return hasAdditionalPassword;
+    }
+
+    public void addPermission(Permission permission) {
+        permissions.add(new UserTypePermission(permission));
+    }
+
+    public boolean hasPermission(Permission permission) {
+        for (UserTypePermission check : permissions) {
+            if (check.getPermission() == permission) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

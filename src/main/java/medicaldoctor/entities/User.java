@@ -11,6 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import medicaldoctor.core.DatabaseScope;
+import medicaldoctor.core.Permission;
 import medicaldoctor.util.HashAndSalt;
 import org.hibernate.query.Query;
 
@@ -110,6 +111,10 @@ public class User extends AbstractEntity {
 
     public UserType getType() {
         return userType;
+    }
+
+    public boolean hasPermission(Permission permission) {
+        return getType().hasPermission(permission);
     }
 
     public static User byUsername(String username) {
