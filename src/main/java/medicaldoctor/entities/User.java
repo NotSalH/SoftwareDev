@@ -52,6 +52,12 @@ public class User extends AbstractEntity {
     @JoinColumn(name = "UserTypeId", nullable = false)
     private UserType userType;
 
+    @Column(name = "Department", length = 100)
+    private String department;
+
+    @Column(name = "OfficeNum", length = 100)
+    private Integer officeNum;
+
     public User() {
     }
 
@@ -111,6 +117,22 @@ public class User extends AbstractEntity {
 
     public UserType getType() {
         return userType;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public Integer getOfficeNum() {
+        return officeNum;
+    }
+
+    public void setOfficeNum(Integer officeNum) {
+        this.officeNum = officeNum;
     }
 
     public boolean hasPermission(Permission permission) {
