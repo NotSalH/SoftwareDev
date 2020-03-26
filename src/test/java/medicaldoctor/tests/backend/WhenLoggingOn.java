@@ -48,6 +48,7 @@ public class WhenLoggingOn {
         LoginResult result = LoginService.checkLogin(USERNAME.toUpperCase(), PASSWORD);
         Assert.assertEquals(LoginResult.SUCCESS, result);
         Assert.assertEquals(USERNAME, AppSession.getActiveUser().getUserName());
+        AppSession.setActiveUser(null);
     }
 
     @Test
