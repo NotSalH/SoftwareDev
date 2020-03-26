@@ -43,6 +43,14 @@ public class WhenLoggingOn {
     }
 
     @Test
+    public void usernameShouldBeCaseInsensitive() throws Exception {
+        setupDatabase();
+        LoginResult result = LoginService.checkLogin(USERNAME.toUpperCase(), PASSWORD);
+        Assert.assertEquals(LoginResult.SUCCESS, result);
+        Assert.assertEquals(USERNAME, AppSession.getActiveUser().getUserName());
+    }
+
+    @Test
     public void shouldResultWrongPasswordIfAdditionalPasswordIsWrong() throws Exception {
         User testUser = setupDatabase();
         try (LoginScope s = new LoginScope(testUser)) {

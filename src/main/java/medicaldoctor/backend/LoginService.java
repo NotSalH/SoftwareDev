@@ -16,7 +16,7 @@ public class LoginService {
             throws Exception {
         User user;
         try (DatabaseScope scope = new DatabaseScope()) {
-            user = User.byUsername(username);
+            user = User.byUsername(username.toLowerCase());
         }
         if (user == null) {
             return LoginResult.WRONG_USERNAME;
