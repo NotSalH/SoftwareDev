@@ -1,6 +1,6 @@
 package medicaldoctor.core;
 
-import medicaldoctor.entities.User;
+import medicaldoctor.setup.Entities;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -65,8 +65,10 @@ public class DatabaseScope implements AutoCloseable {
      * Cancel transaction, place in catch block.
      */
     public void rollback() {
-        transaction.rollback();
-        transaction = null;
+        if (transaction != null) {
+            transaction.rollback();
+            transaction = null;
+        }
     }
 
     @Override
@@ -81,8 +83,8 @@ public class DatabaseScope implements AutoCloseable {
      */
     public static void _shutdown() {
         if (sessionFactory != null) {
-        sessionFactory.close();
-    }
+            sessionFactory.close();
+        }
     }
 
     /**
@@ -96,6 +98,16 @@ public class DatabaseScope implements AutoCloseable {
             throw new IllegalStateException("Not in database session scope");
         }
         return session;
+    }
+
+    /**
+     * Run a direct SQL update (instead of HQL).
+     *
+     * @param sql
+     * @return the number of affected rows
+     */
+    public int _runSQL(String sql) {
+        return session.createSQLQuery(sql).executeUpdate();
     }
 
     /**
@@ -115,7 +127,9 @@ public class DatabaseScope implements AutoCloseable {
         }
         Configuration config = new Configuration();
         config.configure("hibernate.cfg.xml");
-        config.addAnnotatedClass(User.class);
+        for (Class c : Entities.LIST) {
+            config.addAnnotatedClass(c);
+        }
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(config.getProperties()).build();
         return config.buildSessionFactory(serviceRegistry);

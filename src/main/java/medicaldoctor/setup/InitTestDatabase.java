@@ -25,7 +25,9 @@ public final class InitTestDatabase {
             insertUsers();
             s.commit();
         } catch (Exception e) {
-            s.rollback();
+            if (s != null) {
+                s.rollback();
+            }
             throw e;
         } finally {
             DatabaseScope._shutdown();
@@ -33,6 +35,11 @@ public final class InitTestDatabase {
     }
 
     private static void deletePreviousData() {
+        for (Class c : Entities.LIST) {
+            s.runUpdate("DELETE FROM " + c.getSimpleName());
+        }
+    }
+
     private static void updatePermissions() {
         update(UserType.ADMIN, Permission.values());
         update(UserType.EXECUTIVE, Permission.values());
