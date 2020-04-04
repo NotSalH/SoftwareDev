@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guisoftwaredev.FXMLDocumentController">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <items>
+            <ImageView fitHeight="131.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="131.0" prefWidth="361.0" />
+            <Label text="Patient Registration">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="131.0" prefWidth="376.0" />
+            <VBox alignment="TOP_CENTER" prefHeight="120.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <ImageView fx:id="userPicture" fitHeight="83.0" fitWidth="100.0" onMouseClicked="#onProfilePictureClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@deafaultProfilePicture.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <MenuButton fx:id="userOptions" mnemonicParsing="false" text="Options">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Profile" />
+                              <MenuItem mnemonicParsing="false" text="Log Out" />
+                           </items>
+                        </MenuButton>
+               </children>
+            </VBox>
+         </items>
+      </ToolBar>
+   </top>
+   <center>
+      <Accordion BorderPane.alignment="CENTER">
+        <panes>
+          <TitledPane animated="false" text="New Patient">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="122.0" layoutY="14.0" prefHeight="659.0" prefWidth="814.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Patient Information:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                                       <children>
+                                          <VBox prefHeight="179.0" prefWidth="224.0">
+                                             <children>
+                                                <Label text="First Name:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="29.0" prefWidth="206.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="179.0" prefWidth="224.0">
+                                             <children>
+                                                <Label text="Last Name:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="64.0">
+                                             <children>
+                                                <Label text="Age:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="29.0" prefWidth="6.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="60.0">
+                                             <children>
+                                                <Label text="Sex:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                                       <children>
+                                          <VBox prefHeight="179.0" prefWidth="224.0">
+                                             <children>
+                                                <Label text="Medical Insurance:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="29.0" prefWidth="206.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="111.0">
+                                             <children>
+                                                <Label text="Birth Date:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="29.0" prefWidth="6.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="275.0">
+                                             <children>
+                                                <Label text="Primary Doctor:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Label text="Mailing Address:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                                       <children>
+                                          <VBox prefHeight="179.0" prefWidth="224.0">
+                                             <children>
+                                                <Label text="Street Address:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="29.0" prefWidth="206.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="183.0">
+                                             <children>
+                                                <Label text="City/Town:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="80.0">
+                                             <children>
+                                                <Label text="State:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <MenuButton mnemonicParsing="false" text="State">
+                                                  <items>
+                                                    <MenuItem mnemonicParsing="false" text="AL" />
+                                                    <MenuItem mnemonicParsing="false" text="AK" />
+                                                      <MenuItem mnemonicParsing="false" text="AZ" />
+                                                      <MenuItem mnemonicParsing="false" text="AR" />
+                                                      <MenuItem mnemonicParsing="false" text="CA" />
+                                                      <MenuItem mnemonicParsing="false" text="CO" />
+                                                      <MenuItem mnemonicParsing="false" text="CT" />
+                                                      <MenuItem mnemonicParsing="false" text="DE" />
+                                                      <MenuItem mnemonicParsing="false" text="FL" />
+                                                      <MenuItem mnemonicParsing="false" text="GA" />
+                                                      <MenuItem mnemonicParsing="false" text="HI" />
+                                                      <MenuItem mnemonicParsing="false" text="ID" />
+                                                      <MenuItem mnemonicParsing="false" text="IL" />
+                                                      <MenuItem mnemonicParsing="false" text="IN" />
+                                                      <MenuItem mnemonicParsing="false" text="IA" />
+                                                      <MenuItem mnemonicParsing="false" text="KS" />
+                                                      <MenuItem mnemonicParsing="false" text="KY" />
+                                                      <MenuItem mnemonicParsing="false" text="LA" />
+                                                      <MenuItem mnemonicParsing="false" text="ME" />
+                                                      <MenuItem mnemonicParsing="false" text="MD" />
+                                                      <MenuItem mnemonicParsing="false" text="MA" />
+                                                      <MenuItem mnemonicParsing="false" text="MI" />
+                                                      <MenuItem mnemonicParsing="false" text="MN" />
+                                                      <MenuItem mnemonicParsing="false" text="MS" />
+                                                      <MenuItem mnemonicParsing="false" text="MO" />
+                                                      <MenuItem mnemonicParsing="false" text="MT" />
+                                                      <MenuItem mnemonicParsing="false" text="NE" />
+                                                      <MenuItem mnemonicParsing="false" text="NV" />
+                                                      <MenuItem mnemonicParsing="false" text="NH" />
+                                                      <MenuItem mnemonicParsing="false" text="NJ" />
+                                                      <MenuItem mnemonicParsing="false" text="NM" />
+                                                      <MenuItem mnemonicParsing="false" text="NY" />
+                                                      <MenuItem mnemonicParsing="false" text="NC" />
+                                                      <MenuItem mnemonicParsing="false" text="ND" />
+                                                      <MenuItem mnemonicParsing="false" text="OH" />
+                                                      <MenuItem mnemonicParsing="false" text="OK" />
+                                                      <MenuItem mnemonicParsing="false" text="OR" />
+                                                      <MenuItem mnemonicParsing="false" text="PA" />
+                                                      <MenuItem mnemonicParsing="false" text="RI" />
+                                                      <MenuItem mnemonicParsing="false" text="SC" />
+                                                      <MenuItem mnemonicParsing="false" text="SD" />
+                                                      <MenuItem mnemonicParsing="false" text="TN" />
+                                                      <MenuItem mnemonicParsing="false" text="TX" />
+                                                      <MenuItem mnemonicParsing="false" text="UT" />
+                                                      <MenuItem mnemonicParsing="false" text="VT" />
+                                                      <MenuItem mnemonicParsing="false" text="VA" />
+                                                      <MenuItem mnemonicParsing="false" text="WA" />
+                                                      <MenuItem mnemonicParsing="false" text="WV" />
+                                                      <MenuItem mnemonicParsing="false" text="WI" />
+                                                      <MenuItem mnemonicParsing="false" text="WY" />
+                                                  </items>
+                                                </MenuButton>
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="89.0">
+                                             <children>
+                                                <Label text="Zip code:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="29.0" prefWidth="77.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Label text="Billing Address:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                                       <children>
+                                          <VBox prefHeight="179.0" prefWidth="224.0">
+                                             <children>
+                                                <Label text="Street Address:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="29.0" prefWidth="206.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="183.0">
+                                             <children>
+                                                <Label text="City/Town:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="80.0">
+                                             <children>
+                                                <Label text="State:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <MenuButton mnemonicParsing="false" text="State">
+                                                   <items>
+                                                      <MenuItem mnemonicParsing="false" text="AL" />
+                                                      <MenuItem mnemonicParsing="false" text="AK" />
+                                                      <MenuItem mnemonicParsing="false" text="AZ" />
+                                                      <MenuItem mnemonicParsing="false" text="AR" />
+                                                      <MenuItem mnemonicParsing="false" text="CA" />
+                                                      <MenuItem mnemonicParsing="false" text="CO" />
+                                                      <MenuItem mnemonicParsing="false" text="CT" />
+                                                      <MenuItem mnemonicParsing="false" text="DE" />
+                                                      <MenuItem mnemonicParsing="false" text="FL" />
+                                                      <MenuItem mnemonicParsing="false" text="GA" />
+                                                      <MenuItem mnemonicParsing="false" text="HI" />
+                                                      <MenuItem mnemonicParsing="false" text="ID" />
+                                                      <MenuItem mnemonicParsing="false" text="IL" />
+                                                      <MenuItem mnemonicParsing="false" text="IN" />
+                                                      <MenuItem mnemonicParsing="false" text="IA" />
+                                                      <MenuItem mnemonicParsing="false" text="KS" />
+                                                      <MenuItem mnemonicParsing="false" text="KY" />
+                                                      <MenuItem mnemonicParsing="false" text="LA" />
+                                                      <MenuItem mnemonicParsing="false" text="ME" />
+                                                      <MenuItem mnemonicParsing="false" text="MD" />
+                                                      <MenuItem mnemonicParsing="false" text="MA" />
+                                                      <MenuItem mnemonicParsing="false" text="MI" />
+                                                      <MenuItem mnemonicParsing="false" text="MN" />
+                                                      <MenuItem mnemonicParsing="false" text="MS" />
+                                                      <MenuItem mnemonicParsing="false" text="MO" />
+                                                      <MenuItem mnemonicParsing="false" text="MT" />
+                                                      <MenuItem mnemonicParsing="false" text="NE" />
+                                                      <MenuItem mnemonicParsing="false" text="NV" />
+                                                      <MenuItem mnemonicParsing="false" text="NH" />
+                                                      <MenuItem mnemonicParsing="false" text="NJ" />
+                                                      <MenuItem mnemonicParsing="false" text="NM" />
+                                                      <MenuItem mnemonicParsing="false" text="NY" />
+                                                      <MenuItem mnemonicParsing="false" text="NC" />
+                                                      <MenuItem mnemonicParsing="false" text="ND" />
+                                                      <MenuItem mnemonicParsing="false" text="OH" />
+                                                      <MenuItem mnemonicParsing="false" text="OK" />
+                                                      <MenuItem mnemonicParsing="false" text="OR" />
+                                                      <MenuItem mnemonicParsing="false" text="PA" />
+                                                      <MenuItem mnemonicParsing="false" text="RI" />
+                                                      <MenuItem mnemonicParsing="false" text="SC" />
+                                                      <MenuItem mnemonicParsing="false" text="SD" />
+                                                      <MenuItem mnemonicParsing="false" text="TN" />
+                                                      <MenuItem mnemonicParsing="false" text="TX" />
+                                                      <MenuItem mnemonicParsing="false" text="UT" />
+                                                      <MenuItem mnemonicParsing="false" text="VT" />
+                                                      <MenuItem mnemonicParsing="false" text="VA" />
+                                                      <MenuItem mnemonicParsing="false" text="WA" />
+                                                      <MenuItem mnemonicParsing="false" text="WV" />
+                                                      <MenuItem mnemonicParsing="false" text="WI" />
+                                                      <MenuItem mnemonicParsing="false" text="WY" />
+                                                   </items>
+                                                </MenuButton>
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="89.0">
+                                             <children>
+                                                <Label text="Zip code:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="29.0" prefWidth="77.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Label text="Visit Information:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                                       <children>
+                                          <VBox prefHeight="179.0" prefWidth="224.0">
+                                             <children>
+                                                <Label text="Doctor:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="29.0" prefWidth="206.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="179.0" prefWidth="224.0">
+                                             <children>
+                                                <Label text="Visit Date/ Time: ">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="29.0" prefWidth="206.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="105.0" prefWidth="814.0" spacing="35.0">
+                                       <children>
+                                          <VBox prefHeight="105.0" prefWidth="324.0">
+                                             <children>
+                                                <Label text="Cheif Complaint:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextArea prefHeight="85.0" prefWidth="297.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="105.0" prefWidth="323.0">
+                                             <children>
+                                                <Label text="Present Illness: ">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextArea prefHeight="200.0" prefWidth="200.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="814.0">
+                                       <children>
+                                          <Pane prefHeight="58.0" prefWidth="620.0" />
+                                          <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" text="Submit">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Returning Patient">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="TOP_RIGHT" layoutX="143.0" layoutY="14.0" prefHeight="471.0" prefWidth="816.0" spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="777.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Filter:">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefHeight="29.0" prefWidth="237.0" promptText="by Patient ID, First Name, or Last Name" />
+                                       </children>
+                                    </HBox>
+                                    <TableView prefHeight="340.0" prefWidth="816.0">
+                                      <columns>
+                                        <TableColumn prefWidth="163.0" text="Patient ID" />
+                                        <TableColumn minWidth="0.0" prefWidth="144.0" text="First Name" />
+                                          <TableColumn prefWidth="175.0" text="Last Name" />
+                                          <TableColumn prefWidth="94.0" text="DOB" />
+                                          <TableColumn prefWidth="241.0" text="Primary Doctor" />
+                                      </columns>
+                                    </TableView>
+                                    <Button mnemonicParsing="false" text="Select">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </center>
+</BorderPane>
