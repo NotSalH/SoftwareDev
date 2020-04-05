@@ -5,28 +5,12 @@
  */
 package medicaldoctor;
 
-import java.net.URL;
 import java.util.HashMap;
-import java.util.ResourceBundle;
-import javafx.beans.property.DoubleProperty;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import medicaldoctor.backend.LoginResult;
-import medicaldoctor.backend.LoginService;
+
 
 
 public class ControllerManager extends StackPane{
@@ -48,12 +32,12 @@ public class ControllerManager extends StackPane{
         try{
            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(fxmlFile));
            Parent parentLoader = (Parent) loader.load(); 
-           ParentController pc = ((ParentController) loader.getController());
+           ParentInterface pc = ((ParentInterface) loader.getController());
            pc.setScreenParent(this);
            addScreen(name,parentLoader);
         }
         catch(Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("FXML file could not be loaded!");
         }
     }
     
@@ -72,10 +56,10 @@ public class ControllerManager extends StackPane{
         }
     }
     
-    
     public void removeScreen(String name){
         if(screen.remove(name) == null){
             System.out.println("Could not remove screen");
         }
     }
+    
 }

@@ -9,6 +9,6 @@ package medicaldoctor;
  *
  * @author Salmanhussain
  */
-public interface ParentController {
+public interface ParentInterface {
     public void setScreenParent(ControllerManager page);
 }

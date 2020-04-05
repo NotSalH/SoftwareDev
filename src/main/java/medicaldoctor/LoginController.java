@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 
 import medicaldoctor.backend.LoginService;
 import medicaldoctor.entities.User;
-public class LoginController implements Initializable, ParentController {
+public class LoginController implements Initializable, ParentInterface {
    
     ControllerManager cm;
     
@@ -41,7 +41,14 @@ public class LoginController implements Initializable, ParentController {
                 textPassword.getText());
         if (result == LoginResult.SUCCESS) {
             System.out.println("right username");
-            cm.showScreen(Program.ScreenMainScreenName);
+            
+            //Get the user type some how 
+            if(textUsername.getText() == "Admin"){
+                cm.showScreen(Program.ScreenSecondLoginName);
+            }
+            else{
+               cm.showScreen(Program.ScreenMainScreenName);
+            }
         }
         if (result == LoginResult.WRONG_USERNAME) {
             System.out.println("wrong username");
