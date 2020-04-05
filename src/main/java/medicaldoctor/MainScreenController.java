@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import medicaldoctor.backend.LoginResult;
 import medicaldoctor.backend.LoginService;
 
-public class MainScreenController implements Initializable, ParentController{
+public class MainScreenController implements Initializable, ParentInterface{
     
     ControllerManager cm;
     @FXML
