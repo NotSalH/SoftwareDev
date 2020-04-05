@@ -1,5 +1,8 @@
 package medicaldoctor.entities;
 
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.core.Permission;
+import medicaldoctor.core.RecentViewType;
 import medicaldoctor.util.HashAndSalt;
 import org.hibernate.query.Query;
 
@@ -137,6 +141,30 @@ public class User extends AbstractEntity {
 
     public boolean hasPermission(Permission permission) {
         return getType().hasPermission(permission);
+    }
+
+    public List<User> getRecentlyViewedDoctors() {
+        return getRecentlyViewedObjects(x -> x.getViewedUser(), RecentViewType.VIEWED_DOCTOR);
+    }
+
+    public List<Patient> getRecentlyViewedPatients() {
+        return getRecentlyViewedObjects(x -> x.getViewedPatient(), RecentViewType.VIEWED_PATIENT);
+    }
+
+    public List<Patient> getRecentlyRegisteredPatients() {
+        return getRecentlyViewedObjects(x -> x.getViewedPatient(), RecentViewType.REGISTERED_PATIENT);
+    }
+
+    private <R> List<R> getRecentlyViewedObjects(
+            Function<? super RecentView, ? extends R> mapper,
+            RecentViewType recentViewType) {
+        Query<RecentView> q = DatabaseScope._getSession()
+                .createQuery("FROM RecentView "
+                        + "WHERE UserId = :userid AND RecentViewType = :type "
+                        + "ORDER BY ViewDateTime DESC", RecentView.class);
+        q.setParameter("userid", this.getId());
+        q.setParameter("type", recentViewType);
+        return q.getResultStream().map(mapper).collect(Collectors.toList());
     }
 
     public static User byUsername(String username) {
