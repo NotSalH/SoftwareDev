@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.AbstractEntity;
+import medicaldoctor.entities.LogRecord;
 
 /**
  * Setup Testing Database.
@@ -75,6 +76,17 @@ public class FakeDatabase {
 
     public Object getParam(String key) {
         return params.get(key);
+    }
+
+    public Object[] getSavedEntitiesOfType(Class check) {
+        return savedEntities
+                .stream()
+                .filter(x -> x.getClass().equals(check))
+                .toArray();
+    }
+
+    public int getLoggedEventsCount() {
+        return getSavedEntitiesOfType(LogRecord.class).length;
     }
 
 }

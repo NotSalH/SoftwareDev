@@ -13,6 +13,9 @@ public class UserService {
     private UserService() {
     }
 
+    public static final String MESSAGE_CREATED_NEW_USER = "Created new user '%s'";
+    public static final String MESSAGE_USER_PASSWORD_CHANGED = "User password changed.";
+
     /**
      * Register a new user in the database with the provided form information,
      * and also a generated username and temporary password.
@@ -37,8 +40,14 @@ public class UserService {
         newUser.setDepartment(request.department);
         newUser.setOfficeNum(request.officeNum);
 
-        try (DatabaseScope scope = new DatabaseScope()) {
+        try (DatabaseScope t = new DatabaseScope()) {
+            t.beginTransaction();
             newUser.save();
+            AppSession.logEvent(String.format(MESSAGE_CREATED_NEW_USER, newUser.getUserName()));
+            t.commit();
+        } catch (Exception e) {
+            DatabaseScope.rollback();
+            throw e;
         }
         return new NewUserResult(newUser, tempPassword);
     }
@@ -47,7 +56,7 @@ public class UserService {
         String username = AppSession.USER_NAME_GENERATOR
                 .generate(request.firstName, request.lastName);
         int counter = 0;
-        try (DatabaseScope scope = new DatabaseScope()) {
+        try (DatabaseScope t = new DatabaseScope()) {
             while (User.byUsername(username) != null) {
                 counter++;
                 username = AppSession.USER_NAME_GENERATOR
@@ -77,8 +86,14 @@ public class UserService {
         }
         HashAndSalt newHash = AppSession.ENCRYPTION.hashPassword(newPassword);
         user.setPasswordHashAndSalt(newHash);
-        try (DatabaseScope scope = new DatabaseScope()) {
+        try (DatabaseScope t = new DatabaseScope()) {
+            t.beginTransaction();
             user.save();
+            AppSession.logEvent(MESSAGE_USER_PASSWORD_CHANGED);
+            t.commit();
+        } catch (Exception e) {
+            DatabaseScope.rollback();
+            throw e;
         }
         return ChangePasswordResult.SUCCESS;
     }

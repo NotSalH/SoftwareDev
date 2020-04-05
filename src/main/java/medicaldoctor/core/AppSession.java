@@ -1,5 +1,7 @@
 package medicaldoctor.core;
 
+import java.time.LocalDateTime;
+import medicaldoctor.entities.LogRecord;
 import medicaldoctor.entities.User;
 import medicaldoctor.util.Encryption;
 import medicaldoctor.util.FirstLetterLastNameUserNameGenerator;
@@ -33,6 +35,36 @@ public final class AppSession {
 
     public static boolean isLoggedIn() {
         return activeUser != null;
+    }
+
+    /**
+     * Log a new event to the database, assumes we are in a DatabaseScope.
+     *
+     * @param description
+     */
+    public static void logEvent(String description) {
+        logEvent0(description);
+    }
+
+    /**
+     * Log a new event to the database, assumes we are NOT in a DatabaseScope,
+     * and thus will briefly create a new session.
+     *
+     * @param description
+     * @throws Exception
+     */
+    public static void logEventInNewScope(String description) throws Exception {
+        try (DatabaseScope scope = new DatabaseScope()) {
+            logEvent0(description);
+        }
+    }
+
+    private static void logEvent0(String description) {
+        LogRecord record = new LogRecord();
+        record.setDateTime(LocalDateTime.now());
+        record.setUser(getActiveUser());
+        record.setDescription(description);
+        record.save();
     }
 
 }

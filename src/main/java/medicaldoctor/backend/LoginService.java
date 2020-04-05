@@ -10,6 +10,9 @@ public class LoginService {
     private LoginService() {
     }
 
+    public static final String MESSAGE_USER_LOGGED_IN = "User logged in.";
+    public static final String MESSAGE_USER_LOGGED_OUT = "User logged out.";
+
     /**
      * Will check the if the provided username and password is a valid login.
      *
@@ -34,6 +37,7 @@ public class LoginService {
                     throw new IllegalStateException("User already logged on");
                 }
                 AppSession.setActiveUser(user);
+                AppSession.logEventInNewScope(MESSAGE_USER_LOGGED_IN);
                 return LoginResult.SUCCESS;
             } else {
                 return LoginResult.WRONG_PASSWORD;
