@@ -2,6 +2,9 @@ package medicaldoctor.setup;
 
 import medicaldoctor.core.DatabaseScope;
 
+/**
+ * Completely delete everything, dropping all tables.
+ */
 public class EmptyTestDatabase {
 
     private EmptyTestDatabase() {

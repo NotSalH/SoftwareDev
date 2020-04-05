@@ -46,10 +46,10 @@ public class User extends AbstractEntity {
     @Column(name = "PasswordSalt", nullable = false, length = 128)
     private String passwordSalt;
 
-    @Column(name = "AdditionalPasswordHash", nullable = false, length = 128)
+    @Column(name = "AdditionalPasswordHash", nullable = true, length = 128)
     private String additionalPasswordHash;
 
-    @Column(name = "AdditionalPasswordSalt", nullable = false, length = 128)
+    @Column(name = "AdditionalPasswordSalt", nullable = true, length = 128)
     private String additionalPasswordSalt;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -63,6 +63,7 @@ public class User extends AbstractEntity {
     private Integer officeNum;
 
     public User() {
+        // hibernate
     }
 
     public Integer getId() {
