@@ -64,7 +64,7 @@ public class DatabaseScope implements AutoCloseable {
     /**
      * Cancel transaction, place in catch block.
      */
-    public void rollback() {
+    public static void rollback() {
         if (transaction != null) {
             transaction.rollback();
             transaction = null;
@@ -73,7 +73,9 @@ public class DatabaseScope implements AutoCloseable {
 
     @Override
     public void close() throws Exception {
-        session.close();
+        if (session != null) {
+            session.close();
+        }
         session = null;
         transaction = null;
     }
@@ -98,6 +100,15 @@ public class DatabaseScope implements AutoCloseable {
             throw new IllegalStateException("Not in database session scope");
         }
         return session;
+    }
+
+    /**
+     * Check if a session is active.
+     *
+     * @return if a session is active
+     */
+    public static boolean _hasSession() {
+        return session != null;
     }
 
     /**

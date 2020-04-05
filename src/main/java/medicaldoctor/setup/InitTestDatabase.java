@@ -1,12 +1,23 @@
 package medicaldoctor.setup;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
+import medicaldoctor.core.LabTestStatus;
+import medicaldoctor.core.LabTestType;
 import medicaldoctor.core.Permission;
+import medicaldoctor.entities.PatientLabRecord;
+import medicaldoctor.entities.PatientPrescription;
+import medicaldoctor.entities.PatientVisit;
 import medicaldoctor.entities.User;
 import medicaldoctor.entities.UserType;
 import medicaldoctor.util.Encryption;
 
+/**
+ * Setup all tables in the database, and start data from scratch with test
+ * records.
+ */
 public final class InitTestDatabase {
 
     private InitTestDatabase() {
@@ -23,12 +34,10 @@ public final class InitTestDatabase {
             deletePreviousData();
             updatePermissions();
             insertUserTypes();
-            insertUsers();
+            insertTestRecords();
             s.commit();
         } catch (Exception e) {
-            if (s != null) {
-                s.rollback();
-            }
+            DatabaseScope.rollback();
             throw e;
         } finally {
             DatabaseScope._shutdown();
@@ -64,8 +73,11 @@ public final class InitTestDatabase {
         UserType.HEMATOLOGIC_LAB_WORKER.save();
     }
 
-    private static void insertUsers() {
+    private static void insertTestRecords() {
         User user;
+        PatientVisit visit;
+        PatientLabRecord labRecord;
+        PatientPrescription prescription;
 
         user = new User();
         user.setFirstName("Network");
@@ -74,7 +86,85 @@ public final class InitTestDatabase {
         user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("password123"));
         user.setAdditionalPasswordHashAndSalt(ENCRYPTION.hashPassword("secure@123"));
         user.setType(UserType.ADMIN);
+        user.setDepartment("Administration");
+        user.setOfficeNum(145);
         user.save();
+
+        user = new User();
+        user.setFirstName("Medicalus");
+        user.setLastName("Doctorus");
+        user.setUserName("mdoctorus");
+        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("ihaveMD"));
+        user.setType(UserType.DOCTOR);
+        user.setDepartment("Heart Department");
+        user.setOfficeNum(545);
+        user.save();
+        User doctor = user;
+
+        user = new User();
+        user.setFirstName("Vampire");
+        user.setLastName("Bat");
+        user.setUserName("vbat");
+        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("where_is_blood"));
+        user.setType(UserType.HEMATOLOGIC_LAB_WORKER);
+        user.setDepartment("Hemo Lab");
+        user.setOfficeNum(222);
+        user.save();
+        User hemoLabWorker = user;
+
+        user = new User();
+        user.setFirstName("Space");
+        user.setLastName("Machine");
+        user.setUserName("smachine");
+        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("radiowaves"));
+        user.setType(UserType.RADIOLOGIC_LAB_WORKER);
+        user.setDepartment("Radio Lab");
+        user.setOfficeNum(234);
+        user.save();
+        User radioLabWorker = user;
+
+        visit = new PatientVisit();
+
+        labRecord = new PatientLabRecord();
+        labRecord.setLabWorker(radioLabWorker);
+        labRecord.setRequester(doctor);
+        labRecord.setLabTestType(LabTestType.CT);
+        labRecord.setLabTestStatus(LabTestStatus.COMPLETE);
+        labRecord.setResult("see tumor");
+        labRecord.setRequestDateTime(LocalDateTime.of(2020, 4, 1, 16, 52, 22));
+        labRecord.setResultDateTime(LocalDateTime.of(2020, 4, 2, 15, 12, 3));
+        visit.addLabRecord(labRecord);
+
+        labRecord = new PatientLabRecord();
+        labRecord.setLabWorker(hemoLabWorker);
+        labRecord.setRequester(doctor);
+        labRecord.setLabTestType(LabTestType.RED_BLOOD_CELL);
+        labRecord.setLabTestStatus(LabTestStatus.PENDING);
+        labRecord.setRequestDateTime(LocalDateTime.of(2020, 4, 1, 16, 55, 43));
+        visit.addLabRecord(labRecord);
+
+        prescription = new PatientPrescription();
+        prescription.setPrescription("10mg some kind of opiod for pain");
+        prescription.setInstructions("take 1 pill a day for the rest of your life");
+        prescription.getPharmacy().setStreet("123 Medicine Road");
+        prescription.getPharmacy().setCity("HelpTown");
+        prescription.getPharmacy().setState("CT");
+        prescription.getPharmacy().setZipCode("02573");
+        prescription.getPharmacy().setEmail("stuff@pharmacy.com");
+        prescription.getPharmacy().setPhone("111-222-3333");
+        prescription.getPharmacy().setFax("444-555-6666");
+        visit.addPrescription(prescription);
+
+        visit.setDoctor(doctor);
+        visit.setVisitDate(LocalDate.of(2020, 4, 1));
+        visit.setChiefComplaint("heart problems");
+        visit.setPresentIllness("nothing present that we are aware of.");
+        visit.setSymptoms("irregular heartbeat, high blood pressure");
+        visit.setPhysicalExamNotes("blood pressure is like 9001, heartbeat is like 90bpm then 50bpm then 256 bpm");
+        visit.setDiagnosis("aorta cancer");
+        visit.setImpression("looks really bad: cancer?");
+        visit.setAdditionalNotes("need to do lab tests");
+        visit.save();
     }
 
 }

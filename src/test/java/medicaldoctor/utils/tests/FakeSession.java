@@ -63,6 +63,11 @@ public class FakeSession implements Session {
     public void close() throws HibernateException {
     }
 
+    @Override
+    public Transaction beginTransaction() {
+        return new FakeTransaction();
+    }
+
     ////////////////////////////////////////////////////////////////////////////
     @Override
     public SharedSessionBuilder sessionWithOptions() {
@@ -501,11 +506,6 @@ public class FakeSession implements Session {
 
     @Override
     public boolean isConnected() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Transaction beginTransaction() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

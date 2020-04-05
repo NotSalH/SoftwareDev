@@ -45,8 +45,7 @@ public class WhenCreatingANewUser {
             Assert.assertEquals(EXPECTED_USER_NAME, newUserResult.user.getUserName());
             Assert.assertEquals(PASSWORD, newUserResult.temporaryPassword);
 
-            Assert.assertEquals(1, db.savedEntities.size());
-            User savedUser = (User) db.savedEntities.remove();
+            User savedUser = (User) db.getSavedEntitiesOfType(User.class)[0];
 
             Assert.assertEquals(FIRST_NAME, savedUser.getFirstName());
             Assert.assertEquals(LAST_NAME, savedUser.getLastName());
@@ -55,6 +54,8 @@ public class WhenCreatingANewUser {
             Assert.assertEquals(DEPARTMENT, savedUser.getDepartment());
             Assert.assertEquals(OFFICE_NUM, savedUser.getOfficeNum());
             Assert.assertTrue(ENCRYPTION.checkPassword(PASSWORD, savedUser.getPasswordHashAndSalt()));
+
+            Assert.assertEquals(1, db.getLoggedEventsCount());
         }
     }
 
@@ -84,8 +85,7 @@ public class WhenCreatingANewUser {
             Assert.assertEquals(EXPECTED_USER_NAME + "2", newUserResult.user.getUserName());
             Assert.assertEquals(PASSWORD, newUserResult.temporaryPassword);
 
-            Assert.assertEquals(1, db.savedEntities.size());
-            User savedUser = (User) db.savedEntities.remove();
+            User savedUser = (User) db.getSavedEntitiesOfType(User.class)[0];
 
             Assert.assertEquals(FIRST_NAME, savedUser.getFirstName());
             Assert.assertEquals(LAST_NAME, savedUser.getLastName());
@@ -94,6 +94,8 @@ public class WhenCreatingANewUser {
             Assert.assertEquals(DEPARTMENT, savedUser.getDepartment());
             Assert.assertEquals(OFFICE_NUM, savedUser.getOfficeNum());
             Assert.assertTrue(ENCRYPTION.checkPassword(PASSWORD, savedUser.getPasswordHashAndSalt()));
+
+            Assert.assertEquals(1, db.getLoggedEventsCount());
         }
     }
 

@@ -15,21 +15,23 @@ public class WhenChangingPassword {
 
     @Test
     public void shouldResultPasswordsDontMatch() throws Exception {
-        new FakeDatabase();
+        FakeDatabase db = new FakeDatabase();
         try (LoginScope s = new LoginScope(TestEntities.getStaffUser())) {
             ChangePasswordResult result = UserService
                     .changePassword("apple", "orange");
             Assert.assertEquals(ChangePasswordResult.PASSWORDS_NOT_MATCHING, result);
+            Assert.assertEquals(0, db.getLoggedEventsCount());
         }
     }
 
     @Test
     public void shouldResultPasswordNotChanged() throws Exception {
-        new FakeDatabase();
+        FakeDatabase db = new FakeDatabase();
         try (LoginScope s = new LoginScope(TestEntities.getStaffUser())) {
             ChangePasswordResult result = UserService
                     .changePassword(TestEntities.TEST_STAFF_PASSWORD, TestEntities.TEST_STAFF_PASSWORD);
             Assert.assertEquals(ChangePasswordResult.PASSWORD_NOT_CHANGED, result);
+            Assert.assertEquals(0, db.getLoggedEventsCount());
         }
     }
 
@@ -44,12 +46,12 @@ public class WhenChangingPassword {
                     .changePassword(newPassword, newPassword);
 
             Assert.assertEquals(ChangePasswordResult.SUCCESS, result);
-            Assert.assertEquals(1, db.savedEntities.size());
-            User savedUser = (User) db.savedEntities.remove();
+            User savedUser = (User) db.getSavedEntitiesOfType(User.class)[0];
             String expectedHash = ENCRYPTION
                     .hashPassword(newPassword, savedUser.getPasswordHashAndSalt().getSalt())
                     .getHash();
             Assert.assertEquals(expectedHash, savedUser.getPasswordHashAndSalt().getHash());
+            Assert.assertEquals(1, db.getLoggedEventsCount());
         }
     }
 
