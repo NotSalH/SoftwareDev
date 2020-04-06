@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guisoftwaredev.FXMLDocumentController">
+   <center>
+      <AnchorPane prefHeight="625.0" prefWidth="1136.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="199.0">
+               <children>
+                  <Label text="Recently Viewed Doctors">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TableView prefHeight="275.0" prefWidth="199.0">
+                     <columns>
+                        <TableColumn prefWidth="199.0" text="Name" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
+               <children>
+                  <Label text="Recently Registered Patients">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TableView prefHeight="247.0" prefWidth="371.0">
+                     <columns>
+                        <TableColumn prefWidth="127.0" text="Name" />
+                        <TableColumn minWidth="0.0" prefWidth="161.0" text="Doctor" />
+                        <TableColumn prefWidth="84.0" text="Date" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <ToolBar prefHeight="127.0" prefWidth="1136.0" BorderPane.alignment="CENTER">
+         <items>
+            <ImageView fitHeight="131.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Button mnemonicParsing="false" text="Patient&#10;Registration">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Patient&#10;Lookup">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Doctor&#10;Lookup">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="95.0" text="My Patients">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="My Lab&#10;Requests">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Pane prefHeight="131.0" prefWidth="678.0" />
+            <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="93.0" spacing="5.0">
+               <children>
+                  <ImageView fx:id="userPicture" fitHeight="83.0" fitWidth="100.0" onMouseClicked="#onProfilePictureClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@deafaultProfilePicture.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <MenuButton fx:id="userOptions" mnemonicParsing="false" text="Options">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Profile" />
+                        <MenuItem mnemonicParsing="false" text="Log Out" />
+                     </items>
+                  </MenuButton>
+               </children>
+            </VBox>
+         </items>
+      </ToolBar>
+   </top>
+</BorderPane>
