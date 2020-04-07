@@ -9,89 +9,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guisoftwaredev.FXMLDocumentController">
-   <center>
-      <AnchorPane prefHeight="625.0" prefWidth="1136.0" BorderPane.alignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="329.0">
          <children>
-            <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="329.0">
-              <children>
             <Label text="Order">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
             <TableView prefHeight="248.0" prefWidth="278.0">
-              <columns>
-                <TableColumn prefWidth="127.0" text="Patient Name" />
+               <columns>
+                  <TableColumn prefWidth="127.0" text="Patient Name" />
                   <TableColumn prefWidth="95.0" text="Requester" />
                   <TableColumn prefWidth="106.0" text="Type of Test" />
-              </columns>
+               </columns>
             </TableView>
          </children>
-            </VBox>
-            <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
-               <children>
+      </VBox>
+      <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
+         <children>
             <Label text="Recent Orders">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
             <TableView prefHeight="247.0" prefWidth="371.0">
-              <columns>
-                <TableColumn prefWidth="119.0" text="Patient Name" />
-                <TableColumn minWidth="0.0" prefWidth="144.0" text="Requester" />
+               <columns>
+                  <TableColumn prefWidth="119.0" text="Patient Name" />
+                  <TableColumn minWidth="0.0" prefWidth="144.0" text="Requester" />
                   <TableColumn prefWidth="109.0" text="Type of Test" />
-              </columns>
+               </columns>
             </TableView>
          </children>
-            </VBox>
-         </children>
-      </AnchorPane>
-   </center>
-   <top>
-      <ToolBar prefHeight="127.0" prefWidth="1136.0" BorderPane.alignment="CENTER">
-         <items>
-             <ImageView fitHeight="131.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-            </ImageView>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="106.0" text="Lab Patients">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="101.0" text="X-Ray">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="87.0" text="CT">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="86.0" text="MRI">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <Pane prefHeight="131.0" prefWidth="521.0" />
-            <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="93.0" spacing="5.0">
-               <children>
-                  <ImageView fx:id="userPicture" fitHeight="83.0" fitWidth="100.0" onMouseClicked="#onProfilePictureClicked" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@deafaultProfilePicture.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <MenuButton fx:id="userOptions" mnemonicParsing="false" text="Options">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Profile" />
-                        <MenuItem mnemonicParsing="false" text="Log Out" />
-                     </items>
-                  </MenuButton>
-               </children>
-            </VBox>
-         </items>
-      </ToolBar>
-   </top>
-</BorderPane>
+      </VBox>
+   </children>
+</AnchorPane>

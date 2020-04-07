@@ -13,30 +13,32 @@
    <children>
       <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="199.0">
          <children>
-            <Label text="Recently Viewed Doctors">
+            <Label text="Order">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TableView prefHeight="275.0" prefWidth="199.0">
+            <TableView prefHeight="248.0" prefWidth="278.0">
                <columns>
-                  <TableColumn prefWidth="199.0" text="Name" />
+                  <TableColumn prefWidth="127.0" text="Patient Name" />
+                  <TableColumn prefWidth="95.0" text="Requester" />
+                  <TableColumn prefWidth="106.0" text="Type of Test" />
                </columns>
             </TableView>
          </children>
       </VBox>
       <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
          <children>
-            <Label text="Recently Registered Patients">
+            <Label text="Recent Orders">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
             <TableView prefHeight="247.0" prefWidth="371.0">
                <columns>
-                  <TableColumn prefWidth="127.0" text="Name" />
-                  <TableColumn minWidth="0.0" prefWidth="161.0" text="Doctor" />
-                  <TableColumn prefWidth="84.0" text="Date" />
+                  <TableColumn prefWidth="119.0" text="Patient Name" />
+                  <TableColumn minWidth="0.0" prefWidth="144.0" text="Requester" />
+                  <TableColumn prefWidth="109.0" text="Type of Test" />
                </columns>
             </TableView>
          </children>

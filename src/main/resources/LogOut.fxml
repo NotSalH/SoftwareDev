@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="guisoftwaredev.FXMLLogOutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="medicaldoctor.FXMLLogOutController">
    <children>
-      <Label layoutX="215.0" layoutY="147.0" text="You have Signed-Out">
+      <Label layoutX="215.0" layoutY="147.0" text="You have Logged-Out">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Button layoutX="159.0" layoutY="215.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Exit" />
-      <Button layoutX="329.0" layoutY="215.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Sign-In Page" />
+      <Button layoutX="329.0" layoutY="215.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Log-In Page" />
    </children>
 </AnchorPane>

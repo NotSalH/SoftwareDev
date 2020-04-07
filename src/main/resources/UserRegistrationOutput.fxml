@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="169.0" layoutY="95.0" prefHeight="313.0" prefWidth="779.0" spacing="10.0">
+         <children>
+            <Label text="Successful!">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="New User:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+               <children>
+                  <VBox prefHeight="63.0" prefWidth="191.0">
+                     <children>
+                        <Label text="First Name:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField prefHeight="29.0" prefWidth="196.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="63.0" prefWidth="174.0">
+                     <children>
+                        <Label text="Last Name:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="63.0" prefWidth="109.0">
+                     <children>
+                        <Label text="Employee ID:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="63.0" prefWidth="97.0">
+                     <children>
+                        <Label text="Department:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField prefHeight="29.0" prefWidth="6.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+               <children>
+                  <VBox prefHeight="63.0" prefWidth="191.0">
+                     <children>
+                        <Label text="Employee Type:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField prefHeight="29.0" prefWidth="196.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="63.0" prefWidth="174.0">
+                     <children>
+                        <Label text="Username:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="63.0" prefWidth="141.0">
+                     <children>
+                        <Label text="Temp. Password:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="63.0" prefWidth="97.0">
+                     <children>
+                        <Label text="Office #:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField prefHeight="29.0" prefWidth="6.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="779.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Continue" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
