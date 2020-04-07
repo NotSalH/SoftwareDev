@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import medicaldoctor.backend.LoginService;
 import medicaldoctor.core.DatabaseScope;
 
 /**
@@ -26,6 +27,8 @@ public class TempNavBarExampleProgram extends Application {
      */
     public static void main(String[] args) throws Exception {
         try {
+            // skip logging in
+            LoginService.checkLogin("fdesk", "sitaround");
             launch(args);
         } finally {
             DatabaseScope._shutdown();
