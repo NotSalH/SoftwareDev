@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 
 
-
 public class ControllerManager extends StackPane{
     private HashMap<String, Node> screen = new HashMap<>();
   
