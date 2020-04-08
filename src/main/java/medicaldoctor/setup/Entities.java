@@ -18,9 +18,10 @@ public class Entities {
 
     // sort so dependent classes are deleted before depended on classes
     public static Class[] LIST = new Class[]{
-        LogRecord.class, RecentView.class, Patient.class,
+        LogRecord.class,
         PatientLabRecord.class, PatientPrescription.class,
         PatientVisit.class, PharmacyDetails.class,
+        RecentView.class, Patient.class,
         User.class, UserTypePermission.class, UserType.class};
 
     public static void main(String[] args) {

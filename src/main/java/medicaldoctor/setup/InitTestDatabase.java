@@ -7,6 +7,7 @@ import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.core.LabTestStatus;
 import medicaldoctor.core.LabTestType;
 import medicaldoctor.core.Permission;
+import medicaldoctor.entities.Patient;
 import medicaldoctor.entities.PatientLabRecord;
 import medicaldoctor.entities.PatientPrescription;
 import medicaldoctor.entities.PatientVisit;
@@ -181,7 +182,7 @@ public final class InitTestDatabase {
         visit.addPrescription(prescription);
 
         visit.setDoctor(doctor);
-        visit.setVisitDate(LocalDate.of(2020, 4, 1));
+        visit.setVisitDateTime(LocalDateTime.of(2020, 4, 1, 10, 3, 22));
         visit.setChiefComplaint("heart problems");
         visit.setPresentIllness("nothing present that we are aware of.");
         visit.setSymptoms("irregular heartbeat, high blood pressure");
@@ -190,6 +191,26 @@ public final class InitTestDatabase {
         visit.setImpression("looks really bad: cancer?");
         visit.setAdditionalNotes("need to do lab tests");
         visit.save();
+
+        Patient patient = new Patient();
+        patient.setFirstName("John");
+        patient.setLastName("Doe");
+        patient.setAge(22);
+        patient.setSex("M");
+        patient.setDateOfBirth(LocalDate.of(1997, 10, 1));
+        patient.setMedicalInsurance("Really good insurance");
+        patient.setAddressStreet("999 Patient Lane");
+        patient.setAddressCity("West Sickford");
+        patient.setAddressState("MA");
+        patient.setAddressZipCode("57428");
+        patient.setBillingAddressStreet("999 Billing Lane");
+        patient.setBillingAddressCity("West Billingsford");
+        patient.setBillingAddressState("MA");
+        patient.setBillingAddressZipCode("57777");
+        patient.setPrimaryDoctor(doctor);
+        patient.setSocialSecurityNumber("123-56-7890");
+        patient.addVisit(visit);
+        patient.save();
     }
 
 }
