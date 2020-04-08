@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import medicaldoctor.core.DatabaseScope;
+import org.hibernate.query.Query;
 
 @Entity
 @Table(name = "Patient", uniqueConstraints = {
@@ -221,6 +223,17 @@ public class Patient extends AbstractEntity {
 
     public void addVisit(PatientVisit visit) {
         this.visits.add(visit);
+    }
+
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
+    }
+
+    public static Patient byId(int id) {
+        Query<Patient> q = DatabaseScope._getSession()
+                .createQuery("FROM Patient WHERE Id = :id", Patient.class);
+        q.setParameter("id", id);
+        return q.uniqueResult();
     }
 
 }

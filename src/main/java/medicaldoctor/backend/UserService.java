@@ -13,7 +13,7 @@ public class UserService {
     private UserService() {
     }
 
-    public static final String MESSAGE_CREATED_NEW_USER = "Created new user '%s'";
+    public static final String MESSAGE_CREATED_NEW_USER = "Created new user '%s'.";
     public static final String MESSAGE_USER_PASSWORD_CHANGED = "User password changed.";
 
     /**
