@@ -18,9 +18,9 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TableView prefHeight="275.0" prefWidth="199.0">
+            <TableView fx:id="recentViewedDoctorsTable" prefHeight="275.0" prefWidth="199.0">
                <columns>
-                  <TableColumn prefWidth="199.0" text="Name" />
+                  <TableColumn fx:id="nameRecentViewedDoctorsColumn" prefWidth="199.0" text="Name" />
                </columns>
             </TableView>
          </children>
@@ -32,11 +32,11 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TableView prefHeight="247.0" prefWidth="371.0">
+            <TableView fx:id="recentViewedPatientsTable" prefHeight="247.0" prefWidth="371.0">
                <columns>
-                  <TableColumn prefWidth="127.0" text="Name" />
-                  <TableColumn minWidth="0.0" prefWidth="161.0" text="Doctor" />
-                  <TableColumn prefWidth="84.0" text="Date" />
+                  <TableColumn fx:id="nameRecentViewedPatientsColumn" prefWidth="127.0" text="Name" />
+                  <TableColumn fx:id="doctorRecentViewedPatientsColumn" minWidth="0.0" prefWidth="161.0" text="Doctor" />
+                  <TableColumn fx:id="dateRecentViewedPatientsColumn" prefWidth="84.0" text="Date" />
                </columns>
             </TableView>
          </children>

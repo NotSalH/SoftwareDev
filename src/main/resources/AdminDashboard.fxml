@@ -13,22 +13,18 @@
    <center>
       <AnchorPane prefHeight="625.0" prefWidth="1136.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
-               <children>
-                    <Label text="Log: User Sign-In/Out">
-                        <font>
-                        <Font size="16.0" />
-                        </font>
-                    </Label>
-                    <TableView prefHeight="247.0" prefWidth="371.0">
-                        <columns>
-                            <TableColumn prefWidth="127.0" text="Username" />
-                            <TableColumn minWidth="0.0" prefWidth="161.0" text="Employee ID" />
-                            <TableColumn prefWidth="84.0" text="Date/Time" />
-                        </columns>
-                    </TableView>
-                </children>
-            </VBox>
+            <Label text="Log: User Sign-In/Out">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TableView prefHeight="247.0" prefWidth="371.0">
+               <columns>
+                  <TableColumn fx:id="usernameColumn" prefWidth="127.0" text="Username" />
+                  <TableColumn fx:id="employeeColumn" minWidth="0.0" prefWidth="161.0" text="Employee ID" />
+                  <TableColumn fx:id="dateColumn" prefWidth="84.0" text="Date/Time" />
+               </columns>
+            </TableView>
          </children>
       </AnchorPane>
    </center>

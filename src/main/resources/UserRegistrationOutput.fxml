@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="1132.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="169.0" layoutY="95.0" prefHeight="313.0" prefWidth="779.0" spacing="10.0">
          <children>
@@ -32,7 +32,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="29.0" prefWidth="196.0" />
+                        <TextField fx:id="textFirstName" prefHeight="29.0" prefWidth="196.0" />
                      </children>
                   </VBox>
                   <VBox prefHeight="63.0" prefWidth="174.0">
@@ -42,7 +42,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField />
+                        <TextField fx:id="textLastName" />
                      </children>
                   </VBox>
                   <VBox prefHeight="63.0" prefWidth="109.0">
@@ -52,7 +52,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField />
+                        <TextField fx:id="employeeIDNumber" />
                      </children>
                   </VBox>
                   <VBox prefHeight="63.0" prefWidth="97.0">
@@ -62,7 +62,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="29.0" prefWidth="6.0" />
+                        <TextField fx:id="textDepartment" prefHeight="29.0" prefWidth="6.0" />
                      </children>
                   </VBox>
                </children>
@@ -76,7 +76,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="29.0" prefWidth="196.0" />
+                        <TextField fx:id="textEmployeeType" prefHeight="29.0" prefWidth="196.0" />
                      </children>
                   </VBox>
                   <VBox prefHeight="63.0" prefWidth="174.0">
@@ -86,7 +86,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField />
+                        <TextField fx:id="textUsername" />
                      </children>
                   </VBox>
                   <VBox prefHeight="63.0" prefWidth="141.0">
@@ -96,7 +96,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField />
+                        <TextField fx:id="textTempPassword" />
                      </children>
                   </VBox>
                   <VBox prefHeight="63.0" prefWidth="97.0">
@@ -106,14 +106,14 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="29.0" prefWidth="6.0" />
+                        <TextField fx:id="textOfficeNumber" prefHeight="29.0" prefWidth="6.0" />
                      </children>
                   </VBox>
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="779.0">
                <children>
-                  <Button mnemonicParsing="false" text="Continue" />
+                  <Button fx:id="continueButton" mnemonicParsing="false" onAction="#continueButtonClick" text="Continue" />
                </children>
             </HBox>
          </children>

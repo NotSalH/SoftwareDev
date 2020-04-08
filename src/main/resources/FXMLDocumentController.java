@@ -34,10 +34,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public void onProfilePictureClicked(){
         clickCount++;
-        if(clickCount % 2 == 1)
+        if(clickCount % 2 == 1){
             userOptions.setVisible(true);
-        else
+        }else{
             userOptions.setVisible(false);
+        }
     }
     
     @Override

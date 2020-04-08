@@ -11,7 +11,7 @@
 
 <Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <panes>
-      <TitledPane animated="false" text="New Patient">
+      <TitledPane fx:id="newPatientTiltedPane" animated="false" prefHeight="1389.0" prefWidth="990.0" text="New Patient">
          <content>
             <ScrollPane prefHeight="200.0" prefWidth="200.0">
                <content>
@@ -33,7 +33,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="29.0" prefWidth="206.0" />
+                                          <TextField fx:id="textFirstName" prefHeight="29.0" prefWidth="206.0" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="179.0" prefWidth="224.0">
@@ -43,7 +43,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField />
+                                          <TextField fx:id="textLastName" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="63.0" prefWidth="64.0">
@@ -53,7 +53,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="29.0" prefWidth="6.0" />
+                                          <TextField fx:id="ageNumber" prefHeight="29.0" prefWidth="6.0" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="63.0" prefWidth="60.0">
@@ -63,7 +63,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField />
+                                          <TextField fx:id="textSex" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -77,7 +77,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="29.0" prefWidth="206.0" />
+                                          <TextField fx:id="textMedicalInsurance" prefHeight="29.0" prefWidth="206.0" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="63.0" prefWidth="111.0">
@@ -87,7 +87,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="29.0" prefWidth="6.0" />
+                                          <TextField fx:id="textBirthdate" prefHeight="29.0" prefWidth="6.0" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="63.0" prefWidth="275.0">
@@ -97,7 +97,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField />
+                                          <TextField fx:id="textPrimaryDoctory" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -116,7 +116,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="29.0" prefWidth="206.0" />
+                                          <TextField fx:id="textStreetMailingAddress" prefHeight="29.0" prefWidth="206.0" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="63.0" prefWidth="183.0">
@@ -126,7 +126,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField />
+                                          <TextField fx:id="textCityMailingAddress" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="63.0" prefWidth="80.0">
@@ -136,60 +136,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <MenuButton mnemonicParsing="false" text="State">
-                                             <items>
-                                                <MenuItem mnemonicParsing="false" text="AL" />
-                                                <MenuItem mnemonicParsing="false" text="AK" />
-                                                <MenuItem mnemonicParsing="false" text="AZ" />
-                                                <MenuItem mnemonicParsing="false" text="AR" />
-                                                <MenuItem mnemonicParsing="false" text="CA" />
-                                                <MenuItem mnemonicParsing="false" text="CO" />
-                                                <MenuItem mnemonicParsing="false" text="CT" />
-                                                <MenuItem mnemonicParsing="false" text="DE" />
-                                                <MenuItem mnemonicParsing="false" text="FL" />
-                                                <MenuItem mnemonicParsing="false" text="GA" />
-                                                <MenuItem mnemonicParsing="false" text="HI" />
-                                                <MenuItem mnemonicParsing="false" text="ID" />
-                                                <MenuItem mnemonicParsing="false" text="IL" />
-                                                <MenuItem mnemonicParsing="false" text="IN" />
-                                                <MenuItem mnemonicParsing="false" text="IA" />
-                                                <MenuItem mnemonicParsing="false" text="KS" />
-                                                <MenuItem mnemonicParsing="false" text="KY" />
-                                                <MenuItem mnemonicParsing="false" text="LA" />
-                                                <MenuItem mnemonicParsing="false" text="ME" />
-                                                <MenuItem mnemonicParsing="false" text="MD" />
-                                                <MenuItem mnemonicParsing="false" text="MA" />
-                                                <MenuItem mnemonicParsing="false" text="MI" />
-                                                <MenuItem mnemonicParsing="false" text="MN" />
-                                                <MenuItem mnemonicParsing="false" text="MS" />
-                                                <MenuItem mnemonicParsing="false" text="MO" />
-                                                <MenuItem mnemonicParsing="false" text="MT" />
-                                                <MenuItem mnemonicParsing="false" text="NE" />
-                                                <MenuItem mnemonicParsing="false" text="NV" />
-                                                <MenuItem mnemonicParsing="false" text="NH" />
-                                                <MenuItem mnemonicParsing="false" text="NJ" />
-                                                <MenuItem mnemonicParsing="false" text="NM" />
-                                                <MenuItem mnemonicParsing="false" text="NY" />
-                                                <MenuItem mnemonicParsing="false" text="NC" />
-                                                <MenuItem mnemonicParsing="false" text="ND" />
-                                                <MenuItem mnemonicParsing="false" text="OH" />
-                                                <MenuItem mnemonicParsing="false" text="OK" />
-                                                <MenuItem mnemonicParsing="false" text="OR" />
-                                                <MenuItem mnemonicParsing="false" text="PA" />
-                                                <MenuItem mnemonicParsing="false" text="RI" />
-                                                <MenuItem mnemonicParsing="false" text="SC" />
-                                                <MenuItem mnemonicParsing="false" text="SD" />
-                                                <MenuItem mnemonicParsing="false" text="TN" />
-                                                <MenuItem mnemonicParsing="false" text="TX" />
-                                                <MenuItem mnemonicParsing="false" text="UT" />
-                                                <MenuItem mnemonicParsing="false" text="VT" />
-                                                <MenuItem mnemonicParsing="false" text="VA" />
-                                                <MenuItem mnemonicParsing="false" text="WA" />
-                                                <MenuItem mnemonicParsing="false" text="WV" />
-                                                <MenuItem mnemonicParsing="false" text="WI" />
-                                                <MenuItem mnemonicParsing="false" text="WY" />
-                                             </items>
-                                          </MenuButton>
+                                          <ChoiceBox fx:id="stateMailingAddressChoiceBox" prefWidth="150.0" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="63.0" prefWidth="89.0">
@@ -199,7 +146,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="29.0" prefWidth="77.0" />
+                                          <TextField fx:id="zipCodeMailingAddressNumber" prefHeight="29.0" prefWidth="77.0" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -218,7 +165,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="29.0" prefWidth="206.0" />
+                                          <TextField fx:id="textStreetBillingAddress" prefHeight="29.0" prefWidth="206.0" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="63.0" prefWidth="183.0">
@@ -228,7 +175,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField />
+                                          <TextField fx:id="textCityBillingAddress" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="63.0" prefWidth="80.0">
@@ -238,60 +185,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <MenuButton mnemonicParsing="false" text="State">
-                                             <items>
-                                                <MenuItem mnemonicParsing="false" text="AL" />
-                                                <MenuItem mnemonicParsing="false" text="AK" />
-                                                <MenuItem mnemonicParsing="false" text="AZ" />
-                                                <MenuItem mnemonicParsing="false" text="AR" />
-                                                <MenuItem mnemonicParsing="false" text="CA" />
-                                                <MenuItem mnemonicParsing="false" text="CO" />
-                                                <MenuItem mnemonicParsing="false" text="CT" />
-                                                <MenuItem mnemonicParsing="false" text="DE" />
-                                                <MenuItem mnemonicParsing="false" text="FL" />
-                                                <MenuItem mnemonicParsing="false" text="GA" />
-                                                <MenuItem mnemonicParsing="false" text="HI" />
-                                                <MenuItem mnemonicParsing="false" text="ID" />
-                                                <MenuItem mnemonicParsing="false" text="IL" />
-                                                <MenuItem mnemonicParsing="false" text="IN" />
-                                                <MenuItem mnemonicParsing="false" text="IA" />
-                                                <MenuItem mnemonicParsing="false" text="KS" />
-                                                <MenuItem mnemonicParsing="false" text="KY" />
-                                                <MenuItem mnemonicParsing="false" text="LA" />
-                                                <MenuItem mnemonicParsing="false" text="ME" />
-                                                <MenuItem mnemonicParsing="false" text="MD" />
-                                                <MenuItem mnemonicParsing="false" text="MA" />
-                                                <MenuItem mnemonicParsing="false" text="MI" />
-                                                <MenuItem mnemonicParsing="false" text="MN" />
-                                                <MenuItem mnemonicParsing="false" text="MS" />
-                                                <MenuItem mnemonicParsing="false" text="MO" />
-                                                <MenuItem mnemonicParsing="false" text="MT" />
-                                                <MenuItem mnemonicParsing="false" text="NE" />
-                                                <MenuItem mnemonicParsing="false" text="NV" />
-                                                <MenuItem mnemonicParsing="false" text="NH" />
-                                                <MenuItem mnemonicParsing="false" text="NJ" />
-                                                <MenuItem mnemonicParsing="false" text="NM" />
-                                                <MenuItem mnemonicParsing="false" text="NY" />
-                                                <MenuItem mnemonicParsing="false" text="NC" />
-                                                <MenuItem mnemonicParsing="false" text="ND" />
-                                                <MenuItem mnemonicParsing="false" text="OH" />
-                                                <MenuItem mnemonicParsing="false" text="OK" />
-                                                <MenuItem mnemonicParsing="false" text="OR" />
-                                                <MenuItem mnemonicParsing="false" text="PA" />
-                                                <MenuItem mnemonicParsing="false" text="RI" />
-                                                <MenuItem mnemonicParsing="false" text="SC" />
-                                                <MenuItem mnemonicParsing="false" text="SD" />
-                                                <MenuItem mnemonicParsing="false" text="TN" />
-                                                <MenuItem mnemonicParsing="false" text="TX" />
-                                                <MenuItem mnemonicParsing="false" text="UT" />
-                                                <MenuItem mnemonicParsing="false" text="VT" />
-                                                <MenuItem mnemonicParsing="false" text="VA" />
-                                                <MenuItem mnemonicParsing="false" text="WA" />
-                                                <MenuItem mnemonicParsing="false" text="WV" />
-                                                <MenuItem mnemonicParsing="false" text="WI" />
-                                                <MenuItem mnemonicParsing="false" text="WY" />
-                                             </items>
-                                          </MenuButton>
+                                          <ChoiceBox fx:id="stateBillingAddressChoiceBox" prefWidth="150.0" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="63.0" prefWidth="89.0">
@@ -301,7 +195,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="29.0" prefWidth="77.0" />
+                                          <TextField fx:id="zipCodeBillingAddressNumber" prefHeight="29.0" prefWidth="77.0" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -320,7 +214,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="29.0" prefWidth="206.0" />
+                                          <TextField fx:id="textDoctor" prefHeight="29.0" prefWidth="206.0" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="179.0" prefWidth="224.0">
@@ -330,7 +224,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="29.0" prefWidth="206.0" />
+                                          <TextField fx:id="textVisitDate" prefHeight="29.0" prefWidth="206.0" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -339,12 +233,12 @@
                                  <children>
                                     <VBox prefHeight="105.0" prefWidth="324.0">
                                        <children>
-                                          <Label text="Cheif Complaint:">
+                                          <Label text="Chief Complaint:">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextArea prefHeight="85.0" prefWidth="297.0" />
+                                          <TextArea fx:id="textAreaChiefComplaint" prefHeight="85.0" prefWidth="297.0" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="105.0" prefWidth="323.0">
@@ -354,7 +248,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextArea prefHeight="200.0" prefWidth="200.0" />
+                                          <TextArea fx:id="textAreaPresentIllness" prefHeight="200.0" prefWidth="200.0" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -362,7 +256,7 @@
                               <HBox alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="814.0">
                                  <children>
                                     <Pane prefHeight="58.0" prefWidth="620.0" />
-                                    <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" text="Submit">
+                                    <Button fx:id="submitButton" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#submitButtonClick" text="Submit">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -380,7 +274,7 @@
             <Font size="18.0" />
          </font>
       </TitledPane>
-      <TitledPane animated="false" text="Returning Patient">
+      <TitledPane fx:id="returningPatientTiltedPane" animated="false" text="Returning Patient">
          <content>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <center>
@@ -395,19 +289,19 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="29.0" prefWidth="237.0" promptText="by Patient ID, First Name, or Last Name" />
+                                    <TextField fx:id="filterTextBox" prefHeight="29.0" prefWidth="237.0" promptText="by Patient ID, First Name, or Last Name" />
                                  </children>
                               </HBox>
-                              <TableView prefHeight="340.0" prefWidth="816.0">
+                              <TableView fx:id="returningPatientTable" prefHeight="340.0" prefWidth="816.0">
                                  <columns>
-                                    <TableColumn prefWidth="163.0" text="Patient ID" />
-                                    <TableColumn minWidth="0.0" prefWidth="144.0" text="First Name" />
-                                    <TableColumn prefWidth="175.0" text="Last Name" />
-                                    <TableColumn prefWidth="94.0" text="DOB" />
-                                    <TableColumn prefWidth="241.0" text="Primary Doctor" />
+                                    <TableColumn fx:id="patientIDReturningPatientColumn" prefWidth="163.0" text="Patient ID" />
+                                    <TableColumn fx:id="firstNameReturningPatientColumn" minWidth="0.0" prefWidth="144.0" text="First Name" />
+                                    <TableColumn fx:id="lastNameReturningPatientColumn" prefWidth="175.0" text="Last Name" />
+                                    <TableColumn fx:id="DOBReturningPatientColumn" prefWidth="94.0" text="DOB" />
+                                    <TableColumn fx:id="primaryDoctorReturningPatientColumn" prefWidth="241.0" text="Primary Doctor" />
                                  </columns>
                               </TableView>
-                              <Button mnemonicParsing="false" text="Select">
+                              <Button fx:id="selectButton" mnemonicParsing="false" onAction="#selectButtonClick" text="Select">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

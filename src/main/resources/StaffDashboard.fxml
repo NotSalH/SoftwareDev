@@ -18,7 +18,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TableView prefHeight="275.0" prefWidth="199.0">
+            <TableView fx:id="recentlyViewedDoctorsTable" prefHeight="275.0" prefWidth="199.0">
                <columns>
                   <TableColumn prefWidth="199.0" text="Name" />
                </columns>
@@ -32,11 +32,11 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TableView prefHeight="247.0" prefWidth="371.0">
+            <TableView fx:id="recentlyRegeisteredPatientsTable" prefHeight="247.0" prefWidth="371.0">
                <columns>
-                  <TableColumn prefWidth="127.0" text="Name" />
-                  <TableColumn minWidth="0.0" prefWidth="161.0" text="Doctor" />
-                  <TableColumn prefWidth="84.0" text="Date" />
+                  <TableColumn fx:id="nameRecentlyRegeisteredPatientsColumn" prefWidth="127.0" text="Name" />
+                  <TableColumn fx:id="doctorRecentlyRegeisteredPatientsColumn" minWidth="0.0" prefWidth="161.0" text="Doctor" />
+                  <TableColumn fx:id="dateRecentlyRegeisteredPatientsColumn" prefWidth="84.0" text="Date" />
                </columns>
             </TableView>
          </children>

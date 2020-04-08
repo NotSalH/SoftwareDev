@@ -11,17 +11,17 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="199.0">
+      <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="222.0">
          <children>
             <Label text="Order">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TableView prefHeight="248.0" prefWidth="278.0">
+            <TableView fx:id="orderTable" prefHeight="248.0" prefWidth="278.0">
                <columns>
-                  <TableColumn prefWidth="127.0" text="Patient Name" />
-                  <TableColumn prefWidth="95.0" text="Requester" />
+                  <TableColumn fx:id="patientNameOrdersColumn" prefWidth="127.0" text="Patient Name" />
+                  <TableColumn fx:id="requesterOrdersColumn" prefWidth="95.0" text="Requester" />
                   <TableColumn prefWidth="106.0" text="Type of Test" />
                </columns>
             </TableView>
@@ -34,11 +34,11 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TableView prefHeight="247.0" prefWidth="371.0">
+            <TableView fx:id="recentOrdersTable" prefHeight="247.0" prefWidth="371.0">
                <columns>
-                  <TableColumn prefWidth="119.0" text="Patient Name" />
-                  <TableColumn minWidth="0.0" prefWidth="144.0" text="Requester" />
-                  <TableColumn prefWidth="109.0" text="Type of Test" />
+                  <TableColumn fx:id="patientNameRecentOrdersColumn" prefWidth="119.0" text="Patient Name" />
+                  <TableColumn fx:id="requesterRecentOrdersColumn" minWidth="0.0" prefWidth="144.0" text="Requester" />
+                  <TableColumn fx:id="typeOfTestrRecentOrdersColumn" prefWidth="109.0" text="Type of Test" />
                </columns>
             </TableView>
          </children>

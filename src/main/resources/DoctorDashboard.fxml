@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="nameRecentlyViewedDoctors" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="199.0">
          <children>
@@ -34,9 +34,9 @@
             </Label>
             <TableView prefHeight="247.0" prefWidth="371.0">
                <columns>
-                  <TableColumn prefWidth="127.0" text="Name" />
-                  <TableColumn minWidth="0.0" prefWidth="161.0" text="Doctor" />
-                  <TableColumn prefWidth="84.0" text="Date" />
+                  <TableColumn fx:id="nameRecentlyRegisteredPatientsColumn" prefWidth="127.0" text="Name" />
+                  <TableColumn fx:id="doctorRecentlyRegisteredPatientsColumn" minWidth="0.0" prefWidth="161.0" text="Doctor" />
+                  <TableColumn fx:id="daterRecentlyRegisteredPatientsColumn" prefWidth="84.0" text="Date" />
                </columns>
             </TableView>
          </children>
