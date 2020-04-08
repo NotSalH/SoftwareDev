@@ -164,7 +164,7 @@ public class User extends AbstractEntity {
                         + "WHERE UserId = :userid AND RecentViewType = :type "
                         + "ORDER BY ViewDateTime DESC", RecentView.class);
         q.setParameter("userid", this.getId());
-        q.setParameter("type", recentViewType);
+        q.setParameter("type", recentViewType.ordinal());
         return q.getResultStream().map(mapper).collect(Collectors.toList());
     }
 
