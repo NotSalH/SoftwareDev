@@ -54,7 +54,22 @@ public final class InitTestDatabase {
         update(UserType.ADMIN, Permission.values());
         update(UserType.EXECUTIVE, Permission.values());
         update(UserType.STAFF,
-                Permission.REGISTER_PATIENT);
+                Permission.REGISTER_PATIENT,
+                Permission.ACCESS_PATIENT_LOOKUP,
+                Permission.ACCESS_DOCTOR_LOOKUP);
+        update(UserType.NURSE,
+                Permission.ACCESS_PATIENT_LOOKUP,
+                Permission.ACCESS_DOCTOR_LOOKUP);
+        update(UserType.DOCTOR,
+                Permission.REGISTER_PATIENT,
+                Permission.ACCESS_PATIENT_LOOKUP,
+                Permission.ACCESS_DOCTOR_LOOKUP,
+                Permission.ACCESS_MY_PATIENTS,
+                Permission.ACCESS_MY_LAB_REQUESTS);
+        update(UserType.HEMATOLOGIC_LAB_WORKER,
+                Permission.VIEW_HEMOTOLOGIC_BUTTONS);
+        update(UserType.RADIOLOGIC_LAB_WORKER,
+                Permission.VIEW_RADIOLOGIC_BUTTONS);
     }
 
     private static void update(UserType userType, Permission... permissions) {
@@ -88,6 +103,16 @@ public final class InitTestDatabase {
         user.setType(UserType.ADMIN);
         user.setDepartment("Administration");
         user.setOfficeNum(145);
+        user.save();
+
+        user = new User();
+        user.setFirstName("Front");
+        user.setLastName("Desk");
+        user.setUserName("fdesk");
+        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("sitaround"));
+        user.setType(UserType.STAFF);
+        user.setDepartment("Lobby");
+        user.setOfficeNum(1);
         user.save();
 
         user = new User();

@@ -14,7 +14,8 @@ public class LoginService {
     public static final String MESSAGE_USER_LOGGED_OUT = "User logged out.";
 
     /**
-     * Will check the if the provided username and password is a valid login.
+     * Will check the if the provided username and password is a valid login,
+     * while setting the session active user if successful.
      *
      * @param username
      * @param password
