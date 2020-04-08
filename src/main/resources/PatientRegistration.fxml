@@ -9,313 +9,320 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <panes>
-      <TitledPane fx:id="newPatientTiltedPane" animated="false" prefHeight="1389.0" prefWidth="990.0" text="New Patient">
-         <content>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <VBox layoutX="122.0" layoutY="14.0" prefHeight="659.0" prefWidth="814.0" spacing="5.0">
-                           <children>
-                              <Label text="Patient Information:">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
-                                 <children>
-                                    <VBox prefHeight="179.0" prefWidth="224.0">
-                                       <children>
-                                          <Label text="First Name:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textFirstName" prefHeight="29.0" prefWidth="206.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="179.0" prefWidth="224.0">
-                                       <children>
-                                          <Label text="Last Name:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textLastName" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="63.0" prefWidth="64.0">
-                                       <children>
-                                          <Label text="Age:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="ageNumber" prefHeight="29.0" prefWidth="6.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="63.0" prefWidth="60.0">
-                                       <children>
-                                          <Label text="Sex:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textSex" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
-                                 <children>
-                                    <VBox prefHeight="179.0" prefWidth="224.0">
-                                       <children>
-                                          <Label text="Medical Insurance:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textMedicalInsurance" prefHeight="29.0" prefWidth="206.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="63.0" prefWidth="111.0">
-                                       <children>
-                                          <Label text="Birth Date:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textBirthdate" prefHeight="29.0" prefWidth="6.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="63.0" prefWidth="275.0">
-                                       <children>
-                                          <Label text="Primary Doctor:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textPrimaryDoctory" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                              <Label text="Mailing Address:">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
-                                 <children>
-                                    <VBox prefHeight="179.0" prefWidth="224.0">
-                                       <children>
-                                          <Label text="Street Address:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textStreetMailingAddress" prefHeight="29.0" prefWidth="206.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="63.0" prefWidth="183.0">
-                                       <children>
-                                          <Label text="City/Town:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textCityMailingAddress" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="63.0" prefWidth="80.0">
-                                       <children>
-                                          <Label text="State:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <ChoiceBox fx:id="stateMailingAddressChoiceBox" prefWidth="150.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="63.0" prefWidth="89.0">
-                                       <children>
-                                          <Label text="Zip code:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="zipCodeMailingAddressNumber" prefHeight="29.0" prefWidth="77.0" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                              <Label text="Billing Address:">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
-                                 <children>
-                                    <VBox prefHeight="179.0" prefWidth="224.0">
-                                       <children>
-                                          <Label text="Street Address:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textStreetBillingAddress" prefHeight="29.0" prefWidth="206.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="63.0" prefWidth="183.0">
-                                       <children>
-                                          <Label text="City/Town:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textCityBillingAddress" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="63.0" prefWidth="80.0">
-                                       <children>
-                                          <Label text="State:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <ChoiceBox fx:id="stateBillingAddressChoiceBox" prefWidth="150.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="63.0" prefWidth="89.0">
-                                       <children>
-                                          <Label text="Zip code:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="zipCodeBillingAddressNumber" prefHeight="29.0" prefWidth="77.0" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                              <Label text="Visit Information:">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
-                                 <children>
-                                    <VBox prefHeight="179.0" prefWidth="224.0">
-                                       <children>
-                                          <Label text="Doctor:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textDoctor" prefHeight="29.0" prefWidth="206.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="179.0" prefWidth="224.0">
-                                       <children>
-                                          <Label text="Visit Date/ Time: ">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="textVisitDate" prefHeight="29.0" prefWidth="206.0" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="105.0" prefWidth="814.0" spacing="35.0">
-                                 <children>
-                                    <VBox prefHeight="105.0" prefWidth="324.0">
-                                       <children>
-                                          <Label text="Chief Complaint:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextArea fx:id="textAreaChiefComplaint" prefHeight="85.0" prefWidth="297.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="105.0" prefWidth="323.0">
-                                       <children>
-                                          <Label text="Present Illness: ">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextArea fx:id="textAreaPresentIllness" prefHeight="200.0" prefWidth="200.0" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="814.0">
-                                 <children>
-                                    <Pane prefHeight="58.0" prefWidth="620.0" />
-                                    <Button fx:id="submitButton" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#submitButtonClick" text="Submit">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </ScrollPane>
-         </content>
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TitledPane>
-      <TitledPane fx:id="returningPatientTiltedPane" animated="false" text="Returning Patient">
-         <content>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <VBox alignment="TOP_RIGHT" layoutX="143.0" layoutY="14.0" prefHeight="471.0" prefWidth="816.0" spacing="10.0">
-                           <children>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="777.0" spacing="10.0">
-                                 <children>
-                                    <Label text="Filter:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="filterTextBox" prefHeight="29.0" prefWidth="237.0" promptText="by Patient ID, First Name, or Last Name" />
-                                 </children>
-                              </HBox>
-                              <TableView fx:id="returningPatientTable" prefHeight="340.0" prefWidth="816.0">
-                                 <columns>
-                                    <TableColumn fx:id="patientIDReturningPatientColumn" prefWidth="163.0" text="Patient ID" />
-                                    <TableColumn fx:id="firstNameReturningPatientColumn" minWidth="0.0" prefWidth="144.0" text="First Name" />
-                                    <TableColumn fx:id="lastNameReturningPatientColumn" prefWidth="175.0" text="Last Name" />
-                                    <TableColumn fx:id="DOBReturningPatientColumn" prefWidth="94.0" text="DOB" />
-                                    <TableColumn fx:id="primaryDoctorReturningPatientColumn" prefWidth="241.0" text="Primary Doctor" />
-                                 </columns>
-                              </TableView>
-                              <Button fx:id="selectButton" mnemonicParsing="false" onAction="#selectButtonClick" text="Select">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </center>
-            </BorderPane>
-         </content>
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TitledPane>
-   </panes>
-</Accordion>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guisoftwaredev.FXMLDocumentController">
+   <center>
+        <Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+           <panes>
+              <TitledPane fx:id="newPatientTiltedPane" animated="false" prefHeight="1389.0" prefWidth="990.0" text="New Patient">
+                 <content>
+                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                       <content>
+                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                             <children>
+                                <VBox layoutX="122.0" layoutY="14.0" prefHeight="659.0" prefWidth="814.0" spacing="5.0">
+                                   <children>
+                                      <Label text="Patient Information:">
+                                         <font>
+                                            <Font size="18.0" />
+                                         </font>
+                                      </Label>
+                                      <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                                         <children>
+                                            <VBox prefHeight="179.0" prefWidth="224.0">
+                                               <children>
+                                                  <Label text="First Name:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textFirstName" prefHeight="29.0" prefWidth="206.0" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="179.0" prefWidth="224.0">
+                                               <children>
+                                                  <Label text="Last Name:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textLastName" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="63.0" prefWidth="64.0">
+                                               <children>
+                                                  <Label text="Age:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="ageNumber" prefHeight="29.0" prefWidth="6.0" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="63.0" prefWidth="60.0">
+                                               <children>
+                                                  <Label text="Sex:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textSex" />
+                                               </children>
+                                            </VBox>
+                                         </children>
+                                      </HBox>
+                                      <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                                         <children>
+                                            <VBox prefHeight="179.0" prefWidth="224.0">
+                                               <children>
+                                                  <Label text="Medical Insurance:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textMedicalInsurance" prefHeight="29.0" prefWidth="206.0" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="63.0" prefWidth="111.0">
+                                               <children>
+                                                  <Label text="Birth Date:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textBirthdate" prefHeight="29.0" prefWidth="6.0" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="63.0" prefWidth="275.0">
+                                               <children>
+                                                  <Label text="Primary Doctor:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textPrimaryDoctory" />
+                                               </children>
+                                            </VBox>
+                                         </children>
+                                      </HBox>
+                                      <Label text="Mailing Address:">
+                                         <font>
+                                            <Font size="18.0" />
+                                         </font>
+                                      </Label>
+                                      <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                                         <children>
+                                            <VBox prefHeight="179.0" prefWidth="224.0">
+                                               <children>
+                                                  <Label text="Street Address:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textStreetMailingAddress" prefHeight="29.0" prefWidth="206.0" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="63.0" prefWidth="183.0">
+                                               <children>
+                                                  <Label text="City/Town:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textCityMailingAddress" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="63.0" prefWidth="80.0">
+                                               <children>
+                                                  <Label text="State:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <ChoiceBox fx:id="stateMailingAddressChoiceBox" prefWidth="150.0" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="63.0" prefWidth="89.0">
+                                               <children>
+                                                  <Label text="Zip code:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="zipCodeMailingAddressNumber" prefHeight="29.0" prefWidth="77.0" />
+                                               </children>
+                                            </VBox>
+                                         </children>
+                                      </HBox>
+                                      <Label text="Billing Address:">
+                                         <font>
+                                            <Font size="18.0" />
+                                         </font>
+                                      </Label>
+                                      <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                                         <children>
+                                            <VBox prefHeight="179.0" prefWidth="224.0">
+                                               <children>
+                                                  <Label text="Street Address:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textStreetBillingAddress" prefHeight="29.0" prefWidth="206.0" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="63.0" prefWidth="183.0">
+                                               <children>
+                                                  <Label text="City/Town:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textCityBillingAddress" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="63.0" prefWidth="80.0">
+                                               <children>
+                                                  <Label text="State:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <ChoiceBox fx:id="stateBillingAddressChoiceBox" prefWidth="150.0" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="63.0" prefWidth="89.0">
+                                               <children>
+                                                  <Label text="Zip code:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="zipCodeBillingAddressNumber" prefHeight="29.0" prefWidth="77.0" />
+                                               </children>
+                                            </VBox>
+                                         </children>
+                                      </HBox>
+                                      <Label text="Visit Information:">
+                                         <font>
+                                            <Font size="18.0" />
+                                         </font>
+                                      </Label>
+                                      <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                                         <children>
+                                            <VBox prefHeight="179.0" prefWidth="224.0">
+                                               <children>
+                                                  <Label text="Doctor:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textDoctor" prefHeight="29.0" prefWidth="206.0" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="179.0" prefWidth="224.0">
+                                               <children>
+                                                  <Label text="Visit Date/ Time: ">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextField fx:id="textVisitDate" prefHeight="29.0" prefWidth="206.0" />
+                                               </children>
+                                            </VBox>
+                                         </children>
+                                      </HBox>
+                                      <HBox prefHeight="105.0" prefWidth="814.0" spacing="35.0">
+                                         <children>
+                                            <VBox prefHeight="105.0" prefWidth="324.0">
+                                               <children>
+                                                  <Label text="Chief Complaint:">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextArea fx:id="textAreaChiefComplaint" prefHeight="85.0" prefWidth="297.0" />
+                                               </children>
+                                            </VBox>
+                                            <VBox prefHeight="105.0" prefWidth="323.0">
+                                               <children>
+                                                  <Label text="Present Illness: ">
+                                                     <font>
+                                                        <Font size="14.0" />
+                                                     </font>
+                                                  </Label>
+                                                  <TextArea fx:id="textAreaPresentIllness" prefHeight="200.0" prefWidth="200.0" />
+                                               </children>
+                                            </VBox>
+                                         </children>
+                                      </HBox>
+                                      <HBox alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="814.0">
+                                         <children>
+                                            <Pane prefHeight="58.0" prefWidth="620.0" />
+                                            <Button fx:id="submitButton" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#submitButtonClick" text="Submit">
+                                               <font>
+                                                  <Font size="14.0" />
+                                               </font>
+                                            </Button>
+                                         </children>
+                                      </HBox>
+                                   </children>
+                                </VBox>
+                             </children>
+                          </AnchorPane>
+                       </content>
+                    </ScrollPane>
+                 </content>
+                 <font>
+                    <Font size="18.0" />
+                 </font>
+              </TitledPane>
+              <TitledPane fx:id="returningPatientTiltedPane" animated="false" text="Returning Patient">
+                 <content>
+                    <BorderPane prefHeight="200.0" prefWidth="200.0">
+                       <center>
+                          <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                             <children>
+                                <VBox alignment="TOP_RIGHT" layoutX="143.0" layoutY="14.0" prefHeight="471.0" prefWidth="816.0" spacing="10.0">
+                                   <children>
+                                      <HBox alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="777.0" spacing="10.0">
+                                         <children>
+                                            <Label text="Filter:">
+                                               <font>
+                                                  <Font size="18.0" />
+                                               </font>
+                                            </Label>
+                                            <TextField fx:id="filterTextBox" prefHeight="29.0" prefWidth="237.0" promptText="by Patient ID, First Name, or Last Name" />
+                                         </children>
+                                      </HBox>
+                                      <TableView fx:id="returningPatientTable" prefHeight="340.0" prefWidth="816.0">
+                                         <columns>
+                                            <TableColumn fx:id="patientIDReturningPatientColumn" prefWidth="163.0" text="Patient ID" />
+                                            <TableColumn fx:id="firstNameReturningPatientColumn" minWidth="0.0" prefWidth="144.0" text="First Name" />
+                                            <TableColumn fx:id="lastNameReturningPatientColumn" prefWidth="175.0" text="Last Name" />
+                                            <TableColumn fx:id="DOBReturningPatientColumn" prefWidth="94.0" text="DOB" />
+                                            <TableColumn fx:id="primaryDoctorReturningPatientColumn" prefWidth="241.0" text="Primary Doctor" />
+                                         </columns>
+                                      </TableView>
+                                      <Button fx:id="selectButton" mnemonicParsing="false" onAction="#selectButtonClick" text="Select">
+                                         <font>
+                                            <Font size="14.0" />
+                                         </font>
+                                      </Button>
+                                   </children>
+                                </VBox>
+                             </children>
+                          </AnchorPane>
+                       </center>
+                    </BorderPane>
+                 </content>
+                 <font>
+                    <Font size="18.0" />
+                 </font>
+              </TitledPane>
+           </panes>
+        </Accordion>
+   </center>
+   <top>
+       <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
+   </top>
+</BorderPane>

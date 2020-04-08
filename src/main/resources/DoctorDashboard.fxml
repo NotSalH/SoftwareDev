@@ -9,28 +9,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="nameRecentlyViewedDoctors" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="199.0">
-         <children>
-            <Label text="Recently Viewed Doctors">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TableView prefHeight="275.0" prefWidth="199.0">
-               <columns>
-                  <TableColumn prefWidth="199.0" text="Name" />
-               </columns>
-            </TableView>
-         </children>
-      </VBox>
-      <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
-         <children>
-            <Label text="Recently Registered Patients">
-               <font>
-                  <Font size="16.0" />
-               </font>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guisoftwaredev.FXMLDocumentController">
+   <center>
+        <AnchorPane fx:id="nameRecentlyViewedDoctors" prefHeight="625.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="199.0">
+                <children>
+                    <Label text="Recently Viewed Doctors">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <TableView prefHeight="275.0" prefWidth="199.0">
+                        <columns>
+                            <TableColumn prefWidth="199.0" text="Name" />
+                        </columns>
+                    </TableView>
+                    </children>
+            </VBox>
+            <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
+                 <children>
+                    <Label text="Recently Registered Patients">
+                <font>
+                    <Font size="16.0" />
+                </font>
             </Label>
             <TableView prefHeight="247.0" prefWidth="371.0">
                <columns>
@@ -42,4 +44,9 @@
          </children>
       </VBox>
    </children>
-</AnchorPane>
+        </AnchorPane>
+   </center>
+   <top>
+       <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
+   </top>
+</BorderPane>
