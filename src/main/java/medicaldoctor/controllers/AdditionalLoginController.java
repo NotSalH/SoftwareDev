@@ -47,6 +47,7 @@ public class AdditionalLoginController implements Initializable, ParentControlle
             i_label.setVisible(true);
         }
     }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources){
     }

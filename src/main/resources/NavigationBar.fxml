@@ -14,26 +14,26 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-    <Button fx:id="buttonPatientRegistration" mnemonicParsing="false" text="Patient&#10;Registeration" />
-      <Button fx:id="buttonPatientLookup" mnemonicParsing="false" text="Patient&#10;Lookup" />
-      <Button fx:id="buttonDoctorLookup" mnemonicParsing="false" text="Doctor&#10;Lookup" />
-      <Button fx:id="buttonUserLookup" mnemonicParsing="false" text="User&#10;Lookup" />
-      <Button fx:id="buttonMyPatients" mnemonicParsing="false" prefHeight="42.0" prefWidth="78.0" text="My Patients" />
-      <Button fx:id="buttonMyLabRequests" mnemonicParsing="false" text="My Lab&#10;Requests" />
-      <Button fx:id="buttonRegisterNewUser" mnemonicParsing="false" text="Register&#10;New User" />
-      <Button fx:id="buttonLabRequests" mnemonicParsing="false" prefHeight="42.0" prefWidth="86.0" text="Lab Requests" />
-      <Button fx:id="buttonLogs" mnemonicParsing="false" prefHeight="42.0" prefWidth="84.0" text="Logs" />
-      <Button fx:id="buttonLabPatients" mnemonicParsing="false" prefHeight="42.0" prefWidth="81.0" text="Lab Patients" />
-      <Button fx:id="buttonRedBloodCell" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" text="Red Blood Cell" />
-      <Button fx:id="buttonWhiteBloodCell" mnemonicParsing="false" prefHeight="42.0" prefWidth="105.0" text="White Blood Cell" />
-      <Button fx:id="buttonLiverFunction" mnemonicParsing="false" prefHeight="42.0" prefWidth="90.0" text="Liver Function" />
-      <Button fx:id="buttonRenalFunction" mnemonicParsing="false" prefHeight="42.0" prefWidth="101.0" text="Renal Function" />
-      <Button fx:id="buttonElectrolyteTest" mnemonicParsing="false" prefHeight="42.0" prefWidth="101.0" text="Electrolyte Test" />
-      <Button fx:id="buttonUrinaryTest" mnemonicParsing="false" prefHeight="42.0" prefWidth="97.0" text="Urinary Test" />
-      <Button fx:id="buttonStoolTest" mnemonicParsing="false" prefHeight="42.0" prefWidth="90.0" text="Stool Test" />
-      <Button fx:id="buttonXRay" mnemonicParsing="false" prefHeight="42.0" prefWidth="90.0" text="X-Ray" />
-      <Button fx:id="buttonCT" mnemonicParsing="false" prefHeight="42.0" prefWidth="73.0" text="CT" />
-      <Button fx:id="buttonMRI" mnemonicParsing="false" prefHeight="42.0" prefWidth="87.0" text="MRI" />
+    <Button fx:id="buttonPatientRegistration" mnemonicParsing="false" onAction="#patientRegistration" text="Patient&#10;Registeration" />
+      <Button fx:id="buttonPatientLookup" mnemonicParsing="false" onAction="#patientLookup" text="Patient&#10;Lookup" />
+      <Button fx:id="buttonDoctorLookup" mnemonicParsing="false" onAction="#doctorLookup" text="Doctor&#10;Lookup" />
+      <Button fx:id="buttonUserLookup" mnemonicParsing="false" onAction="#userLookup"  text="User&#10;Lookup" />
+      <Button fx:id="buttonMyPatients" mnemonicParsing="false" onAction="#myPatients"  prefHeight="42.0" prefWidth="78.0" text="My Patients" />
+      <Button fx:id="buttonMyLabRequests" mnemonicParsing="false" onAction="#myLabRequests"  text="My Lab&#10;Requests" />
+      <Button fx:id="buttonRegisterNewUser" mnemonicParsing="false" onAction="#registerNewUser" text="Register&#10;New User" />
+      <Button fx:id="buttonLabRequests" mnemonicParsing="false" prefHeight="42.0" prefWidth="86.0" onAction="#labRequests"  text="Lab Requests" />
+      <Button fx:id="buttonLogs" mnemonicParsing="false" prefHeight="42.0" prefWidth="84.0" onAction="#log"  text="Logs" />
+      <Button fx:id="buttonLabPatients" mnemonicParsing="false" prefHeight="42.0" prefWidth="81.0" onAction="#labPatients" text="Lab Patients" />
+      <Button fx:id="buttonRedBloodCell" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" onAction="#redBloodCell" text="Red Blood Cell" />
+      <Button fx:id="buttonWhiteBloodCell" mnemonicParsing="false" prefHeight="42.0" prefWidth="105.0" onAction="#whiteBloodCell" text="White Blood Cell" />
+      <Button fx:id="buttonLiverFunction" mnemonicParsing="false" prefHeight="42.0" prefWidth="90.0" onAction="#liverFunctions"  text="Liver Function" />
+      <Button fx:id="buttonRenalFunction" mnemonicParsing="false" prefHeight="42.0" prefWidth="101.0" onAction="#renalFuctions" text="Renal Function" />
+      <Button fx:id="buttonElectrolyteTest" mnemonicParsing="false" prefHeight="42.0" prefWidth="101.0" onAction="#electrolyteTest"  text="Electrolyte Test" />
+      <Button fx:id="buttonUrinaryTest" mnemonicParsing="false" prefHeight="42.0" prefWidth="97.0" onAction="#urinaryTest"  text="Urinary Test" />
+      <Button fx:id="buttonStoolTest" mnemonicParsing="false" prefHeight="42.0" prefWidth="90.0" onAction="#stoolTest" text="Stool Test" />
+      <Button fx:id="buttonXRay" mnemonicParsing="false" prefHeight="42.0" prefWidth="90.0" onAction="#xRay"  text="X-Ray" />
+      <Button fx:id="buttonCT" mnemonicParsing="false" prefHeight="42.0" prefWidth="73.0" onAction="#ct"  text="CT" />
+      <Button fx:id="buttonMRI" mnemonicParsing="false" prefHeight="42.0" prefWidth="87.0" onAction="#mri"  text="MRI" />
       <VBox prefHeight="119.0" prefWidth="100.0" spacing="10.0">
          <children>
             <ImageView fitHeight="89.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">

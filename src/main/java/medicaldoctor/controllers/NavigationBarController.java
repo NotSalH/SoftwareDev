@@ -2,6 +2,7 @@ package medicaldoctor.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -9,7 +10,9 @@ import medicaldoctor.core.AppSession;
 import medicaldoctor.core.Permission;
 
 public class NavigationBarController implements Initializable, ParentController{
-
+    
+    ControllerManager cm;
+    
     @FXML
     private Button buttonMRI;
 
@@ -69,7 +72,107 @@ public class NavigationBarController implements Initializable, ParentController{
 
     @FXML
     private Button buttonLiverFunction;
-
+    
+    @FXML
+    void patientRegistration(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void patientLookup(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void doctorLookup(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void userLookup(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void myPatients(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void myLabRequests(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void registerNewUser(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void labRequests(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void log(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void labPatients(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void redBloodCell(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void whiteBloodCell(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void liverFunctions(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void renalFuctions(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void electrolyteTest(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void urinaryTest(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void stoolTest(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void xRay(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void ct(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void mri(ActionEvent event){
+        
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         buttonMustHaveThisPermission(buttonPatientRegistration, Permission.REGISTER_PATIENT);
@@ -101,7 +204,7 @@ public class NavigationBarController implements Initializable, ParentController{
     
     @Override
     public void setScreenParent(ControllerManager page) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cm = page;
     }
 
 
