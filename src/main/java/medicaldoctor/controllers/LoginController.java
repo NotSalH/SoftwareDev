@@ -12,6 +12,7 @@ import medicaldoctor.Program;
 import medicaldoctor.backend.data.LoginResult;
 import medicaldoctor.backend.LoginService;
 import medicaldoctor.core.AppSession;
+import medicaldoctor.entities.UserType;
 
 public class LoginController implements Initializable, ParentController{
     ControllerManager cm;
@@ -35,7 +36,17 @@ public class LoginController implements Initializable, ParentController{
                 cm.showScreen(Program.LOGIN_SECOND_SCREEN_NAME);
             }
             else{
-                cm.showScreen(Program.LOGIN_SECOND_SCREEN_NAME);
+                if(AppSession.getActiveUser().getType().equals(UserType.DOCTOR)){ 
+                    cm.showScreen(Program.DOCTOR_DASHBOARD_NAME);
+                }
+                else if(AppSession.getActiveUser().getType().equals(UserType.NURSE)){
+                }
+                else if(AppSession.getActiveUser().getType().equals(UserType.HEMATOLOGIC_LAB_WORKER)){  
+                }
+                else if(AppSession.getActiveUser().getType().equals(UserType.RADIOLOGIC_LAB_WORKER)){
+                }
+                else if(AppSession.getActiveUser().getType().equals(UserType.STAFF)){  
+                }
             }
         }
         if (result == LoginResult.WRONG_USERNAME || result == LoginResult.WRONG_PASSWORD) {

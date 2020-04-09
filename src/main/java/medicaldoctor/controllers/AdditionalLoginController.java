@@ -14,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import medicaldoctor.backend.LoginService;
 import medicaldoctor.backend.data.LoginResult;
+import medicaldoctor.core.AppSession;
+import medicaldoctor.entities.UserType;
 
 /**
  *
@@ -25,16 +27,23 @@ public class AdditionalLoginController implements Initializable, ParentControlle
     @FXML
     Button login;
     @FXML
-    Label password;
+    Label password, incorrect_id;
     
     @FXML
     void login_second(ActionEvent event) throws Exception{
         LoginResult result = LoginService.checkAdditionalPassword(password.getText());
         if(result == LoginResult.SUCCESS){
-            cm.showScreen("MAIN_SCREEN");
+            if(AppSession.getActiveUser().getType().equals(UserType.ADMIN)){
+            }
+            else if(AppSession.getActiveUser().getType().equals(UserType.EXECUTIVE)){
+                
+            }
+            else{
+                //do nothing. IDK if this case will ever be reached. This is just in case. 
+            }
         }
         else{
-            //DO SOMETHING
+            incorrect_id.setVisible(true);
         }
     }
     @Override

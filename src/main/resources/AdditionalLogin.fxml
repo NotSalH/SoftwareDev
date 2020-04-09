@@ -10,7 +10,6 @@
    <children>
       <Pane layoutX="185.0" layoutY="100.0" prefHeight="200.0" prefWidth="231.0">
          <children>
-            <Label layoutX="41.0" layoutY="53.0" text="Additional Password Required" />
             <HBox layoutX="16.0" layoutY="100.0" prefHeight="17.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Label text="Password: " />
@@ -20,5 +19,6 @@
             <Button fx:id="login" layoutX="69.0" layoutY="161.0" mnemonicParsing="false" onAction="#login_second" prefHeight="25.0" prefWidth="93.0" text="Sign-In" />
          </children>
       </Pane>
+      <Label fx:id="incorrect_id" layoutX="400.0" layoutY="200.0" text="Incorrect!" textFill="RED" />
    </children>
 </AnchorPane>
