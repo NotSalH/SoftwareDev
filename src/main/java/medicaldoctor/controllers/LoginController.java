@@ -6,9 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import medicaldoctor.Program;
 import medicaldoctor.backend.data.LoginResult;
 import medicaldoctor.backend.LoginService;
 import medicaldoctor.core.AppSession;
@@ -25,7 +25,10 @@ public class LoginController implements Initializable, ParentController{
 
     @FXML
     private Button buttonSubmit;
-
+    
+    @FXML
+    private Label i_label;
+    
     @FXML
     void buttonSubmitClick(ActionEvent event) throws Exception {
         LoginResult result = LoginService.checkLogin(
@@ -46,17 +49,22 @@ public class LoginController implements Initializable, ParentController{
                     cm.load(LookUp.NURSE_DASHBOARD_NAME, LookUp.NURSE_DASHBOARD);
                     cm.showScreen(LookUp.NURSE_DASHBOARD_NAME);
                 }
-                
-                else if(AppSession.getActiveUser().getType().equals(UserType.HEMATOLOGIC_LAB_WORKER)){  
+                else if(AppSession.getActiveUser().getType().equals(UserType.HEMATOLOGIC_LAB_WORKER)){
+                    cm.load(LookUp.LAB_WORKER_NAME, LookUp.LAB_WORKER);
+                    cm.showScreen(LookUp.LAB_WORKER_NAME);
                 }
                 else if(AppSession.getActiveUser().getType().equals(UserType.RADIOLOGIC_LAB_WORKER)){
+                    cm.load(LookUp.LAB_WORKER_NAME, LookUp.LAB_WORKER);
+                    cm.showScreen(LookUp.LAB_WORKER_NAME);
                 }
                 else if(AppSession.getActiveUser().getType().equals(UserType.STAFF)){  
+                    cm.load(LookUp.STAFF_DASHBOARD_NAME, LookUp.STAFF_DASHBOARD);
+                    cm.showScreen(LookUp.STAFF_DASHBOARD_NAME);
                 }
             }
         }
         if (result == LoginResult.WRONG_USERNAME || result == LoginResult.WRONG_PASSWORD) {
-           //WRONG USERNAME or password
+           i_label.setVisible(true);
         }
     }
     

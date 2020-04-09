@@ -21,26 +21,30 @@ public class AdditionalLoginController implements Initializable, ParentControlle
     ControllerManager cm;
     
     @FXML
-    Button loginButton;
+    private Button loginButton;
     @FXML
-    PasswordField password;
-    
+    private PasswordField password;
+    @FXML
+    private Label i_label;
     
     @FXML
     void loginButtonClicked(ActionEvent event) throws Exception{
         LoginResult result = LoginService.checkAdditionalPassword(password.getText());
         if(result == LoginResult.SUCCESS){
             if(AppSession.getActiveUser().getType().equals(UserType.ADMIN)){
+                cm.load(LookUp.ADMIN_DASHBOARD_NAME, LookUp.ADMIN_DASHBOARD);
+                cm.showScreen(LookUp.ADMIN_DASHBOARD_NAME);
             }
             else if(AppSession.getActiveUser().getType().equals(UserType.EXECUTIVE)){
-                
+                cm.load(LookUp.ADMIN_DASHBOARD_NAME, LookUp.ADMIN_DASHBOARD);
+                cm.showScreen(LookUp.ADMIN_DASHBOARD_NAME);
             }
             else{
                 //do nothing. IDK if this case will ever be reached. This is just in case. 
             }
         }
         else{
-            //incorrect_id.setVisible(true);
+            i_label.setVisible(true);
         }
     }
     @Override

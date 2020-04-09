@@ -72,7 +72,7 @@ public class NavigationBarController implements Initializable, ParentController{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*buttonMustHaveThisPermission(buttonPatientRegistration, Permission.REGISTER_PATIENT);
+        buttonMustHaveThisPermission(buttonPatientRegistration, Permission.REGISTER_PATIENT);
         buttonMustHaveThisPermission(buttonPatientLookup, Permission.ACCESS_PATIENT_LOOKUP);
         buttonMustHaveThisPermission(buttonDoctorLookup, Permission.ACCESS_DOCTOR_LOOKUP);
         buttonMustHaveThisPermission(buttonUserLookup, Permission.ACCESS_USER_LOOKUP);
@@ -90,7 +90,7 @@ public class NavigationBarController implements Initializable, ParentController{
         buttonMustHaveThisPermission(buttonStoolTest, Permission.VIEW_HEMOTOLOGIC_BUTTONS);
         buttonMustHaveThisPermission(buttonXRay, Permission.VIEW_RADIOLOGIC_BUTTONS);
         buttonMustHaveThisPermission(buttonCT, Permission.VIEW_RADIOLOGIC_BUTTONS);
-        buttonMustHaveThisPermission(buttonMRI, Permission.VIEW_RADIOLOGIC_BUTTONS);*/
+        buttonMustHaveThisPermission(buttonMRI, Permission.VIEW_RADIOLOGIC_BUTTONS);
     }
 
     private void buttonMustHaveThisPermission(Button button, Permission permission) {
