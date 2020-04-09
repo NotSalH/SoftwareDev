@@ -9,25 +9,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.AdminDashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.AdminDashboardController">
    <center>
       <AnchorPane prefHeight="625.0" prefWidth="1136.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
+            <VBox layoutX="93.0" layoutY="78.0" prefHeight="363.0" prefWidth="396.0">
                <children>
-                    <Label text="Log: User Sign-In/Out">
-                        <font>
+                  <Label text="Log: User Sign-In/Out">
+                     <font>
                         <Font size="16.0" />
-                        </font>
-                    </Label>
-                    <TableView prefHeight="247.0" prefWidth="371.0">
-                        <columns>
-                            <TableColumn prefWidth="127.0" text="Username" />
-                            <TableColumn minWidth="0.0" prefWidth="161.0" text="Employee ID" />
-                            <TableColumn prefWidth="84.0" text="Date/Time" />
-                        </columns>
-                    </TableView>
-                </children>
+                     </font>
+                  </Label>
+                  <TableView prefHeight="247.0" prefWidth="371.0">
+                     <columns>
+                        <TableColumn fx:id="usernameColumn" prefWidth="127.0" text="Username" />
+                        <TableColumn fx:id="employeeColumn" minWidth="0.0" prefWidth="161.0" text="Employee ID" />
+                        <TableColumn fx:id="dateColumn" prefWidth="107.0" text="Date/Time" />
+                     </columns>
+                  </TableView>
+               </children>
             </VBox>
          </children>
       </AnchorPane>

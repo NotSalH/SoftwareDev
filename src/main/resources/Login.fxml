@@ -7,11 +7,34 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.LoginController">
    <children>
-      <PasswordField fx:id="textPassword" layoutX="163.0" layoutY="125.0" />
-      <Label layoutX="178.0" layoutY="47.0" text="MedicalDoctor Login" />
-      <Label layoutX="75.0" layoutY="92.0" text="Username:" />
-      <Label layoutX="77.0" layoutY="130.0" text="Password:" />
-      <TextField fx:id="textUsername" layoutX="163.0" layoutY="87.0" />
-      <Button fx:id="buttonSubmit" layoutX="214.0" layoutY="185.0" mnemonicParsing="false" onAction="#buttonSubmitClick" text="Submit" />
+      <HBox layoutX="53.0" layoutY="83.0" prefHeight="275.0" prefWidth="456.0" spacing="15.0">
+         <children>
+            <VBox prefHeight="137.0" prefWidth="292.0" spacing="15.0">
+               <children>
+                  <Label text="MedicalDoctor Login" />
+                  <HBox prefHeight="17.0" prefWidth="209.0" spacing="10.0">
+                     <children>
+                        <Label text="Username:" />
+                        <TextField fx:id="testUsername" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="19.0" prefWidth="297.0" spacing="11.0">
+                     <children>
+                        <Label text="Password:" />
+                        <PasswordField fx:id="textPassword" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="29.0" prefWidth="220.0">
+                     <children>
+                        <Pane prefHeight="29.0" prefWidth="158.0" />
+                        <Button fx:id="buttonSubmit" mnemonicParsing="false" onAction="#buttonSubmitClick" prefHeight="25.0" prefWidth="55.0" text="Login" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <ImageView fitHeight="188.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

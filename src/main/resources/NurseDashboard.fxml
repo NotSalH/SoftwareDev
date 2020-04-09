@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.NurseDashboardController">
+   <center>
+       <AnchorPane prefHeight="625.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+            <children>
+               <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="199.0">
+                  <children>
+                     <Label text="Recent Viewed Doctors">
+                        <font>
+                           <Font size="16.0" />
+                        </font>
+                     </Label>
+                     <TableView fx:id="recentViewedDoctorsTable" prefHeight="275.0" prefWidth="199.0">
+                        <columns>
+                           <TableColumn fx:id="nameRecentViewedDoctorsColumn" prefWidth="199.0" text="Name" />
+                        </columns>
+                     </TableView>
+                  </children>
+               </VBox>
+               <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
+                  <children>
+                     <Label text="Recent Viewed Patients">
+                        <font>
+                           <Font size="16.0" />
+                        </font>
+                     </Label>
+                     <TableView fx:id="recentViewedPatientsTable" prefHeight="247.0" prefWidth="371.0">
+                        <columns>
+                           <TableColumn fx:id="nameRecentViewedPatientsColumn" prefWidth="127.0" text="Name" />
+                           <TableColumn fx:id="doctorRecentViewedPatientsColumn" minWidth="0.0" prefWidth="161.0" text="Doctor" />
+                           <TableColumn fx:id="dateRecentViewedPatientsColumn" prefWidth="84.0" text="Date" />
+                        </columns>
+                     </TableView>
+                  </children>
+               </VBox>
+            </children>
+         </AnchorPane>
+   </center>
+   <top>
+       <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
+   </top>
+   </BorderPane>
