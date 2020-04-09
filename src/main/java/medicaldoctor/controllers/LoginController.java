@@ -34,14 +34,19 @@ public class LoginController implements Initializable, ParentController{
         
         if (result == LoginResult.SUCCESS) {
             if(AppSession.getActiveUser().hasAdditionalPassword()){
-                cm.showScreen(Program.LOGIN_SECOND_SCREEN_NAME);
+                cm.load(LookUp.LOGIN_SECOND_SCREEN_NAME, LookUp.LOGIN_SECOND_SCREEN);
+                cm.showScreen(LookUp.LOGIN_SECOND_SCREEN_NAME);
             }
             else{
-                if(AppSession.getActiveUser().getType().equals(UserType.DOCTOR)){ 
-                    cm.showScreen(Program.DOCTOR_DASHBOARD_NAME);
+                if(AppSession.getActiveUser().getType().equals(UserType.DOCTOR)){
+                    cm.load(LookUp.DOCTOR_DASHBOARD_NAME, LookUp.DOCTOR_DASHBOARD);
+                    cm.showScreen(LookUp.DOCTOR_DASHBOARD_NAME);
                 }
                 else if(AppSession.getActiveUser().getType().equals(UserType.NURSE)){
+                    cm.load(LookUp.NURSE_DASHBOARD_NAME, LookUp.NURSE_DASHBOARD);
+                    cm.showScreen(LookUp.NURSE_DASHBOARD_NAME);
                 }
+                
                 else if(AppSession.getActiveUser().getType().equals(UserType.HEMATOLOGIC_LAB_WORKER)){  
                 }
                 else if(AppSession.getActiveUser().getType().equals(UserType.RADIOLOGIC_LAB_WORKER)){

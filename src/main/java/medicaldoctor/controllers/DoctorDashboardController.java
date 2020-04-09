@@ -11,9 +11,6 @@ import javafx.fxml.Initializable;
 public class DoctorDashboardController implements Initializable, ParentController{
     ControllerManager cm;
     
-    
-    
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
