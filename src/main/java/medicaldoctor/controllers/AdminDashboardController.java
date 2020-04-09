@@ -1,4 +1,4 @@
-package medicaldoctor;
+package medicaldoctor.controllers;
 
 import javafx.fxml.FXML;
 

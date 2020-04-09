@@ -1,11 +1,14 @@
-package medicaldoctor;
+package medicaldoctor.controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.Permission;
 
-public class NavigationBarController {
+public class NavigationBarController implements Initializable, ParentController{
 
     @FXML
     private Button buttonMRI;
@@ -67,9 +70,9 @@ public class NavigationBarController {
     @FXML
     private Button buttonLiverFunction;
 
-    @FXML
-    public void initialize() {
-        buttonMustHaveThisPermission(buttonPatientRegistration, Permission.REGISTER_PATIENT);
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        /*buttonMustHaveThisPermission(buttonPatientRegistration, Permission.REGISTER_PATIENT);
         buttonMustHaveThisPermission(buttonPatientLookup, Permission.ACCESS_PATIENT_LOOKUP);
         buttonMustHaveThisPermission(buttonDoctorLookup, Permission.ACCESS_DOCTOR_LOOKUP);
         buttonMustHaveThisPermission(buttonUserLookup, Permission.ACCESS_USER_LOOKUP);
@@ -87,7 +90,7 @@ public class NavigationBarController {
         buttonMustHaveThisPermission(buttonStoolTest, Permission.VIEW_HEMOTOLOGIC_BUTTONS);
         buttonMustHaveThisPermission(buttonXRay, Permission.VIEW_RADIOLOGIC_BUTTONS);
         buttonMustHaveThisPermission(buttonCT, Permission.VIEW_RADIOLOGIC_BUTTONS);
-        buttonMustHaveThisPermission(buttonMRI, Permission.VIEW_RADIOLOGIC_BUTTONS);
+        buttonMustHaveThisPermission(buttonMRI, Permission.VIEW_RADIOLOGIC_BUTTONS);*/
     }
 
     private void buttonMustHaveThisPermission(Button button, Permission permission) {
@@ -95,5 +98,11 @@ public class NavigationBarController {
             button.setManaged(false);
         }
     }
+    
+    @Override
+    public void setScreenParent(ControllerManager page) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
 }
