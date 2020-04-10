@@ -32,12 +32,8 @@ public class PatientService {
      * @param request
      * @throws Exception
      */
-    public static void registerReturningPatient(int patientId,
+    public static void registerReturningPatient(Patient patient,
             PatientRegistrationRequest request) throws Exception {
-        Patient patient = null;
-        try (DatabaseScope t = new DatabaseScope()) {
-            patient = Patient.byId(patientId);
-        }
         fillDataAndCommit(patient, request, false);
     }
 
