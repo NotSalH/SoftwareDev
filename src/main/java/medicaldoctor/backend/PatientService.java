@@ -15,10 +15,23 @@ public class PatientService {
     public static final String MESSAGE_REGISTER_RETURNING_PATIENT = "Registered returning patient '%s'.";
     public static final String MESSAGE_CREATED_NEW_VISIT = "Created new visit '%s' for patient '%s'.";
 
+    /**
+     * Create a new patient record in the database and a new visit record.
+     *
+     * @param request
+     * @throws Exception
+     */
     public static void registerNewPatient(PatientRegistrationRequest request) throws Exception {
         fillDataAndCommit(new Patient(), request, true);
     }
 
+    /**
+     * Update the provided patient record and create a new visit record.
+     *
+     * @param patientId
+     * @param request
+     * @throws Exception
+     */
     public static void registerReturningPatient(int patientId,
             PatientRegistrationRequest request) throws Exception {
         Patient patient = null;
