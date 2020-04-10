@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import medicaldoctor.controllers.LookUp;
 import medicaldoctor.core.Permission;
 
 @Entity
@@ -23,13 +24,13 @@ import medicaldoctor.core.Permission;
 @SuppressWarnings("PersistenceUnitPresent")
 public class UserType extends AbstractEntity {
 
-    public static final UserType ADMIN = new UserType("Network Admin", true);
-    public static final UserType EXECUTIVE = new UserType("Executive", true);
-    public static final UserType STAFF = new UserType("Staff", false);
-    public static final UserType NURSE = new UserType("Nurse", false);
-    public static final UserType DOCTOR = new UserType("Doctor", false);
-    public static final UserType RADIOLOGIC_LAB_WORKER = new UserType("Radiologic Lab Worker", false);
-    public static final UserType HEMATOLOGIC_LAB_WORKER = new UserType("Hematologic Lab Worker", false);
+    public static final UserType ADMIN = new UserType("Network Admin", true, LookUp.ADMIN_DASHBOARD);
+    public static final UserType EXECUTIVE = new UserType("Executive", true, LookUp.ADMIN_DASHBOARD);
+    public static final UserType STAFF = new UserType("Staff", false, LookUp.STAFF_DASHBOARD);
+    public static final UserType NURSE = new UserType("Nurse", false, LookUp.NURSE_DASHBOARD);
+    public static final UserType DOCTOR = new UserType("Doctor", false, LookUp.DOCTOR_DASHBOARD);
+    public static final UserType RADIOLOGIC_LAB_WORKER = new UserType("Radiologic Lab Worker", false, LookUp.LAB_WORKER);
+    public static final UserType HEMATOLOGIC_LAB_WORKER = new UserType("Hematologic Lab Worker", false, LookUp.LAB_WORKER);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,9 +40,12 @@ public class UserType extends AbstractEntity {
     @Column(name = "Name", nullable = false, length = 50, unique = true)
     private String name;
 
+    @Column(name = "dashboardName", nullable = false, length = 50)
+    private String dashboardName;
+    
     @Column(name = "HasAdditionalPassword", nullable = false)
     private boolean hasAdditionalPassword;
-
+    
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "UserTypeId", nullable = false)
     private List<UserTypePermission> permissions = new LinkedList<>();
@@ -50,9 +54,10 @@ public class UserType extends AbstractEntity {
         // hibernate
     }
 
-    public UserType(String name, boolean hasAdditionalPassword) {
+    public UserType(String name, boolean hasAdditionalPassword, String dashboardName) {
         this.name = name;
         this.hasAdditionalPassword = hasAdditionalPassword;
+        this.dashboardName = dashboardName;
     }
 
     public Integer getId() {
@@ -103,6 +108,10 @@ public class UserType extends AbstractEntity {
             return false;
         }
         return true;
+    }
+    
+    public String getDashboardName(){
+        return this.dashboardName;
     }
 
 }

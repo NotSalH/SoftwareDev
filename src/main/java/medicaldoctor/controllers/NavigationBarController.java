@@ -1,12 +1,16 @@
-package medicaldoctor;
+package medicaldoctor.controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.Permission;
 
-public class NavigationBarController {
-
+public class NavigationBarController implements Initializable, ParentController{
+    
     @FXML
     private Button buttonMRI;
 
@@ -66,9 +70,120 @@ public class NavigationBarController {
 
     @FXML
     private Button buttonLiverFunction;
-
+    
     @FXML
-    public void initialize() {
+    void patientRegistration(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void patientLookup(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void doctorLookup(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void userLookup(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void myPatients(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void myLabRequests(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void registerNewUser(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void labRequests(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void log(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void labPatients(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void redBloodCell(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void whiteBloodCell(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void liverFunctions(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void renalFuctions(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void electrolyteTest(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void urinaryTest(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void stoolTest(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void xRay(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void ct(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void mri(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void logout(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.LOG_OUT);
+        AppSession.cm.showScreen(LookUp.LOG_OUT);
+    }
+    
+    @FXML
+    void profile(ActionEvent event){
+        
+    }
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         buttonMustHaveThisPermission(buttonPatientRegistration, Permission.REGISTER_PATIENT);
         buttonMustHaveThisPermission(buttonPatientLookup, Permission.ACCESS_PATIENT_LOOKUP);
         buttonMustHaveThisPermission(buttonDoctorLookup, Permission.ACCESS_DOCTOR_LOOKUP);
@@ -95,5 +210,10 @@ public class NavigationBarController {
             button.setManaged(false);
         }
     }
-
+    
+    @Override
+    public void setScreenParent(ControllerManager page) {
+        AppSession.cm = page;
+    }
+    
 }
