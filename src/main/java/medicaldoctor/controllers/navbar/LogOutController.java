@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package medicaldoctor.controllers;
+package medicaldoctor.controllers.navbar;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import medicaldoctor.controllers.ControllerManager;
+import medicaldoctor.controllers.ParentController;
 import medicaldoctor.core.AppSession;
 
 public class LogOutController implements Initializable, ParentController{

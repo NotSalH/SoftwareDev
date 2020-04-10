@@ -1,4 +1,4 @@
-package medicaldoctor.controllers;
+package medicaldoctor.controllers.navbar;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -6,10 +6,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToolBar;
+import javafx.scene.layout.VBox;
+import medicaldoctor.controllers.ControllerManager;
+import medicaldoctor.controllers.LookUp;
+import medicaldoctor.controllers.ParentController;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.Permission;
 
 public class NavigationBarController implements Initializable, ParentController{
+    @FXML
+    private VBox vBox;
+    @FXML 
+    private ToolBar toolBar;
     
     @FXML
     private Button buttonMRI;
@@ -72,103 +81,123 @@ public class NavigationBarController implements Initializable, ParentController{
     private Button buttonLiverFunction;
     
     @FXML
-    void patientRegistration(ActionEvent event){
-        
+    void patientRegistration(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.PATIENT_REGISTRATION);
+        AppSession.cm.showScreen(LookUp.PATIENT_REGISTRATION);
     }
     
     @FXML
-    void patientLookup(ActionEvent event){
-        
+    void patientLookup(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.PATIENT_LOOKUP);
+        AppSession.cm.showScreen(LookUp.PATIENT_REGISTRATION); 
     }
     
     @FXML
-    void doctorLookup(ActionEvent event){
-        
+    void doctorLookup(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.DOCTOR_LOOKUP);
+        AppSession.cm.showScreen(LookUp.DOCTOR_LOOKUP); 
     }
     
     @FXML
-    void userLookup(ActionEvent event){
-        
+    void userLookup(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.USER_LOOKUP);
+        AppSession.cm.showScreen(LookUp.USER_LOOKUP);
     }
     
     @FXML
-    void myPatients(ActionEvent event){
-        
+    void myPatients(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.MY_PATIENT);
+        AppSession.cm.showScreen(LookUp.MY_PATIENT);
     }
     
     @FXML
-    void myLabRequests(ActionEvent event){
-        
+    void myLabRequests(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.MY_LAB_REQUESTS);
+        AppSession.cm.showScreen(LookUp.MY_LAB_REQUESTS); 
     }
     
     @FXML
-    void registerNewUser(ActionEvent event){
-        
+    void registerNewUser(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.REGISTER_NEW_USER);
+        AppSession.cm.showScreen(LookUp.REGISTER_NEW_USER);
     }
     
     @FXML
-    void labRequests(ActionEvent event){
-        
+    void labRequests(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.LAB_REQUESTS);
+        AppSession.cm.showScreen(LookUp.LAB_REQUESTS);
     }
     
     @FXML
-    void log(ActionEvent event){
-        
+    void log(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.LOG);
+        AppSession.cm.showScreen(LookUp.LOG);
     }
     
     @FXML
-    void labPatients(ActionEvent event){
-        
+    void labPatients(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.LAB_PATIENT);
+        AppSession.cm.showScreen(LookUp.LAB_PATIENT);
     }
     
     @FXML
-    void redBloodCell(ActionEvent event){
-        
+    void redBloodCell(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.RED_BLOOD_CELLS);
+        AppSession.cm.showScreen(LookUp.RED_BLOOD_CELLS);
     }
     
     @FXML
-    void whiteBloodCell(ActionEvent event){
-        
+    void whiteBloodCell(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.WHITE_BLOOD_CELLS);
+        AppSession.cm.showScreen(LookUp.WHITE_BLOOD_CELLS);
     }
     
     @FXML
-    void liverFunctions(ActionEvent event){
-        
+    void liverFunctions(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.LIVER_FUNCTIONS);
+        AppSession.cm.showScreen(LookUp.LIVER_FUNCTIONS);
     }
     
     @FXML
-    void renalFuctions(ActionEvent event){
-        
+    void renalFuctions(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.RENAL_FUNCTIONS);
+        AppSession.cm.showScreen(LookUp.RENAL_FUNCTIONS);
     }
     
     @FXML
-    void electrolyteTest(ActionEvent event){
-        
+    void electrolyteTest(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.ELECTROLYTE_TEST);
+        AppSession.cm.showScreen(LookUp.ELECTROLYTE_TEST);
     }
     
     @FXML
-    void urinaryTest(ActionEvent event){
-        
+    void urinaryTest(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.URINARY_TEST);
+        AppSession.cm.showScreen(LookUp.URINARY_TEST);
     }
     
     @FXML
-    void stoolTest(ActionEvent event){
-        
+    void stoolTest(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.STOOL_TEST);
+        AppSession.cm.showScreen(LookUp.STOOL_TEST);
     }
     
     @FXML
-    void xRay(ActionEvent event){
-        
+    void xRay(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.X_RAY);
+        AppSession.cm.showScreen(LookUp.X_RAY);
     }
     
     @FXML
-    void ct(ActionEvent event){
-        
+    void ct(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.CT);
+        AppSession.cm.showScreen(LookUp.CT); 
     }
     
     @FXML
-    void mri(ActionEvent event){
-        
+    void mri(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.MRI);
+        AppSession.cm.showScreen(LookUp.MRI);
     }
     
     @FXML
@@ -178,8 +207,9 @@ public class NavigationBarController implements Initializable, ParentController{
     }
     
     @FXML
-    void profile(ActionEvent event){
-        
+    void profile(ActionEvent event) throws Exception{
+        AppSession.cm.load(LookUp.PROFILE);
+        AppSession.cm.showScreen(LookUp.PROFILE); 
     }
     
     @Override
