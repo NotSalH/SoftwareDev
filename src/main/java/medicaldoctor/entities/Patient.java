@@ -236,4 +236,10 @@ public class Patient extends AbstractEntity {
         return q.uniqueResult();
     }
 
+    public static List<Patient> getAll() {
+        Query<Patient> q = DatabaseScope._getSession()
+                .createQuery("FROM Patient", Patient.class);
+        return q.list();
+    }
+
 }

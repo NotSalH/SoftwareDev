@@ -175,4 +175,17 @@ public class User extends AbstractEntity {
         return q.uniqueResult();
     }
 
+    public static List<User> getAll() {
+        Query<User> q = DatabaseScope._getSession()
+                .createQuery("FROM User", User.class);
+        return q.list();
+    }
+
+    public static List<User> getAllByType(UserType type) {
+        Query<User> q = DatabaseScope._getSession()
+                .createQuery("FROM User WHERE UserTypeId = :usertype", User.class);
+        q.setParameter("usertype", type.getId());
+        return q.list();
+    }
+
 }
