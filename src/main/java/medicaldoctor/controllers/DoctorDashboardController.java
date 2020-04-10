@@ -30,7 +30,6 @@ public class DoctorDashboardController implements Initializable, ParentControlle
         table.getColumns().addAll(name,doctor,date);
     }  
    
-
     @Override
     public void setScreenParent(ControllerManager page) {
         cm = page;

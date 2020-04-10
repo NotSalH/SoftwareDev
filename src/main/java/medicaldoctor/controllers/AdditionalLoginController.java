@@ -48,7 +48,7 @@ public class AdditionalLoginController implements Initializable, ParentControlle
     }
 
     @Override
-    public void setScreenParent(ControllerManager page) {
+    public void setScreenParent(ControllerManager page){
         cm = page;
     }
     
