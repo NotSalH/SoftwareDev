@@ -10,10 +10,9 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import medicaldoctor.core.AppSession;
 
 public class LogOutController implements Initializable, ParentController{
-    
-    ControllerManager cm;
     
     @FXML
     void exitButtonClicked(ActionEvent event){
@@ -32,7 +31,7 @@ public class LogOutController implements Initializable, ParentController{
 
     @Override
     public void setScreenParent(ControllerManager page) {
-        cm = page;
+        AppSession.cm = page;
     }
     
 }

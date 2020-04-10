@@ -8,11 +8,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.DoctorTable;
 
 public class DoctorDashboardController implements Initializable, ParentController{
-    
-    ControllerManager cm;
     
     @FXML
     private TableView<DoctorTable> table;
@@ -32,7 +31,7 @@ public class DoctorDashboardController implements Initializable, ParentControlle
    
     @Override
     public void setScreenParent(ControllerManager page) {
-        cm = page;
+        AppSession.cm = page;
     }
     
 }

@@ -12,11 +12,8 @@ import javafx.scene.control.TextField;
 import medicaldoctor.backend.data.LoginResult;
 import medicaldoctor.backend.LoginService;
 import medicaldoctor.core.AppSession;
-import medicaldoctor.entities.UserType;
 
 public class LoginController implements Initializable, ParentController{
-    
-    ControllerManager cm;
     
     @FXML
     private TextField textUsername;
@@ -38,30 +35,12 @@ public class LoginController implements Initializable, ParentController{
         
         if (result == LoginResult.SUCCESS) {
             if(AppSession.getActiveUser().hasAdditionalPassword()){
-                cm.load(LookUp.LOGIN_SECOND_SCREEN);
-                cm.showScreen(LookUp.LOGIN_SECOND_SCREEN);
+                AppSession.cm.load(LookUp.LOGIN_SECOND_SCREEN);
+                AppSession.cm.showScreen(LookUp.LOGIN_SECOND_SCREEN);
             }
             else{
-                if(AppSession.getActiveUser().getType().equals(UserType.DOCTOR)){
-                    cm.load(LookUp.DOCTOR_DASHBOARD);
-                    cm.showScreen(LookUp.DOCTOR_DASHBOARD);
-                }
-                else if(AppSession.getActiveUser().getType().equals(UserType.NURSE)){
-                    cm.load(LookUp.NURSE_DASHBOARD);
-                    cm.showScreen(LookUp.NURSE_DASHBOARD);
-                }
-                else if(AppSession.getActiveUser().getType().equals(UserType.HEMATOLOGIC_LAB_WORKER)){
-                    cm.load(LookUp.LAB_WORKER);
-                    cm.showScreen(LookUp.LAB_WORKER);
-                }
-                else if(AppSession.getActiveUser().getType().equals(UserType.RADIOLOGIC_LAB_WORKER)){
-                    cm.load(LookUp.LAB_WORKER);
-                    cm.showScreen(LookUp.LAB_WORKER);
-                }
-                else if(AppSession.getActiveUser().getType().equals(UserType.STAFF)){  
-                    cm.load(LookUp.STAFF_DASHBOARD);
-                    cm.showScreen(LookUp.STAFF_DASHBOARD);
-                }
+                AppSession.cm.load(AppSession.getActiveUser().getType().getDashboardName());
+                AppSession.cm.showScreen(AppSession.getActiveUser().getType().getDashboardName());
             }
         }
         
@@ -86,7 +65,7 @@ public class LoginController implements Initializable, ParentController{
 
     @Override
     public void setScreenParent(ControllerManager page) {
-        cm = page;
+        AppSession.cm = page;
     }
     
 }

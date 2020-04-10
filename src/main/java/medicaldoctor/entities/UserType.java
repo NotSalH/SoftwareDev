@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import medicaldoctor.controllers.LookUp;
 import medicaldoctor.core.Permission;
 
 @Entity
@@ -103,6 +104,26 @@ public class UserType extends AbstractEntity {
             return false;
         }
         return true;
+    }
+    
+    public String getDashboardName(){
+        if(this.equals(UserType.DOCTOR)){
+            return LookUp.DOCTOR_DASHBOARD;
+        }
+        else if(this.equals(UserType.NURSE)){
+            return LookUp.NURSE_DASHBOARD;
+        }
+        else if(this.equals(UserType.HEMATOLOGIC_LAB_WORKER)){
+            return LookUp.LAB_WORKER;
+        }
+        else if(this.equals(UserType.RADIOLOGIC_LAB_WORKER)){
+            return LookUp.LAB_WORKER;
+        }
+        else if(this.equals(UserType.STAFF)){
+            return LookUp.STAFF_DASHBOARD;
+        }
+        else 
+            return LookUp.LOGIN_SCREEN;
     }
 
 }

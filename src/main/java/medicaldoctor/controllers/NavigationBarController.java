@@ -11,8 +11,6 @@ import medicaldoctor.core.Permission;
 
 public class NavigationBarController implements Initializable, ParentController{
     
-    ControllerManager cm;
-    
     @FXML
     private Button buttonMRI;
 
@@ -175,8 +173,8 @@ public class NavigationBarController implements Initializable, ParentController{
     
     @FXML
     void logout(ActionEvent event) throws Exception{
-        cm.load(LookUp.LOG_OUT);
-        cm.showScreen(LookUp.LOG_OUT);
+        AppSession.cm.load(LookUp.LOG_OUT);
+        AppSession.cm.showScreen(LookUp.LOG_OUT);
     }
     
     @FXML
@@ -215,7 +213,7 @@ public class NavigationBarController implements Initializable, ParentController{
     
     @Override
     public void setScreenParent(ControllerManager page) {
-        cm = page;
+        AppSession.cm = page;
     }
     
 }

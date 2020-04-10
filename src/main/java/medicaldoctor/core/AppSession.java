@@ -1,6 +1,7 @@
 package medicaldoctor.core;
 
 import java.time.LocalDateTime;
+import medicaldoctor.controllers.ControllerManager;
 import medicaldoctor.entities.LogRecord;
 import medicaldoctor.entities.User;
 import medicaldoctor.util.Encryption;
@@ -21,14 +22,15 @@ public final class AppSession {
     public static Encryption ENCRYPTION = new Encryption();
 
     private static User activeUser;
-
+    public static ControllerManager cm;
+    
     public static User getActiveUser() {
         if (activeUser == null) {
             throw new IllegalStateException("User is not logged on");
         }
         return activeUser;
     }
-
+    
     public static void setActiveUser(User user) {
         activeUser = user;
     }

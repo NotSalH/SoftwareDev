@@ -14,9 +14,7 @@ import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.UserType;
 
 public class AdditionalLoginController implements Initializable, ParentController{
-    
-    ControllerManager cm;
-    
+
     @FXML
     private Button loginButton;
     @FXML
@@ -29,12 +27,12 @@ public class AdditionalLoginController implements Initializable, ParentControlle
         LoginResult result = LoginService.checkAdditionalPassword(password.getText());
         if(result == LoginResult.SUCCESS){
             if(AppSession.getActiveUser().getType().equals(UserType.ADMIN)){
-                cm.load(LookUp.ADMIN_DASHBOARD);
-                cm.showScreen(LookUp.ADMIN_DASHBOARD);
+                AppSession.cm.load(LookUp.ADMIN_DASHBOARD);
+                AppSession.cm.showScreen(LookUp.ADMIN_DASHBOARD);
             }
             else if(AppSession.getActiveUser().getType().equals(UserType.EXECUTIVE)){
-                cm.load(LookUp.ADMIN_DASHBOARD);
-                cm.showScreen(LookUp.ADMIN_DASHBOARD);
+                AppSession.cm.load(LookUp.ADMIN_DASHBOARD);
+                AppSession.cm.showScreen(LookUp.ADMIN_DASHBOARD);
             }
         }
         else{
@@ -49,7 +47,7 @@ public class AdditionalLoginController implements Initializable, ParentControlle
 
     @Override
     public void setScreenParent(ControllerManager page){
-        cm = page;
+        AppSession.cm = page;
     }
     
 }

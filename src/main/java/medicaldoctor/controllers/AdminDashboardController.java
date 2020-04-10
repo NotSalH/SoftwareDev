@@ -3,10 +3,9 @@ package medicaldoctor.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import medicaldoctor.core.AppSession;
 
 public class AdminDashboardController implements Initializable, ParentController{
-    
-    ControllerManager cm;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -15,7 +14,7 @@ public class AdminDashboardController implements Initializable, ParentController
 
     @Override
     public void setScreenParent(ControllerManager page) {
-        cm = page;
+        AppSession.cm = page;
     }
     
 }
