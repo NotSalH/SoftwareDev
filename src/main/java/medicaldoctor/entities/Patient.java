@@ -18,5 +18,23 @@ public class Patient extends AbstractEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", nullable = false, unique = true)
     private Integer id;
+    
+    @Column(name = "FirstName", nullable = false, length = 100)
+    private String firstName;
+
+    @Column(name = "LastName", nullable = false, length = 100)
+    private String lastName;
+    
+    @Column(name = "Age", length = 100)
+    private Integer age;
+    
+    
+    public int getAge(){
+        return age;
+    }
+    
+    public String getName(){
+        return firstName + " " + lastName; 
+    }
 
 }

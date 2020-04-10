@@ -34,11 +34,11 @@
                     <Font size="16.0" />
                 </font>
             </Label>
-            <TableView prefHeight="247.0" prefWidth="371.0">
+            <TableView fx:id="table" prefHeight="247.0" prefWidth="371.0">
                <columns>
-                  <TableColumn fx:id="nameRecentlyRegisteredPatientsColumn" prefWidth="127.0" text="Name" />
-                  <TableColumn fx:id="doctorRecentlyRegisteredPatientsColumn" minWidth="0.0" prefWidth="161.0" text="Doctor" />
-                  <TableColumn fx:id="daterRecentlyRegisteredPatientsColumn" prefWidth="84.0" text="Date" />
+                  <TableColumn fx:id="name" prefWidth="127.0" text="Name" />
+                  <TableColumn fx:id="doctor" minWidth="0.0" prefWidth="161.0" text="Doctor" />
+                  <TableColumn fx:id="date" prefWidth="84.0" text="Date" />
                </columns>
             </TableView>
          </children>

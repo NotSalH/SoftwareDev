@@ -10,11 +10,12 @@ import javafx.stage.Stage;
 import medicaldoctor.core.DatabaseScope;
 
 public class Program extends Application {
+    
     @Override
     public void start(Stage stage) throws Exception {
         ControllerManager cm = new ControllerManager();
-        cm.load(LookUp.LOGIN_SCREEN_NAME, LookUp.LOGIN_SCREEN);
-        cm.showScreen(LookUp.LOGIN_SCREEN_NAME);
+        cm.load(LookUp.LOGIN_SCREEN);
+        cm.showScreen(LookUp.LOGIN_SCREEN);
         Group root = new Group();
         root.getChildren().addAll(cm);
         Scene scene = new Scene(root);

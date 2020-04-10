@@ -173,6 +173,16 @@ public class NavigationBarController implements Initializable, ParentController{
         
     }
     
+    @FXML
+    void logout(ActionEvent event){
+        
+    }
+    
+    @FXML
+    void profile(ActionEvent event){
+        
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         buttonMustHaveThisPermission(buttonPatientRegistration, Permission.REGISTER_PATIENT);

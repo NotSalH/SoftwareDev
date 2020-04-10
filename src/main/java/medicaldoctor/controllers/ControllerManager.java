@@ -19,12 +19,13 @@ public class ControllerManager extends StackPane{
         screen.put(screenName,node);
     }
     
-    public Node getScrene(String screenName){
+    public Node getScreen(String screenName){
         return screen.get(screenName);
     }
     
-    public void load(String name, String fxmlFile) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(fxmlFile));
+    public void load(String name) throws IOException{
+        String path = name+".fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(path));
         Parent parentLoader = (Parent) loader.load(); 
         ParentController pc = ((ParentController) loader.getController());
         pc.setScreenParent(this);
@@ -46,9 +47,4 @@ public class ControllerManager extends StackPane{
         }
     }
     
-    public void removeScreen(String name) throws Exception{
-        if(screen.remove(name) == null){
-           //Screen cannot be removed
-        }
-    }
 }

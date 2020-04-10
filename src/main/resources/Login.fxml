@@ -15,7 +15,7 @@
                   <HBox prefHeight="17.0" prefWidth="209.0" spacing="10.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="83.0" text="Username:" />
-                        <TextField fx:id="testUsername" />
+                        <TextField fx:id="textUsername" />
                      </children>
                   </HBox>
                   <HBox prefHeight="19.0" prefWidth="297.0" spacing="11.0">

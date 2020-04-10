@@ -37,34 +37,39 @@ public class LoginController implements Initializable, ParentController{
         
         if (result == LoginResult.SUCCESS) {
             if(AppSession.getActiveUser().hasAdditionalPassword()){
-                cm.load(LookUp.LOGIN_SECOND_SCREEN_NAME, LookUp.LOGIN_SECOND_SCREEN);
-                cm.showScreen(LookUp.LOGIN_SECOND_SCREEN_NAME);
+                cm.load(LookUp.LOGIN_SECOND_SCREEN);
+                cm.showScreen(LookUp.LOGIN_SECOND_SCREEN);
             }
             else{
                 if(AppSession.getActiveUser().getType().equals(UserType.DOCTOR)){
-                    cm.load(LookUp.DOCTOR_DASHBOARD_NAME, LookUp.DOCTOR_DASHBOARD);
-                    cm.showScreen(LookUp.DOCTOR_DASHBOARD_NAME);
+                    cm.load(LookUp.DOCTOR_DASHBOARD);
+                    cm.showScreen(LookUp.DOCTOR_DASHBOARD);
                 }
                 else if(AppSession.getActiveUser().getType().equals(UserType.NURSE)){
-                    cm.load(LookUp.NURSE_DASHBOARD_NAME, LookUp.NURSE_DASHBOARD);
-                    cm.showScreen(LookUp.NURSE_DASHBOARD_NAME);
+                    cm.load(LookUp.NURSE_DASHBOARD);
+                    cm.showScreen(LookUp.NURSE_DASHBOARD);
                 }
                 else if(AppSession.getActiveUser().getType().equals(UserType.HEMATOLOGIC_LAB_WORKER)){
-                    cm.load(LookUp.LAB_WORKER_NAME, LookUp.LAB_WORKER);
-                    cm.showScreen(LookUp.LAB_WORKER_NAME);
+                    cm.load(LookUp.LAB_WORKER);
+                    cm.showScreen(LookUp.LAB_WORKER);
                 }
                 else if(AppSession.getActiveUser().getType().equals(UserType.RADIOLOGIC_LAB_WORKER)){
-                    cm.load(LookUp.LAB_WORKER_NAME, LookUp.LAB_WORKER);
-                    cm.showScreen(LookUp.LAB_WORKER_NAME);
+                    cm.load(LookUp.LAB_WORKER);
+                    cm.showScreen(LookUp.LAB_WORKER);
                 }
                 else if(AppSession.getActiveUser().getType().equals(UserType.STAFF)){  
-                    cm.load(LookUp.STAFF_DASHBOARD_NAME, LookUp.STAFF_DASHBOARD);
-                    cm.showScreen(LookUp.STAFF_DASHBOARD_NAME);
+                    cm.load(LookUp.STAFF_DASHBOARD);
+                    cm.showScreen(LookUp.STAFF_DASHBOARD);
                 }
             }
         }
-        if (result == LoginResult.WRONG_USERNAME || result == LoginResult.WRONG_PASSWORD) {
-           i_label.setVisible(true);
+        if (result == LoginResult.WRONG_USERNAME) {
+            i_label.setText("Wrong Username!");
+            i_label.setVisible(true);
+        }
+        else{
+           i_label.setText("Wrong Password!");
+            i_label.setVisible(true); 
         }
     }
     
@@ -77,7 +82,5 @@ public class LoginController implements Initializable, ParentController{
     public void setScreenParent(ControllerManager page) {
         cm = page;
     }
-
     
-
 }

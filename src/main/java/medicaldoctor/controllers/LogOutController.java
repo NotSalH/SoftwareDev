@@ -11,10 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-/**
- *
- * @author Salmanhussain
- */
 public class LogOutController implements Initializable, ParentController{
     ControllerManager cm;
     
@@ -30,7 +26,7 @@ public class LogOutController implements Initializable, ParentController{
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override

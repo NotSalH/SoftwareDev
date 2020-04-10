@@ -13,11 +13,8 @@ import medicaldoctor.backend.data.LoginResult;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.UserType;
 
-/**
- *
- * @author Salmanhussain
- */
 public class AdditionalLoginController implements Initializable, ParentController{
+    
     ControllerManager cm;
     
     @FXML
@@ -32,18 +29,16 @@ public class AdditionalLoginController implements Initializable, ParentControlle
         LoginResult result = LoginService.checkAdditionalPassword(password.getText());
         if(result == LoginResult.SUCCESS){
             if(AppSession.getActiveUser().getType().equals(UserType.ADMIN)){
-                cm.load(LookUp.ADMIN_DASHBOARD_NAME, LookUp.ADMIN_DASHBOARD);
-                cm.showScreen(LookUp.ADMIN_DASHBOARD_NAME);
+                cm.load(LookUp.ADMIN_DASHBOARD);
+                cm.showScreen(LookUp.ADMIN_DASHBOARD);
             }
             else if(AppSession.getActiveUser().getType().equals(UserType.EXECUTIVE)){
-                cm.load(LookUp.ADMIN_DASHBOARD_NAME, LookUp.ADMIN_DASHBOARD);
-                cm.showScreen(LookUp.ADMIN_DASHBOARD_NAME);
-            }
-            else{
-                //do nothing. IDK if this case will ever be reached. This is just in case. 
+                cm.load(LookUp.ADMIN_DASHBOARD);
+                cm.showScreen(LookUp.ADMIN_DASHBOARD);
             }
         }
         else{
+            i_label.setText("Wrong Password!");
             i_label.setVisible(true);
         }
     }
