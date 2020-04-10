@@ -37,6 +37,7 @@ public class AdditionalLoginController implements Initializable, ParentControlle
     
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        
     }
 
     @Override

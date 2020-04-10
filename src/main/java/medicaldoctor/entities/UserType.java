@@ -40,7 +40,7 @@ public class UserType extends AbstractEntity {
     @Column(name = "Name", nullable = false, length = 50, unique = true)
     private String name;
 
-    @Column(name = "dashboardName", nullable = false, length = 50, unique = true)
+    @Column(name = "dashboardName", nullable = false, length = 50, unique = false)
     private String dashboardName;
     
     @Column(name = "HasAdditionalPassword", nullable = false)
