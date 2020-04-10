@@ -10,7 +10,9 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
 public class LabWorkerDashboardController implements Initializable, ParentController{
+    
     ControllerManager cm;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         

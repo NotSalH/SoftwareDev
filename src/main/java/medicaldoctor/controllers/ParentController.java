@@ -5,10 +5,9 @@
  */
 package medicaldoctor.controllers;
 
-/**
- *
- * @author Salmanhussain
- */
 public interface ParentController {
+    
     public void setScreenParent(ControllerManager page);
+    
 }
+

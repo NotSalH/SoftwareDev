@@ -10,11 +10,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import medicaldoctor.entities.DoctorTable;
 
-/**
- *
- * @author Salmanhussain
- */
 public class DoctorDashboardController implements Initializable, ParentController{
+    
     ControllerManager cm;
     
     @FXML
@@ -38,4 +35,5 @@ public class DoctorDashboardController implements Initializable, ParentControlle
     public void setScreenParent(ControllerManager page) {
         cm = page;
     }
+    
 }

@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
 public class NurseDashboardController implements Initializable, ParentController{
+    
     ControllerManager cm;
     
     @Override

@@ -12,11 +12,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class LogOutController implements Initializable, ParentController{
+    
     ControllerManager cm;
     
     @FXML
     void exitButtonClicked(ActionEvent event){
-        
+        //Secure Logout
     }
     
     @FXML

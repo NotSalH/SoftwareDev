@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
 public class AdminDashboardController implements Initializable, ParentController{
+    
     ControllerManager cm;
     
     @Override
@@ -16,6 +17,5 @@ public class AdminDashboardController implements Initializable, ParentController
     public void setScreenParent(ControllerManager page) {
         cm = page;
     }
-
-   
+    
 }

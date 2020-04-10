@@ -15,6 +15,7 @@ import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.UserType;
 
 public class LoginController implements Initializable, ParentController{
+    
     ControllerManager cm;
     
     @FXML
@@ -63,13 +64,18 @@ public class LoginController implements Initializable, ParentController{
                 }
             }
         }
+        
         if (result == LoginResult.WRONG_USERNAME) {
             i_label.setText("Wrong Username!");
             i_label.setVisible(true);
         }
-        else{
-           i_label.setText("Wrong Password!");
+        else if(result == LoginResult.WRONG_PASSWORD){
+            i_label.setText("Wrong Password!");
             i_label.setVisible(true); 
+        }
+        else{
+            i_label.setText("Wrong Password and Username!");
+            i_label.setVisible(true);  
         }
     }
     

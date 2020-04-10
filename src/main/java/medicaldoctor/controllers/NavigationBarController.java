@@ -174,8 +174,9 @@ public class NavigationBarController implements Initializable, ParentController{
     }
     
     @FXML
-    void logout(ActionEvent event){
-        
+    void logout(ActionEvent event) throws Exception{
+        cm.load(LookUp.LOG_OUT);
+        cm.showScreen(LookUp.LOG_OUT);
     }
     
     @FXML
@@ -216,6 +217,5 @@ public class NavigationBarController implements Initializable, ParentController{
     public void setScreenParent(ControllerManager page) {
         cm = page;
     }
-
-
+    
 }

@@ -9,11 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
-/**
- *
- * @author Salmanhussain
- */
 public class StaffDashboardController implements Initializable, ParentController{
+    
     ControllerManager cm;
 
     @Override

@@ -9,6 +9,7 @@ import javafx.scene.layout.StackPane;
 
 
 public class ControllerManager extends StackPane{
+    
     private HashMap<String, Node> screen = new HashMap<>();
   
     public ControllerManager(){
@@ -46,5 +47,5 @@ public class ControllerManager extends StackPane{
             //File has not been loaded
         }
     }
-    
+   
 }
