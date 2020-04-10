@@ -18,13 +18,4 @@ public class DoctorTable {
         this.user = user;
     }
     
-    public String getPatientName(){
-        return patient.getName();
-    }
-    
-    public String getDoctorName(){
-        return user.getFirstName() + " " + user.getLastName();
-    }
-    
-    
 }
