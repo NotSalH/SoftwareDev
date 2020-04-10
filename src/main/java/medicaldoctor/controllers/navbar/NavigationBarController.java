@@ -82,134 +82,134 @@ public class NavigationBarController implements Initializable, ParentController{
     
     @FXML
     void patientRegistration(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.PATIENT_REGISTRATION);
-        AppSession.cm.showScreen(LookUp.PATIENT_REGISTRATION);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.PATIENT_REGISTRATION);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.PATIENT_REGISTRATION);
     }
     
     @FXML
     void patientLookup(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.PATIENT_LOOKUP);
-        AppSession.cm.showScreen(LookUp.PATIENT_REGISTRATION); 
+        AppSession.CONTROLLER_MANAGER.load(LookUp.PATIENT_LOOKUP);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.PATIENT_REGISTRATION); 
     }
     
     @FXML
     void doctorLookup(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.DOCTOR_LOOKUP);
-        AppSession.cm.showScreen(LookUp.DOCTOR_LOOKUP); 
+        AppSession.CONTROLLER_MANAGER.load(LookUp.DOCTOR_LOOKUP);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.DOCTOR_LOOKUP); 
     }
     
     @FXML
     void userLookup(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.USER_LOOKUP);
-        AppSession.cm.showScreen(LookUp.USER_LOOKUP);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.USER_LOOKUP);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.USER_LOOKUP);
     }
     
     @FXML
     void myPatients(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.MY_PATIENT);
-        AppSession.cm.showScreen(LookUp.MY_PATIENT);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.MY_PATIENT);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.MY_PATIENT);
     }
     
     @FXML
     void myLabRequests(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.MY_LAB_REQUESTS);
-        AppSession.cm.showScreen(LookUp.MY_LAB_REQUESTS); 
+        AppSession.CONTROLLER_MANAGER.load(LookUp.MY_LAB_REQUESTS);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.MY_LAB_REQUESTS); 
     }
     
     @FXML
     void registerNewUser(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.REGISTER_NEW_USER);
-        AppSession.cm.showScreen(LookUp.REGISTER_NEW_USER);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.REGISTER_NEW_USER);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.REGISTER_NEW_USER);
     }
     
     @FXML
     void labRequests(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.LAB_REQUESTS);
-        AppSession.cm.showScreen(LookUp.LAB_REQUESTS);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.LAB_REQUESTS);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LAB_REQUESTS);
     }
     
     @FXML
     void log(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.LOG);
-        AppSession.cm.showScreen(LookUp.LOG);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.LOG);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LOG);
     }
     
     @FXML
     void labPatients(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.LAB_PATIENT);
-        AppSession.cm.showScreen(LookUp.LAB_PATIENT);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.LAB_PATIENT);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LAB_PATIENT);
     }
     
     @FXML
     void redBloodCell(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.RED_BLOOD_CELLS);
-        AppSession.cm.showScreen(LookUp.RED_BLOOD_CELLS);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.RED_BLOOD_CELLS);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.RED_BLOOD_CELLS);
     }
     
     @FXML
     void whiteBloodCell(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.WHITE_BLOOD_CELLS);
-        AppSession.cm.showScreen(LookUp.WHITE_BLOOD_CELLS);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.WHITE_BLOOD_CELLS);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.WHITE_BLOOD_CELLS);
     }
     
     @FXML
     void liverFunctions(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.LIVER_FUNCTIONS);
-        AppSession.cm.showScreen(LookUp.LIVER_FUNCTIONS);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.LIVER_FUNCTIONS);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LIVER_FUNCTIONS);
     }
     
     @FXML
     void renalFuctions(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.RENAL_FUNCTIONS);
-        AppSession.cm.showScreen(LookUp.RENAL_FUNCTIONS);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.RENAL_FUNCTIONS);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.RENAL_FUNCTIONS);
     }
     
     @FXML
     void electrolyteTest(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.ELECTROLYTE_TEST);
-        AppSession.cm.showScreen(LookUp.ELECTROLYTE_TEST);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.ELECTROLYTE_TEST);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.ELECTROLYTE_TEST);
     }
     
     @FXML
     void urinaryTest(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.URINARY_TEST);
-        AppSession.cm.showScreen(LookUp.URINARY_TEST);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.URINARY_TEST);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.URINARY_TEST);
     }
     
     @FXML
     void stoolTest(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.STOOL_TEST);
-        AppSession.cm.showScreen(LookUp.STOOL_TEST);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.STOOL_TEST);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.STOOL_TEST);
     }
     
     @FXML
     void xRay(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.X_RAY);
-        AppSession.cm.showScreen(LookUp.X_RAY);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.X_RAY);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.X_RAY);
     }
     
     @FXML
     void ct(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.CT);
-        AppSession.cm.showScreen(LookUp.CT); 
+        AppSession.CONTROLLER_MANAGER.load(LookUp.CT);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.CT); 
     }
     
     @FXML
     void mri(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.MRI);
-        AppSession.cm.showScreen(LookUp.MRI);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.MRI);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.MRI);
     }
     
     @FXML
     void logout(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.LOG_OUT);
-        AppSession.cm.showScreen(LookUp.LOG_OUT);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.LOG_OUT);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LOG_OUT);
     }
     
     @FXML
     void profile(ActionEvent event) throws Exception{
-        AppSession.cm.load(LookUp.PROFILE);
-        AppSession.cm.showScreen(LookUp.PROFILE); 
+        AppSession.CONTROLLER_MANAGER.load(LookUp.PROFILE);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.PROFILE); 
     }
     
     @Override
@@ -243,7 +243,7 @@ public class NavigationBarController implements Initializable, ParentController{
     
     @Override
     public void setScreenParent(ControllerManager page) {
-        AppSession.cm = page;
+        AppSession.CONTROLLER_MANAGER = page;
     }
     
 }

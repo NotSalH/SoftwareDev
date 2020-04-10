@@ -9,10 +9,10 @@
       <Label layoutX="37.0" layoutY="37.0" text="Profile" />
       <Label layoutX="96.0" layoutY="129.0" text="Username:" />
       <TextField fx:id="username_tf" disable="true" editable="false" layoutX="96.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
-      <TextField fx:id="first_name_tf" layoutX="346.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
+      <TextField fx:id="first_name_tf" disable="true" editable="false" layoutX="346.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
       <Label layoutX="346.0" layoutY="129.0" text="First Name:" />
       <Label layoutX="596.0" layoutY="129.0" text="Last Name:" />
-      <TextField fx:id="last_name_tf" layoutX="596.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
+      <TextField fx:id="last_name_tf" disable="true" editable="false" layoutX="596.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
       <Label layoutX="846.0" layoutY="129.0" text="Sex:" />
       <TextField fx:id="employee_id_t" disable="true" editable="false" layoutX="96.0" layoutY="280.0" prefHeight="57.0" prefWidth="486.0" />
       <Label layoutX="96.0" layoutY="239.0" text="Employee ID:" />
@@ -21,14 +21,14 @@
       <Label layoutX="96.0" layoutY="399.0" text="Email" />
       <TextField fx:id="email_tf" disable="true" editable="false" layoutX="96.0" layoutY="440.0" prefHeight="57.0" prefWidth="486.0" />
       <Label layoutX="846.0" layoutY="399.0" text="Office #:" />
-      <TextField fx:id="office_tf" layoutX="846.0" layoutY="440.0" prefHeight="57.0" prefWidth="237.0" />
-      <TextField fx:id="phone_tf" layoutX="596.0" layoutY="440.0" prefHeight="57.0" prefWidth="237.0" />
+      <TextField fx:id="office_tf" disable="true" editable="false" layoutX="846.0" layoutY="440.0" prefHeight="57.0" prefWidth="237.0" />
+      <TextField fx:id="phone_tf" disable="true" editable="false" layoutX="596.0" layoutY="440.0" prefHeight="57.0" prefWidth="237.0" />
       <Label layoutX="596.0" layoutY="399.0" text="Phone #:" />
-      <ChoiceBox fx:id="sex_cb" layoutX="846.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
       <Button fx:id="employee_id_tf" layoutX="837.0" layoutY="563.0" mnemonicParsing="false" text="Change Password" />
-      <ChoiceBox fx:id="employee_type_cb" layoutX="596.0" layoutY="280.0" prefHeight="57.0" prefWidth="237.0" />
       <Button fx:id="new_user_id" layoutX="858.0" layoutY="280.0" mnemonicParsing="false" onAction="#new_user" text="Create new User" />
       <Button fx:id="conformation" layoutX="858.0" layoutY="316.0" mnemonicParsing="false" onAction="#confirm_user" text="Confirm?" visible="false" />
       <Label fx:id="no_field" layoutX="992.0" layoutY="285.0" text="Please Fill out all Feilds!" textFill="RED" visible="false" />
+      <TextField fx:id="sex_tf" disable="true" editable="false" layoutX="846.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
+      <TextField fx:id="employee_type_tf" disable="true" editable="false" layoutX="596.0" layoutY="279.0" prefHeight="57.0" prefWidth="237.0" />
    </children>
 </AnchorPane>

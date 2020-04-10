@@ -35,12 +35,16 @@ public class LoginController implements Initializable, ParentController{
         
         if (result == LoginResult.SUCCESS) {
             if(AppSession.getActiveUser().hasAdditionalPassword()){
-                AppSession.cm.load(LookUp.LOGIN_SECOND_SCREEN);
-                AppSession.cm.showScreen(LookUp.LOGIN_SECOND_SCREEN);
+                textUsername.setText("");
+                textPassword.setText("");
+                AppSession.CONTROLLER_MANAGER.load(LookUp.LOGIN_SECOND_SCREEN);
+                AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LOGIN_SECOND_SCREEN);
             }
             else{
-                AppSession.cm.load(AppSession.getActiveUser().getType().getDashboardName());
-                AppSession.cm.showScreen(AppSession.getActiveUser().getType().getDashboardName());
+                textUsername.setText("");
+                textPassword.setText("");
+                AppSession.CONTROLLER_MANAGER.load(AppSession.getActiveUser().getType().getDashboardName());
+                AppSession.CONTROLLER_MANAGER.showScreen(AppSession.getActiveUser().getType().getDashboardName());
             }
         }
         
@@ -65,7 +69,7 @@ public class LoginController implements Initializable, ParentController{
 
     @Override
     public void setScreenParent(ControllerManager page) {
-        AppSession.cm = page;
+        AppSession.CONTROLLER_MANAGER = page;
     }
     
 }

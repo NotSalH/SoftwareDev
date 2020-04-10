@@ -14,7 +14,7 @@ public class LabWorkerDashboardController implements Initializable, ParentContro
 
     @Override
     public void setScreenParent(ControllerManager page) {
-        AppSession.cm = page;
+        AppSession.CONTROLLER_MANAGER = page;
     }
     
 }

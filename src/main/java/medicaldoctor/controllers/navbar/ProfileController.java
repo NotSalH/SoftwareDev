@@ -2,7 +2,6 @@ package medicaldoctor.controllers.navbar;
 
 import medicaldoctor.entities.UserInformationGenerator;
 import java.net.URL;
-import java.util.HashSet;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,50 +13,27 @@ import javafx.scene.control.TextField;
 import medicaldoctor.controllers.ControllerManager;
 import medicaldoctor.controllers.ParentController;
 import medicaldoctor.core.AppSession;
-import static medicaldoctor.core.AppSession.ENCRYPTION;
-import medicaldoctor.entities.User;
+import medicaldoctor.core.Permission;
 
 public class ProfileController implements Initializable, ParentController{
     
     @FXML
-    TextField username_tf, first_name_tf, last_name_tf, employee_id_t, email_tf, phone_tf, office_tf;
-    
-    @FXML
-    ChoiceBox sex_cb, employee_type_cb;
+    TextField username_tf, first_name_tf, last_name_tf, employee_id_t, email_tf, phone_tf, office_tf,employee_type_tf, sex_tf;
     
     @FXML
     Label no_field;
     
     @FXML
-    Button conformation;
-    
-    UserInformationGenerator uig;
+    Button conformation, new_user_id, employee_id_tf;
     
     @FXML
     void new_user(ActionEvent event){
-        if(!(last_name_tf.getText().isEmpty() && first_name_tf.getText().isEmpty() && phone_tf.getText().isEmpty() && office_tf.getText().isEmpty())){
-            email_tf.setText(uig.getEmail(first_name_tf.getText(), last_name_tf.getText()));
-            username_tf.setText(uig.getEmail(first_name_tf.getText(), last_name_tf.getText()));
-            conformation.setVisible(true);
-        }
-        else{
-            no_field.setVisible(true);
-        }
+        
     }
     
     @FXML
     void confirm_user(ActionEvent event){
-        User user;
-        user = new User();
-        user.setFirstName(first_name_tf.getText());
-        user.setLastName(last_name_tf.getText());
-        user.setUserName(username_tf.getText());
-        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword(uig.genPass()));
-        user.setType(uig.getType((String)employee_type_cb.getValue()));
-        user.setDepartment("IDK");
-        user.setOfficeNum(Integer.parseInt(office_tf.getText()));
-        user.save();
-        //Transistion to another page
+        
     }
     
     @FXML
@@ -67,20 +43,27 @@ public class ProfileController implements Initializable, ParentController{
     
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        sex_cb.getItems().add("M");
-        sex_cb.getItems().add("F");
-        employee_type_cb.getItems().add("Doctor");
-        employee_type_cb.getItems().add("Admin");
-        employee_type_cb.getItems().add("Executive");
-        employee_type_cb.getItems().add("Nurse");
-        employee_type_cb.getItems().add("Staff");
-        employee_type_cb.getItems().add("LabWorker");
-        uig = new UserInformationGenerator();
+        buttonMustHaveThisPermission(conformation, Permission.REGISTER_NEW_USER);
+        buttonMustHaveThisPermission(new_user_id, Permission.REGISTER_NEW_USER);
+        buttonMustHaveThisPermission(employee_id_tf, Permission.REGISTER_NEW_USER);
+        first_name_tf.setText(AppSession.getActiveUser().getFirstName());
+        last_name_tf.setText(AppSession.getActiveUser().getLastName());
+        username_tf.setText(AppSession.getActiveUser().getUserName());
+        employee_id_t.setText(AppSession.getActiveUser().getId() + "");
+        phone_tf.setText(AppSession.getActiveUser().getOfficeNum() + "");
+        office_tf.setText(AppSession.getActiveUser().getDepartment());
+        employee_type_tf.setText(AppSession.getActiveUser().getType().getName());
     }
-
+    
+    private void buttonMustHaveThisPermission(Button button, Permission permission) {
+        if (AppSession.getActiveUser().hasPermission(permission) == false) {
+            button.setManaged(false);
+        }
+    }
+    
     @Override
     public void setScreenParent(ControllerManager page){
-        AppSession.cm = page;
+        AppSession.CONTROLLER_MANAGER = page;
     }
     
 }

@@ -39,6 +39,11 @@ public class DoctorDashboardController implements Initializable {
         data.addAll(patients);
         table.setItems(data);
         table.refresh();
+    }  
+   
+    @Override
+    public void setScreenParent(ControllerManager page) {
+        AppSession.CONTROLLER_MANAGER = page;
     }
 
 }

@@ -19,7 +19,7 @@ public class AdminDashboardController implements Initializable, ParentController
 
     @Override
     public void setScreenParent(ControllerManager page) {
-        AppSession.cm = page;
+        AppSession.CONTROLLER_MANAGER = page;
     }
 
 }

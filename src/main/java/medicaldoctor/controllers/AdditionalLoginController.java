@@ -11,7 +11,6 @@ import javafx.scene.control.PasswordField;
 import medicaldoctor.backend.LoginService;
 import medicaldoctor.backend.data.LoginResult;
 import medicaldoctor.core.AppSession;
-import medicaldoctor.entities.UserType;
 
 public class AdditionalLoginController implements Initializable, ParentController{
 
@@ -26,8 +25,8 @@ public class AdditionalLoginController implements Initializable, ParentControlle
     void loginButtonClicked(ActionEvent event) throws Exception{
         LoginResult result = LoginService.checkAdditionalPassword(password.getText());
         if(result == LoginResult.SUCCESS){
-            AppSession.cm.load(AppSession.getActiveUser().getType().getDashboardName());
-            AppSession.cm.showScreen(AppSession.getActiveUser().getType().getDashboardName());
+            AppSession.CONTROLLER_MANAGER.load(AppSession.getActiveUser().getType().getDashboardName());
+            AppSession.CONTROLLER_MANAGER.showScreen(AppSession.getActiveUser().getType().getDashboardName());
         }
         else{
             i_label.setText("Wrong Password!");
@@ -42,7 +41,7 @@ public class AdditionalLoginController implements Initializable, ParentControlle
 
     @Override
     public void setScreenParent(ControllerManager page){
-        AppSession.cm = page;
+        AppSession.CONTROLLER_MANAGER = page;
     }
     
 }

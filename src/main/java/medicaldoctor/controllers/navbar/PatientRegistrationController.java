@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
 import medicaldoctor.controllers.ControllerManager;
 import medicaldoctor.controllers.ParentController;
 
-public class patientRegistrationController implements Initializable, ParentController{
+public class PatientRegistrationController implements Initializable, ParentController{
     
     @FXML
     void selectButtonClick(ActionEvent event){

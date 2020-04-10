@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package medicaldoctor.controllers;
 
 import java.net.URL;
@@ -19,7 +14,7 @@ public class StaffDashboardController implements Initializable, ParentController
 
     @Override
     public void setScreenParent(ControllerManager page) {
-        AppSession.cm = page;
+        AppSession.CONTROLLER_MANAGER = page;
     }
     
 }
