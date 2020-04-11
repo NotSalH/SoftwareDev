@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package medicaldoctor.controllers;
 
 import java.net.URL;
@@ -14,9 +9,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
-import medicaldoctor.controllers.ControllerManager;
-import medicaldoctor.controllers.LookUp;
-import medicaldoctor.controllers.ParentController;
 import medicaldoctor.core.AppSession;
 
 public class PatientRegistrationController implements Initializable, ParentController{
