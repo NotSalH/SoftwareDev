@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import medicaldoctor.controllers.ControllerManager;
@@ -29,17 +30,17 @@ public class PatientRegistrationController implements Initializable, ParentContr
     @FXML
     TextField textMedicalInsurance, textBirthdate, textPrimaryDoctory;
     
-    /*@FXML
+    @FXML
     TextField textStreetMailingAddress, textCityMailingAddress;
     
     @FXML
     ChoiceBox stateMailingAddressChoiceBox, stateBillingAddressChoiceBox;
     
     @FXML
-    TextField zipCodeMailingAddressNumber, textStreetBillingAddress, textCityBillingAddress, zipCodeBillingAddressNumber;
+    TextField zipCodeMailingAddressNumber, textStreetBillingAddress, textCityBillingAddress, zipCodeBillingAddressNumber, textDoctor, textVisitDate;
     
     @FXML
-    TextField textDoctor, textVisitDate, textAreaChiefComplaint, textAreaPresentIllness;*/
+    TextArea textAreaChiefComplaint, textAreaPresentIllness;
     
     @FXML
     void submitButtonClick(ActionEvent event){
@@ -53,11 +54,10 @@ public class PatientRegistrationController implements Initializable, ParentContr
     
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        /*for(String i : LookUp.STATES){
+        for(String i : LookUp.STATES){
             stateMailingAddressChoiceBox.getItems().add(i);
             stateBillingAddressChoiceBox.getItems().add(i);
-            System.out.println(i);
-        }*/
+        }
     }
 
     @Override
