@@ -11,27 +11,26 @@ import javafx.scene.control.TableView;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.DoctorTable;
 
-public class DoctorDashboardController implements Initializable, ParentController{
-    
+public class DoctorDashboardController implements Initializable, ParentController {
+
     @FXML
     private TableView<DoctorTable> table;
-   
+
     @FXML
     private TableColumn<DoctorTable, String> name, doctor, date;
-    
-    private ObservableList<DoctorTable> list = FXCollections.observableArrayList(
-        //Ask Thomas about this
-        //new DoctorTable();
-    );
-    
+
+    private ObservableList<DoctorTable> list = FXCollections.observableArrayList( //Ask Thomas about this
+            //new DoctorTable();
+            );
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        table.getColumns().addAll(name,doctor,date);
-    }  
-   
+        table.getColumns().addAll(name, doctor, date);
+    }
+
     @Override
     public void setScreenParent(ControllerManager page) {
         AppSession.cm = page;
     }
-    
+
 }
