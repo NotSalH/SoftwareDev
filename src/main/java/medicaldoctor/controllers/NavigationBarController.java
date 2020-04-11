@@ -1,4 +1,4 @@
-package medicaldoctor.controllers.navbar;
+package medicaldoctor.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

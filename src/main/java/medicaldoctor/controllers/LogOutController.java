@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package medicaldoctor.controllers.navbar;
+package medicaldoctor.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,6 +26,7 @@ public class LogOutController implements Initializable, ParentController{
     @FXML
     void loginPageButtonClicked(ActionEvent event) throws Exception{
         AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LOGIN_SCREEN);
+        //This does not logout user in backend.
     }
     
     @Override

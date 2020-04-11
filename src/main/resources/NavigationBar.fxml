@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ToolBar fx:id="toolBar" prefHeight="160.0" prefWidth="1933.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.navbar.NavigationBarController">
+<ToolBar fx:id="toolBar" prefHeight="160.0" prefWidth="1933.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.NavigationBarController">
   <items>
       <ImageView fitHeight="149.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
          <image>

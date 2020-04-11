@@ -1,4 +1,4 @@
-package medicaldoctor.controllers.navbar;
+package medicaldoctor.controllers;
 
 import medicaldoctor.entities.UserInformationGenerator;
 import java.net.URL;
