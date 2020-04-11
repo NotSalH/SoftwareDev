@@ -4,6 +4,10 @@ CS460 Software Development: MedicalDoctor.
 ## Running & Testing Instructions
 
 1. Install Netbeans IDE and the [Gradle Plugin For Netbeans](http://plugins.netbeans.org/plugin/44510/gradle-support).
+    1. Download the plugin file, latest version should work.
+    2. In Netbeans, go "Tools" -> "Plugins" -> "Downloaded" -> "Add Plugins"
+    3. Choose the download file, and accept whatever pops up.
+    4. Click "Install".
 
 2. Download this repository.
 
