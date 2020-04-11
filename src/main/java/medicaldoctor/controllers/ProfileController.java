@@ -1,17 +1,13 @@
 package medicaldoctor.controllers;
 
-import medicaldoctor.entities.UserInformationGenerator;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import medicaldoctor.controllers.ControllerManager;
-import medicaldoctor.controllers.ParentController;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.Permission;
 
