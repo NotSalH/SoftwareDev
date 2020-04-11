@@ -6,6 +6,8 @@ import medicaldoctor.entities.LogRecord;
 import medicaldoctor.entities.Patient;
 import medicaldoctor.entities.PatientVisit;
 import medicaldoctor.entities.User;
+import medicaldoctor.util.EmailGenerator;
+import medicaldoctor.util.EmailNameGenerator;
 import medicaldoctor.util.Encryption;
 import medicaldoctor.util.FirstLetterLastNameUserNameGenerator;
 import medicaldoctor.util.PasswordGenerator;
@@ -23,7 +25,9 @@ public final class AppSession {
             = new FirstLetterLastNameUserNameGenerator();
     public static Encryption ENCRYPTION = new Encryption();
     public static ControllerManager CONTROLLER_MANAGER = ControllerManager();
-
+    public static EmailGenerator EMAIL_GENERATOR
+            = new EmailNameGenerator();
+    
     private static User activeUser;
     
     private static Patient currentPatient;

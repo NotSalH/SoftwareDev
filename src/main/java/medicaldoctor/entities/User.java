@@ -40,7 +40,7 @@ public class User extends AbstractEntity {
     @Column(name = "UserName", nullable = false, length = 50, unique = true)
     private String userName;
     
-    @Column(name = "Email", nullable = false, length = 50, unique = true)
+    @Column(name = "Email", nullable = false, length = 50)
     private String email;
     
     @Column(name = "PasswordHash", nullable = false, length = 128)
@@ -89,8 +89,12 @@ public class User extends AbstractEntity {
         this.lastName = lastName;
     }
     
-    public void setEmail(){
-        this.email = this.firstName.substring(0, 1) + this.lastName.substring(1, this.lastName.length());
+    public void setEmail(String email){
+        this.email = email;
+    }
+    
+    public String getEmail(){
+        return this.email;
     }
     
     public String getUserName() {
