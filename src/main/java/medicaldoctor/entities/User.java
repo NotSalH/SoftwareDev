@@ -164,7 +164,7 @@ public class User extends AbstractEntity {
                         + "WHERE UserId = :userid AND RecentViewType = :type "
                         + "ORDER BY ViewDateTime DESC", RecentView.class);
         q.setParameter("userid", this.getId());
-        q.setParameter("type", recentViewType);
+        q.setParameter("type", recentViewType.ordinal());
         return q.getResultStream().map(mapper).collect(Collectors.toList());
     }
 
@@ -173,6 +173,19 @@ public class User extends AbstractEntity {
                 .createQuery("FROM User WHERE UserName = :username", User.class);
         q.setParameter("username", username);
         return q.uniqueResult();
+    }
+
+    public static List<User> getAll() {
+        Query<User> q = DatabaseScope._getSession()
+                .createQuery("FROM User", User.class);
+        return q.list();
+    }
+
+    public static List<User> getAllByType(UserType type) {
+        Query<User> q = DatabaseScope._getSession()
+                .createQuery("FROM User WHERE UserTypeId = :usertype", User.class);
+        q.setParameter("usertype", type.getId());
+        return q.list();
     }
 
 }

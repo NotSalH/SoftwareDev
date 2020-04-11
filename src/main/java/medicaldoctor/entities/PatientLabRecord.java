@@ -1,6 +1,7 @@
 package medicaldoctor.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.core.LabTestStatus;
 import medicaldoctor.core.LabTestType;
+import medicaldoctor.core.LabType;
+import org.hibernate.query.Query;
 
 @Entity
 @Table(name = "PatientLabRecord", uniqueConstraints = {
@@ -34,6 +38,9 @@ public class PatientLabRecord extends AbstractEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "RequesterUserId", nullable = false)
     private User requester;
+
+    @Enumerated(EnumType.ORDINAL)
+    private LabType labType;
 
     @Enumerated(EnumType.ORDINAL)
     private LabTestType labTestType;
@@ -74,12 +81,17 @@ public class PatientLabRecord extends AbstractEntity {
         this.requester = requester;
     }
 
+    public LabType getLabType() {
+        return labType;
+    }
+
     public LabTestType getLabTestType() {
         return labTestType;
     }
 
     public void setLabTestType(LabTestType labTestType) {
         this.labTestType = labTestType;
+        this.labType = labTestType.getLabType();
     }
 
     public LabTestStatus getLabTestStatus() {
@@ -112,6 +124,15 @@ public class PatientLabRecord extends AbstractEntity {
 
     public void setResultDateTime(LocalDateTime resultDateTime) {
         this.resultDateTime = resultDateTime;
+    }
+
+    public static List<PatientLabRecord> getRecentLabRecords(LabType labType) {
+        Query<PatientLabRecord> q = DatabaseScope._getSession()
+                .createQuery("FROM PatientLabRecord "
+                        + "WHERE LabType = :labtype"
+                        + "ORDER BY RequestDateTime DESC", PatientLabRecord.class);
+        q.setParameter("labtype", labType.ordinal());
+        return q.getResultList();
     }
 
 }

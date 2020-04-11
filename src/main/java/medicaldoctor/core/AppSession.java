@@ -3,6 +3,8 @@ package medicaldoctor.core;
 import java.time.LocalDateTime;
 import medicaldoctor.controllers.ControllerManager;
 import medicaldoctor.entities.LogRecord;
+import medicaldoctor.entities.Patient;
+import medicaldoctor.entities.PatientVisit;
 import medicaldoctor.entities.User;
 import medicaldoctor.util.Encryption;
 import medicaldoctor.util.FirstLetterLastNameUserNameGenerator;
@@ -24,6 +26,9 @@ public final class AppSession {
     private static User activeUser;
     public static ControllerManager cm;
     
+    private static Patient currentPatient;
+    private static PatientVisit currentVisit;
+
     public static User getActiveUser() {
         if (activeUser == null) {
             throw new IllegalStateException("User is not logged on");
@@ -37,6 +42,22 @@ public final class AppSession {
 
     public static boolean isLoggedIn() {
         return activeUser != null;
+    }
+
+    public static Patient getCurrentPatient() {
+        return currentPatient;
+    }
+
+    public static void setCurrentPatient(Patient currentPatient) {
+        AppSession.currentPatient = currentPatient;
+    }
+
+    public static PatientVisit getCurrentVisit() {
+        return currentVisit;
+    }
+
+    public static void setCurrentVisit(PatientVisit currentVisit) {
+        AppSession.currentVisit = currentVisit;
     }
 
     /**

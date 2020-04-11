@@ -1,6 +1,6 @@
 package medicaldoctor.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -38,8 +38,8 @@ public class PatientVisit extends AbstractEntity {
     @JoinColumn(name = "DoctorUserId", nullable = false)
     private User doctor;
 
-    @Column(name = "VisitDate", nullable = false)
-    private LocalDate visitDate;
+    @Column(name = "VisitDateTime", nullable = false)
+    private LocalDateTime visitDateTime;
 
     @Column(name = "ChiefComplaint", nullable = true, length = 65535, columnDefinition = "Text")
     private String chiefComplaint;
@@ -94,12 +94,12 @@ public class PatientVisit extends AbstractEntity {
         this.doctor = doctor;
     }
 
-    public LocalDate getVisitDate() {
-        return visitDate;
+    public LocalDateTime getVisitDateTime() {
+        return visitDateTime;
     }
 
-    public void setVisitDate(LocalDate visitDate) {
-        this.visitDate = visitDate;
+    public void setVisitDateTime(LocalDateTime visitDateTime) {
+        this.visitDateTime = visitDateTime;
     }
 
     public String getChiefComplaint() {
