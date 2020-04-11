@@ -1,5 +1,30 @@
 # SoftwareDev
-This repo is for CS461 Software Dev
+CS460 Software Development: MedicalDoctor.
+
+## Running & Testing Instructions
+
+1. Install Netbeans IDE and the [Gradle Plugin For Netbeans](http://plugins.netbeans.org/plugin/44510/gradle-support).
+
+2. Download this repository.
+
+3. Install MySQL with the following configuration:
+* Running locally with TCP/IP port `3306`.
+* Root login with password `hydrogiraffe`.
+* A new schema named `MedicalDoctor`.
+* Run the following query in the `MedicalDoctor` database:
+
+> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'hydrogiraffe';
+
+* Note: if changes to this configuration are needed, update [this configuration file](/src/main/resources/hibernate.cfg.xml).
+
+4. Run `medicaldoctor.setup.InitTestDatabase`. This will create all the necessary database tables, 
+and insert example data for testing.
+
+5. Run `medicaldoctor.Program` to run the application.
+
+6. Login information for test users are included [here](logins.md).
+
+## Additional Details & Development Instructions
 
 ### Requirements
 
@@ -27,7 +52,7 @@ make sure you follow the key configuration changes on any other setup.
     7. Under "Authentication Method", use default "Strong Password Encryption". Next.
     8. Under "Accounts and Roles", use root password `hydrogiraffe`. It should't matter that it is a weak password, 
     this is just for class, not production. Next.
-    9. Under "Windows Service", use default `MySQL80` service name, but uncheck "Start the MyDql Derver at System Startup", so
+    9. Under "Windows Service", use default `MySQL80` service name, but uncheck "Start the MySql Server at System Startup", so
     it is not using resources outside of this class's development. Next.
     10. Under "Apply Configuration", click "Execute". 
     11. Click "Finish".
