@@ -106,7 +106,7 @@ public class PatientRegistrationController implements Initializable, ParentContr
                 flag = 1;
             }
             else{
-               entry.getValue().setTextFill(Color.BLACK); 
+               entry.getValue().setTextFill(Color.GREEN); 
             }
         }
         return flag == 0;
@@ -142,7 +142,7 @@ public class PatientRegistrationController implements Initializable, ParentContr
             return false;
         }
         else{
-            label.setTextFill(Color.BLACK);
+            label.setTextFill(Color.GREEN);
             return true;
         }
   
@@ -150,7 +150,7 @@ public class PatientRegistrationController implements Initializable, ParentContr
     
     boolean checkFields(TextArea ta, Label label){
         if(ta.getText().isEmpty()){
-            label.setTextFill(Color.RED);
+            label.setTextFill(Color.GREEN);
             return true;
         }
         else{

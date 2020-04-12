@@ -1,6 +1,8 @@
 package medicaldoctor.controllers;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +16,6 @@ import medicaldoctor.backend.UserService;
 import medicaldoctor.backend.data.NewUserRequest;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.User;
-import medicaldoctor.entities.UserType;
 
 public class NewUserController implements Initializable, ParentController{
 
@@ -30,34 +31,21 @@ public class NewUserController implements Initializable, ParentController{
     @FXML
     Label success,first_name_label,last_name_label,employee_type_label,department_label, office_label;
     
+    HashMap<TextField, Label> textfeild_hash = new HashMap<>();
+    
     NewUserRequest new_user_request = new NewUserRequest();
     
+    int mask = 0b11;
+
     @FXML
     void submitButtonClick(ActionEvent event) throws Exception{
-        if(textFirstName.getText().isEmpty()){
-            first_name_label.setTextFill(Color.RED);
-        }
-        if(textLastName.getText().isEmpty()){
-            last_name_label.setTextFill(Color.RED);
-        }
-        if(textDepartment.getText().isEmpty()){
-            department_label.setTextFill(Color.RED);
-        }
-        if(textOfficeNumber.getText().isEmpty()){
-            office_label.setTextFill(Color.RED);
-        }
-        if(employeeTypeChoiceBox.getSelectionModel().isEmpty()){
-            employee_type_label.setTextFill(Color.RED);
-        }
-        
-        if(!(textFirstName.getText().isEmpty() && textLastName.getText().isEmpty() && textDepartment.getText().isEmpty() && textOfficeNumber.getText().isEmpty()
-               && employeeTypeChoiceBox.getSelectionModel().isEmpty())){
-            first_name_label.setTextFill(Color.GREEN);
-            last_name_label.setTextFill(Color.GREEN);
-            department_label.setTextFill(Color.GREEN);
-            office_label.setTextFill(Color.GREEN);
-            employee_type_label.setTextFill(Color.GREEN);
+        if(isFieldsEmpty(textfeild_hash)){ mask &= 0b10;}
+        if(checkFields(employeeTypeChoiceBox, employee_type_label)){ mask &= 0b01;}
+        if(mask == 00){
             makeNewUser();
+        }
+        else{
+            mask = 0b11;
         }
     }
     
@@ -65,40 +53,59 @@ public class NewUserController implements Initializable, ParentController{
         new_user_request.firstName = textFirstName.getText();
         new_user_request.lastName = textLastName.getText();
         new_user_request.userType = User.byName(((String)employeeTypeChoiceBox.getValue()).toUpperCase());
-        new_user_request.officeNum = Integer.parseInt(textOfficeNumber.getText());
-        new_user_request.department = department_label.getText();
+        new_user_request.officeNum = Integer.parseInt(isInteger(textOfficeNumber.getText()));
+        new_user_request.department = textDepartment.getText();
         UserService.createNewUser(new_user_request);
     }
     
-    public void clearFeilds(){
-        first_name_label.setTextFill(Color.BLACK);
-        last_name_label.setTextFill(Color.BLACK);
-        department_label.setTextFill(Color.BLACK);
-        office_label.setTextFill(Color.BLACK);
-        employee_type_label.setTextFill(Color.BLACK);
-        textFirstName.setText("");
-        textLastName.setText("");
-        textDepartment.setText("");
-        textOfficeNumber.setText("");
+    boolean checkFields(ChoiceBox cb, Label label){
+        if(cb.getSelectionModel().isEmpty()){
+            label.setTextFill(Color.RED);
+            return false;
+        }
+        else{
+            label.setTextFill(Color.GREEN);
+            return true;
+        }
+  
     }
     
-    public UserType getType(String type){
-        switch (type) {
-            case "Admin":
-                return UserType.ADMIN;
-            case "Executive":
-                return UserType.EXECUTIVE;
-            case "Doctor":
-                return UserType.DOCTOR;
-            case "Nurse":
-                return UserType.NURSE;
-            case "RadiologicalLab":
-                return UserType.HEMATOLOGIC_LAB_WORKER;
-            case "HematologicLab":
-                return UserType.HEMATOLOGIC_LAB_WORKER;
-            default:
-                return UserType.STAFF;
+    public static String isInteger(String str) {
+        if (str == null) {
+            return "0";
         }
+        int length = str.length();
+        if (length == 0) {
+            return "0";
+        }
+        int i = 0;
+        if (str.charAt(0) == '-') {
+            if (length == 1) {
+                return "0";
+            }
+            i = 1;
+        }
+        for (; i < length; i++) {
+            char c = str.charAt(i);
+            if (c < '0' || c > '9') {
+                return "0";
+            }
+        }
+        return str;
+    }
+    
+    private boolean isFieldsEmpty(Map<TextField, Label> map){
+        int flag = 0;
+        for(Map.Entry<TextField,Label> entry : map.entrySet()){
+            if(entry.getKey().getText().isEmpty()){
+                entry.getValue().setTextFill(Color.RED);
+                flag = 1;
+            }
+            else{
+               entry.getValue().setTextFill(Color.GREEN); 
+            }
+        }
+        return flag == 0;
     }
     
     @Override
@@ -110,6 +117,11 @@ public class NewUserController implements Initializable, ParentController{
         employeeTypeChoiceBox.getItems().add("RadiologicalLab");
         employeeTypeChoiceBox.getItems().add("HematologicLab");
         employeeTypeChoiceBox.getItems().add("Staff");
+        
+        textfeild_hash.put(textFirstName, first_name_label);
+        textfeild_hash.put(textLastName, last_name_label);
+        textfeild_hash.put(textDepartment, department_label);
+        textfeild_hash.put(textOfficeNumber, office_label);
     }
 
     @Override
