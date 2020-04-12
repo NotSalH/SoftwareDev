@@ -67,9 +67,7 @@ public class PatientRegistrationController implements Initializable, ParentContr
             Patient patient = new Patient();
             makePatient(patient);
         }
-        else{
-            mask = 0b11111;
-        }
+        mask = 0b11111;
     }
     
     void makePatient(Patient patient){

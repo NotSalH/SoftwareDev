@@ -44,9 +44,7 @@ public class NewUserController implements Initializable, ParentController{
         if(mask == 00){
             makeNewUser();
         }
-        else{
-            mask = 0b11;
-        }
+        mask = 0b11;
     }
     
     private void makeNewUser() throws Exception{
