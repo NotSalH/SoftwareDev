@@ -8,9 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.VBox;
-import medicaldoctor.controllers.ControllerManager;
-import medicaldoctor.controllers.LookUp;
-import medicaldoctor.controllers.ParentController;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.Permission;
 

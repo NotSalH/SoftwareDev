@@ -69,7 +69,7 @@
                                          <children>
                                             <VBox prefHeight="179.0" prefWidth="224.0">
                                                <children>
-                                                  <Label text="First Name:">
+                                                  <Label fx:id="first_name_id" text="First Name:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -79,7 +79,7 @@
                                             </VBox>
                                             <VBox prefHeight="179.0" prefWidth="224.0">
                                                <children>
-                                                  <Label text="Last Name:">
+                                                  <Label fx:id="last_id" text="Last Name:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -89,7 +89,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="64.0">
                                                <children>
-                                                  <Label text="Age:">
+                                                  <Label fx:id="age_id" text="Age:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -99,7 +99,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="60.0">
                                                <children>
-                                                  <Label text="Sex:">
+                                                  <Label fx:id="sex_id" text="Sex:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -113,7 +113,7 @@
                                          <children>
                                             <VBox prefHeight="179.0" prefWidth="224.0">
                                                <children>
-                                                  <Label text="Medical Insurance:">
+                                                  <Label fx:id="med_id" text="Medical Insurance:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -123,7 +123,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="111.0">
                                                <children>
-                                                  <Label text="Birth Date:">
+                                                  <Label fx:id="dob_id" text="Birth Date:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -133,7 +133,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="275.0">
                                                <children>
-                                                  <Label text="Primary Doctor:">
+                                                  <Label fx:id="prime_doctor_id" text="Primary Doctor:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -152,7 +152,7 @@
                                          <children>
                                             <VBox prefHeight="179.0" prefWidth="224.0">
                                                <children>
-                                                  <Label text="Street Address:">
+                                                  <Label fx:id="mail_street_id" text="Street Address:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -162,7 +162,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="183.0">
                                                <children>
-                                                  <Label text="City/Town:">
+                                                  <Label fx:id="mail_city_id" text="City/Town:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -172,7 +172,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="80.0">
                                                <children>
-                                                  <Label text="State:">
+                                                  <Label fx:id="mail_state_id" text="State:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -182,7 +182,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="89.0">
                                                <children>
-                                                  <Label text="Zip code:">
+                                                  <Label fx:id="mail_zip_id" text="Zip code:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -201,7 +201,7 @@
                                          <children>
                                             <VBox prefHeight="179.0" prefWidth="224.0">
                                                <children>
-                                                  <Label text="Street Address:">
+                                                  <Label fx:id="bill_street_id" text="Street Address:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -211,7 +211,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="183.0">
                                                <children>
-                                                  <Label text="City/Town:">
+                                                  <Label fx:id="bill_city_id" text="City/Town:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -221,7 +221,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="80.0">
                                                <children>
-                                                  <Label text="State:">
+                                                  <Label fx:id="bill_state_id" text="State:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -231,7 +231,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="89.0">
                                                <children>
-                                                  <Label text="Zip code:">
+                                                  <Label fx:id="bill_zip_id" text="Zip code:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -250,7 +250,7 @@
                                          <children>
                                             <VBox prefHeight="179.0" prefWidth="224.0">
                                                <children>
-                                                  <Label text="Doctor:">
+                                                  <Label fx:id="doctor_id" text="Doctor:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -260,7 +260,7 @@
                                             </VBox>
                                             <VBox prefHeight="179.0" prefWidth="224.0">
                                                <children>
-                                                  <Label text="Visit Date/ Time: ">
+                                                  <Label fx:id="visit_id" text="Visit Date/ Time: ">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -274,7 +274,7 @@
                                          <children>
                                             <VBox prefHeight="105.0" prefWidth="324.0">
                                                <children>
-                                                  <Label text="Chief Complaint:">
+                                                  <Label fx:id="cheif_id" text="Chief Complaint:">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -284,7 +284,7 @@
                                             </VBox>
                                             <VBox prefHeight="105.0" prefWidth="323.0">
                                                <children>
-                                                  <Label text="Present Illness: ">
+                                                  <Label fx:id="pres_id" text="Present Illness: ">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>

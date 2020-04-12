@@ -23,13 +23,9 @@ public class ProfileController implements Initializable, ParentController{
     Button conformation, new_user_id, employee_id_tf;
     
     @FXML
-    void new_user(ActionEvent event){
-        
-    }
-    
-    @FXML
-    void confirm_user(ActionEvent event){
-       
+    void new_user(ActionEvent event) throws Exception{
+        AppSession.CONTROLLER_MANAGER.load(LookUp.REGISTER_NEW_USER);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.REGISTER_NEW_USER);
     }
     
     @FXML
