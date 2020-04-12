@@ -30,7 +30,9 @@ public class UserService {
                 .generate();
         HashAndSalt tempPasswordHash = AppSession.ENCRYPTION
                 .hashPassword(tempPassword);
-
+        
+        String email = AppSession.EMAIL_GENERATOR.generateEmail(username);
+        
         User newUser = new User();
         newUser.setFirstName(request.firstName);
         newUser.setLastName(request.lastName);
@@ -39,7 +41,8 @@ public class UserService {
         newUser.setType(request.userType);
         newUser.setDepartment(request.department);
         newUser.setOfficeNum(request.officeNum);
-
+        newUser.setEmail(email);
+        
         try (DatabaseScope t = new DatabaseScope()) {
             t.beginTransaction();
             newUser.save();

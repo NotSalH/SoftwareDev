@@ -15,7 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import medicaldoctor.controllers.LookUp;
+import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.core.Permission;
+import org.hibernate.query.Query;
 
 @Entity
 @Table(name = "UserType", uniqueConstraints = {
@@ -113,5 +115,12 @@ public class UserType extends AbstractEntity {
     public String getDashboardName(){
         return this.dashboardName;
     }
-
+    
+    public static User byUsername(String username) {
+        Query<User> q = DatabaseScope._getSession()
+                .createQuery("FROM User WHERE UserName = :username", User.class);
+        q.setParameter("username", username);
+        return q.uniqueResult();
+    }
+  
 }

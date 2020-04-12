@@ -9,9 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.LogOutController">
-   <center>
-      <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.LogOutController">
    <children>
       <Label layoutX="215.0" layoutY="147.0" text="You have Logged-Out">
          <font>
@@ -22,9 +20,3 @@
       <Button fx:id="loginPageButton" layoutX="329.0" layoutY="215.0" mnemonicParsing="false" onAction="#loginPageButtonClicked" prefHeight="25.0" prefWidth="112.0" text="Log-In Page" />
    </children>
 </AnchorPane>
-
-   </center>
-   <top>
-       <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
-   </top>
-</BorderPane>

@@ -78,7 +78,7 @@ public final class InitTestDatabase {
             userType.addPermission(permission);
         }
     }
-
+    
     private static void insertUserTypes() {
         UserType.ADMIN.save();
         UserType.EXECUTIVE.save();
@@ -104,6 +104,7 @@ public final class InitTestDatabase {
         user.setType(UserType.ADMIN);
         user.setDepartment("Administration");
         user.setOfficeNum(145);
+        user.setEmail(AppSession.EMAIL_GENERATOR.generateEmail(user.getUserName()));
         user.save();
 
         user = new User();
@@ -114,6 +115,7 @@ public final class InitTestDatabase {
         user.setType(UserType.STAFF);
         user.setDepartment("Lobby");
         user.setOfficeNum(1);
+        user.setEmail(AppSession.EMAIL_GENERATOR.generateEmail(user.getUserName()));
         user.save();
 
         user = new User();
@@ -124,6 +126,7 @@ public final class InitTestDatabase {
         user.setType(UserType.DOCTOR);
         user.setDepartment("Heart Department");
         user.setOfficeNum(545);
+        user.setEmail(AppSession.EMAIL_GENERATOR.generateEmail(user.getUserName()));
         user.save();
         
         User doctor = user;
@@ -135,6 +138,7 @@ public final class InitTestDatabase {
         user.setType(UserType.HEMATOLOGIC_LAB_WORKER);
         user.setDepartment("Hemo Lab");
         user.setOfficeNum(222);
+        user.setEmail(AppSession.EMAIL_GENERATOR.generateEmail(user.getUserName()));
         user.save();
         
         User hemoLabWorker = user;
@@ -146,6 +150,7 @@ public final class InitTestDatabase {
         user.setType(UserType.RADIOLOGIC_LAB_WORKER);
         user.setDepartment("Radio Lab");
         user.setOfficeNum(234);
+        user.setEmail(AppSession.EMAIL_GENERATOR.generateEmail(user.getUserName()));
         user.save();
         User radioLabWorker = user;
 
@@ -191,7 +196,7 @@ public final class InitTestDatabase {
         visit.setImpression("looks really bad: cancer?");
         visit.setAdditionalNotes("need to do lab tests");
         visit.save();
-
+        
         Patient patient = new Patient();
         patient.setFirstName("John");
         patient.setLastName("Doe");

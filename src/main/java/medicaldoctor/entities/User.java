@@ -178,11 +178,18 @@ public class User extends AbstractEntity {
         q.setParameter("type", recentViewType.ordinal());
         return q.getResultStream().map(mapper).collect(Collectors.toList());
     }
-
+    
     public static User byUsername(String username) {
         Query<User> q = DatabaseScope._getSession()
                 .createQuery("FROM User WHERE UserName = :username", User.class);
         q.setParameter("username", username);
+        return q.uniqueResult();
+    }
+    
+    public static UserType byName(String usertype) {
+        Query<UserType> q = DatabaseScope._getSession()
+                .createQuery("FROM UserType WHERE UserTypeId = :usertype", UserType.class);
+        q.setParameter("usertype", usertype);
         return q.uniqueResult();
     }
 
