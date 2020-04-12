@@ -27,7 +27,7 @@
                     </TableView>
                     </children>
             </VBox>
-            <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
+            <VBox layoutX="119.0" layoutY="116.0" prefHeight="273.0" prefWidth="371.0">
                  <children>
                     <Label text="Recently Registered Patients">
                 <font>
@@ -36,9 +36,8 @@
             </Label>
             <TableView fx:id="table" prefHeight="247.0" prefWidth="371.0">
                <columns>
-                  <TableColumn fx:id="name" prefWidth="127.0" text="Name" />
-                  <TableColumn fx:id="doctor" minWidth="0.0" prefWidth="161.0" text="Doctor" />
-                  <TableColumn fx:id="date" prefWidth="84.0" text="Date" />
+                  <TableColumn fx:id="columnId" prefWidth="127.0" text="Id" />
+                  <TableColumn fx:id="columnName" minWidth="0.0" prefWidth="243.0" text="Name" />
                </columns>
             </TableView>
          </children>
