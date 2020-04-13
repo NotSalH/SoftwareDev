@@ -11,7 +11,7 @@ public class ControllerManager extends StackPane {
 
     private HashMap<String, Node> screen = new HashMap<>();
 
-    public ControllerManager() throws Exception {
+    public ControllerManager() {
         super();
     }
 

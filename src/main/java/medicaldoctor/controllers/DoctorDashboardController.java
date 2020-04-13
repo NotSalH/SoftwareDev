@@ -21,7 +21,7 @@ public class DoctorDashboardController implements Initializable {
 
     @FXML
     private TableColumn<Patient, String> columnId, columnName;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         List<Patient> patients;
@@ -38,11 +38,6 @@ public class DoctorDashboardController implements Initializable {
         data.addAll(patients);
         table.setItems(data);
         table.refresh();
-    }  
-   
-    @Override
-    public void setScreenParent(ControllerManager page) {
-        AppSession.CONTROLLER_MANAGER = page;
     }
 
 }

@@ -24,22 +24,21 @@ public final class AppSession {
     public static UserNameGenerator USER_NAME_GENERATOR
             = new FirstLetterLastNameUserNameGenerator();
     public static Encryption ENCRYPTION = new Encryption();
-    public static ControllerManager CONTROLLER_MANAGER = ControllerManager();
+    public static ControllerManager CONTROLLER_MANAGER = new ControllerManager();
     public static EmailGenerator EMAIL_GENERATOR
             = new EmailNameGenerator();
-    
+
     private static User activeUser;
-    
     private static Patient currentPatient;
     private static PatientVisit currentVisit;
-            
+
     public static User getActiveUser() {
         if (activeUser == null) {
             throw new IllegalStateException("User is not logged on");
         }
         return activeUser;
     }
-    
+
     public static void setActiveUser(User user) {
         activeUser = user;
     }
