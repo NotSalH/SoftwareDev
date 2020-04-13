@@ -27,7 +27,7 @@ public final class AppSession {
     public static ControllerManager CONTROLLER_MANAGER = new ControllerManager();
     public static EmailGenerator EMAIL_GENERATOR
             = new EmailNameGenerator();
-
+    
     private static User activeUser;
     private static Patient currentPatient;
     private static PatientVisit currentVisit;
