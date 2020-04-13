@@ -6,21 +6,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import medicaldoctor.core.AppSession;
-import medicaldoctor.entities.DoctorTable;
 
-public class AdminDashboardController implements Initializable, ParentController{
-   
-    @FXML
-    private TableView<DoctorTable> table;
-    
+public class AdminDashboardController implements Initializable, ParentController {
+
+    //@FXML
+    //private TableView<DoctorTable> table;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
     }
 
     @Override
     public void setScreenParent(ControllerManager page) {
         AppSession.cm = page;
     }
-    
+
 }
