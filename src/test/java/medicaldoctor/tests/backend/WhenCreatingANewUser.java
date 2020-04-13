@@ -21,7 +21,7 @@ public class WhenCreatingANewUser {
 
     private static final String FIRST_NAME = "Apple";
     private static final String LAST_NAME = "Banana";
-    private static final UserType USER_TYPE = UserType.DOCTOR;
+    private static final String USER_TYPE = UserType.DOCTOR.getName();
     private static final String DEPARTMENT = "cheese factory";
     private static final Integer OFFICE_NUM = 555;
     private static final String PASSWORD = "amazing_password";
@@ -30,7 +30,9 @@ public class WhenCreatingANewUser {
 
     @Test
     public void shouldSuccessfullyCreateNewUser() throws Exception {
-        FakeDatabase db = new FakeDatabase(FakeQueries.USER_BY_USERNAME, 1);
+        FakeDatabase db = new FakeDatabase();
+        db.addQuery(FakeQueries.USER_BY_USERNAME);
+        db.addQuery(FakeQueries.USERTYPE_BY_NAME);
         AppSession.TEMPORARY_PASSWORD_GENERATOR = new HardcodedPasswordGenerator(PASSWORD);
         NewUserRequest request = new NewUserRequest();
         request.firstName = FIRST_NAME;
@@ -50,7 +52,7 @@ public class WhenCreatingANewUser {
             Assert.assertEquals(FIRST_NAME, savedUser.getFirstName());
             Assert.assertEquals(LAST_NAME, savedUser.getLastName());
             Assert.assertEquals(EXPECTED_USER_NAME, savedUser.getUserName());
-            Assert.assertEquals(USER_TYPE, savedUser.getType());
+            Assert.assertEquals(USER_TYPE, savedUser.getType().getName());
             Assert.assertEquals(DEPARTMENT, savedUser.getDepartment());
             Assert.assertEquals(OFFICE_NUM, savedUser.getOfficeNum());
             Assert.assertTrue(ENCRYPTION.checkPassword(PASSWORD, savedUser.getPasswordHashAndSalt()));
@@ -69,7 +71,9 @@ public class WhenCreatingANewUser {
         problemCausingUser2.setUserName(EXPECTED_USER_NAME + "1");
         problemCausingUser2.setFirstName("two");
 
-        FakeDatabase db = new FakeDatabase(FakeQueries.USER_BY_USERNAME, 4, problemCausingUser1, problemCausingUser2);
+        FakeDatabase db = new FakeDatabase(problemCausingUser1, problemCausingUser2);
+        db.addQuery(FakeQueries.USER_BY_USERNAME, 3);
+        db.addQuery(FakeQueries.USERTYPE_BY_NAME);
         AppSession.TEMPORARY_PASSWORD_GENERATOR = new HardcodedPasswordGenerator(PASSWORD);
 
         NewUserRequest request = new NewUserRequest();
@@ -90,7 +94,7 @@ public class WhenCreatingANewUser {
             Assert.assertEquals(FIRST_NAME, savedUser.getFirstName());
             Assert.assertEquals(LAST_NAME, savedUser.getLastName());
             Assert.assertEquals(EXPECTED_USER_NAME + "2", savedUser.getUserName());
-            Assert.assertEquals(USER_TYPE, savedUser.getType());
+            Assert.assertEquals(USER_TYPE, savedUser.getType().getName());
             Assert.assertEquals(DEPARTMENT, savedUser.getDepartment());
             Assert.assertEquals(OFFICE_NUM, savedUser.getOfficeNum());
             Assert.assertTrue(ENCRYPTION.checkPassword(PASSWORD, savedUser.getPasswordHashAndSalt()));

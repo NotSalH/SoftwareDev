@@ -13,7 +13,6 @@ import medicaldoctor.entities.PatientPrescription;
 import medicaldoctor.entities.PatientVisit;
 import medicaldoctor.entities.User;
 import medicaldoctor.entities.UserType;
-import medicaldoctor.util.Encryption;
 
 /**
  * Setup all tables in the database, and start data from scratch with test

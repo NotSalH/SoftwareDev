@@ -1,7 +1,6 @@
 package medicaldoctor.controllers;
 
 //LookUp table for all FXML files
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -16,6 +15,8 @@ public class LookUp {
     public static final String LAB_WORKER = "LabWorkerDashBoard";
     public static final String LOG_OUT = "LogOut";
     public static final String PATIENT_REGISTRATION = "PatientRegistration";
+    public static final String REGISTER_NEW_USER = "RegisterNewUser";
+    public static final String REGISTER_NEW_USER_RESULT = "UserRegistrationOutput";
 
     //FXML File does not exist
     public static final String PATIENT_LOOKUP = "PatientLookup";
@@ -23,7 +24,6 @@ public class LookUp {
     public static final String USER_LOOKUP = "UserLookup";
     public static final String MY_PATIENT = "MyPatients";
     public static final String MY_LAB_REQUESTS = "MyLabRequests";
-    public static final String REGISTER_NEW_USER = "RegisterNewUser";
     public static final String LAB_REQUESTS = "LabRequests";
     public static final String LOG = "Log";
     public static final String LAB_PATIENT = "LabPatient";

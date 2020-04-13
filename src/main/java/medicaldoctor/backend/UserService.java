@@ -6,6 +6,7 @@ import medicaldoctor.backend.data.NewUserResult;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.User;
+import medicaldoctor.entities.UserType;
 import medicaldoctor.util.HashAndSalt;
 
 public class UserService {
@@ -30,20 +31,19 @@ public class UserService {
                 .generate();
         HashAndSalt tempPasswordHash = AppSession.ENCRYPTION
                 .hashPassword(tempPassword);
-        
         String email = AppSession.EMAIL_GENERATOR.generateEmail(username);
-        
+
         User newUser = new User();
-        newUser.setFirstName(request.firstName);
-        newUser.setLastName(request.lastName);
-        newUser.setUserName(username);
-        newUser.setPasswordHashAndSalt(tempPasswordHash);
-        newUser.setType(request.userType);
-        newUser.setDepartment(request.department);
-        newUser.setOfficeNum(request.officeNum);
-        newUser.setEmail(email);
-        
         try (DatabaseScope t = new DatabaseScope()) {
+            newUser.setFirstName(request.firstName);
+            newUser.setLastName(request.lastName);
+            newUser.setUserName(username);
+            newUser.setPasswordHashAndSalt(tempPasswordHash);
+            newUser.setType(UserType.byName(request.userType));
+            newUser.setDepartment(request.department);
+            newUser.setOfficeNum(request.officeNum);
+            newUser.setEmail(email);
+
             t.beginTransaction();
             newUser.save();
             AppSession.logEvent(String.format(MESSAGE_CREATED_NEW_USER, newUser.getUserName()));
