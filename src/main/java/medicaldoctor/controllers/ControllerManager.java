@@ -23,6 +23,11 @@ public class ControllerManager extends StackPane {
         return screen.get(screenName);
     }
 
+    public void loadAndShowScreen(String name) throws Exception {
+        load(name);
+        showScreen(name);
+    }
+
     public void load(String name) throws IOException {
         String path = name + ".fxml";
         System.out.println(path);

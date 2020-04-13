@@ -25,8 +25,8 @@ public class AdditionalLoginController implements Initializable, ParentControlle
     void loginButtonClicked(ActionEvent event) throws Exception {
         LoginResult result = LoginService.checkAdditionalPassword(password.getText());
         if (result == LoginResult.SUCCESS) {
-            AppSession.CONTROLLER_MANAGER.load(AppSession.getActiveUser().getType().getDashboardName());
-            AppSession.CONTROLLER_MANAGER.showScreen(AppSession.getActiveUser().getType().getDashboardName());
+            AppSession.CONTROLLER_MANAGER.loadAndShowScreen(
+                    AppSession.getActiveUser().getType().getDashboardName());
         } else {
             i_label.setText("Wrong Password!");
             i_label.setVisible(true);

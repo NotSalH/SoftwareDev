@@ -37,24 +37,19 @@ public class LoginController implements Initializable, ParentController {
             if (AppSession.getActiveUser().hasAdditionalPassword()) {
                 textUsername.setText("");
                 textPassword.setText("");
-                AppSession.CONTROLLER_MANAGER.load(LookUp.LOGIN_SECOND_SCREEN);
-                AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LOGIN_SECOND_SCREEN);
+                AppSession.CONTROLLER_MANAGER.loadAndShowScreen(
+                        LookUp.LOGIN_SECOND_SCREEN);
             } else {
                 textUsername.setText("");
                 textPassword.setText("");
-                AppSession.CONTROLLER_MANAGER.load(AppSession.getActiveUser().getType().getDashboardName());
-                AppSession.CONTROLLER_MANAGER.showScreen(AppSession.getActiveUser().getType().getDashboardName());
-            }
+                AppSession.CONTROLLER_MANAGER.loadAndShowScreen(
+                        AppSession.getActiveUser().getType().getDashboardName());
         }
-
-        if (result == LoginResult.WRONG_USERNAME) {
+        } else if (result == LoginResult.WRONG_USERNAME) {
             i_label.setText("Wrong Username!");
             i_label.setVisible(true);
         } else if (result == LoginResult.WRONG_PASSWORD) {
             i_label.setText("Wrong Password!");
-            i_label.setVisible(true);
-        } else {
-            i_label.setText("Wrong Password and Username!");
             i_label.setVisible(true);
         }
     }
