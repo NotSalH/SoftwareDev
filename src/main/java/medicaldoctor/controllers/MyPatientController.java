@@ -1,6 +1,7 @@
 package medicaldoctor.controllers;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -72,7 +73,8 @@ public class MyPatientController implements Initializable{
     
     @Override
     public void initialize(URL location, ResourceBundle resources){
-      
+        doctors_patients = new ArrayList<>();
+        
         try (DatabaseScope scope = new DatabaseScope()) {
             patients = Patient.getAll();
         } catch (Exception ex) {
