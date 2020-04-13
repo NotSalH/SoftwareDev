@@ -32,7 +32,7 @@
                   <TableColumn fx:id="c_ins" prefWidth="75.0" text="Insurence" />
               </columns>
             </TableView>
-            <Label layoutX="710.0" layoutY="102.0" text="Double click the row to select Entry" />
+            <Label layoutX="710.0" layoutY="102.0" text="List of Current Patients: Double click the row to select Entry" />
    </children>
    
 </AnchorPane>
