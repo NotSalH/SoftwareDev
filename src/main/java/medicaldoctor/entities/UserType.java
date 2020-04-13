@@ -34,6 +34,9 @@ public class UserType extends AbstractEntity {
     public static final UserType RADIOLOGIC_LAB_WORKER = new UserType("Radiologic Lab Worker", false, LookUp.LAB_WORKER);
     public static final UserType HEMATOLOGIC_LAB_WORKER = new UserType("Hematologic Lab Worker", false, LookUp.LAB_WORKER);
 
+    public static final UserType[] ALL
+            = new UserType[]{ADMIN, EXECUTIVE, STAFF, NURSE, DOCTOR, RADIOLOGIC_LAB_WORKER, HEMATOLOGIC_LAB_WORKER};
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", nullable = false, unique = true)

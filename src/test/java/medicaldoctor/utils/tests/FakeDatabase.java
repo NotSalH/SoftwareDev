@@ -6,6 +6,7 @@ import java.util.Queue;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.AbstractEntity;
 import medicaldoctor.entities.LogRecord;
+import medicaldoctor.entities.UserType;
 
 /**
  * Setup Testing Database.
@@ -23,6 +24,24 @@ public class FakeDatabase {
         params = new HashMap();
         savedEntities = new LinkedList();
         DatabaseScope._overrideSessionFactory(new FakeSessionFactory(this));
+
+        for (UserType userType : UserType.ALL) {
+            items.add(userType);
+        }
+    }
+
+    /**
+     * Set up database for testing with a single query, and a list of records in
+     * the database.
+     *
+     * @param func the single query
+     * @param records the records in the test database
+     */
+    public FakeDatabase(AbstractEntity... records) {
+        this();
+        for (AbstractEntity record : records) {
+            addRecord(record);
+        }
     }
 
     /**
@@ -45,10 +64,7 @@ public class FakeDatabase {
      * @param records the records in the test database
      */
     public FakeDatabase(QueryFunc func, int queryCount, AbstractEntity... records) {
-        this();
-        for (AbstractEntity record : records) {
-            addRecord(record);
-        }
+        this(records);
         for (int i = 0; i < queryCount; i++) {
             addQuery(func);
         }
@@ -60,7 +76,14 @@ public class FakeDatabase {
     }
 
     public FakeDatabase addQuery(QueryFunc f) {
-        queries.add(f);
+        addQuery(f, 1);
+        return this;
+    }
+
+    public FakeDatabase addQuery(QueryFunc f, int queryCount) {
+        for (int i = 0; i < queryCount; i++) {
+            queries.add(f);
+        }
         return this;
     }
 
