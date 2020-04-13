@@ -1,6 +1,7 @@
 package medicaldoctor.core;
 
 import java.time.LocalDateTime;
+import static medicaldoctor.backend.LoginService.MESSAGE_USER_LOGGED_OUT;
 import medicaldoctor.controllers.ControllerManager;
 import medicaldoctor.entities.LogRecord;
 import medicaldoctor.entities.Patient;
@@ -27,7 +28,7 @@ public final class AppSession {
     public static ControllerManager CONTROLLER_MANAGER = new ControllerManager();
     public static EmailGenerator EMAIL_GENERATOR
             = new EmailNameGenerator();
-    
+
     private static User activeUser;
     private static Patient currentPatient;
     private static PatientVisit currentVisit;
@@ -61,6 +62,18 @@ public final class AppSession {
 
     public static void setCurrentVisit(PatientVisit currentVisit) {
         AppSession.currentVisit = currentVisit;
+    }
+
+    /**
+     * Logout backend by logging the action and clearing global state variables.
+     *
+     * @throws Exception
+     */
+    public static void logout() throws Exception {
+        AppSession.logEventInNewScope(MESSAGE_USER_LOGGED_OUT);
+        AppSession.setActiveUser(null);
+        AppSession.setCurrentPatient(null);
+        AppSession.setCurrentVisit(null);
     }
 
     /**

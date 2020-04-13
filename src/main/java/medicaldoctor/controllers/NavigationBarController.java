@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.VBox;
+import medicaldoctor.backend.LoginService;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.Permission;
 
@@ -181,6 +182,7 @@ public class NavigationBarController implements Initializable {
     @FXML
     void logout(ActionEvent event) throws Exception {
         AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.LOG_OUT);
+        AppSession.logout();
     }
 
     @FXML
