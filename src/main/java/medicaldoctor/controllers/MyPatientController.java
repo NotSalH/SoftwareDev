@@ -10,7 +10,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -19,18 +18,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.Patient;
-import medicaldoctor.entities.User;
 import medicaldoctor.util.InitializeException;
 
-public class PatientLookupController implements Initializable{
+public class MyPatientController implements Initializable{
     @FXML
     private TableView<Patient> table;
     
     @FXML
     private TableColumn<Patient, String> c_first_name, c_last_name, c_sex, c_ins;
-    
-    @FXML
-    private ChoiceBox doctor_cb;
     
     @FXML
     private TextField first_name_tf, last_name_tf;
@@ -42,7 +37,7 @@ public class PatientLookupController implements Initializable{
     private List<Patient> patients;
     
     @FXML
-    private List<User> doctors;
+    private List<Patient> doctors_patients;
     
     void search(TextField tf, int i){
         if(!tf.getText().isEmpty()){
@@ -51,13 +46,6 @@ public class PatientLookupController implements Initializable{
             if(patients.get(i).getLastName().toLowerCase().equals(tf.getText().toLowerCase()))
                 getTableResults(patients.get(i));
             
-        }
-    }
-    
-    void search(String str, int i){
-        if(!str.isEmpty()){
-            if(doctors.get(i).getFullName().toLowerCase().equals(str.toLowerCase()))
-                getTableResults(patients.get(i));
         }
     }
     
@@ -79,7 +67,6 @@ public class PatientLookupController implements Initializable{
         for(int i =0; i < patients.size(); i++){
             search(first_name_tf,i);
             search(last_name_tf,i);
-            search((String) doctor_cb.getValue(), i);
         }
     }
     
@@ -92,25 +79,18 @@ public class PatientLookupController implements Initializable{
            throw new InitializeException(ex);
         }
         
-        try (DatabaseScope scope = new DatabaseScope()) {
-            doctors = User.getAll();
-        } catch (Exception ex) {
-           throw new InitializeException(ex);
-        }
-        
-        for(int i = 0; i<doctors.size(); i++){
-            if(doctors.get(i).getType().getDashboardName().equals("DoctorDashboard")){
-                doctor_cb.getItems().add(doctors.get(i).getFullName());
+        for(int i=0; i<patients.size();i++){
+            if(AppSession.getActiveUser().getFullName().toLowerCase().equals(patients.get(i).getPrimaryDoctor().getFullName().toLowerCase())){
+                doctors_patients.add(patients.get(i));
             }
         }
-        
         c_first_name.setCellValueFactory(new PropertyValueFactory("firstName"));
         c_last_name.setCellValueFactory(new PropertyValueFactory("lastName"));
         c_age.setCellValueFactory(new PropertyValueFactory("age"));
         c_sex.setCellValueFactory(new PropertyValueFactory("sex"));
         c_ins.setCellValueFactory(new PropertyValueFactory("medicalInsurance"));
         ObservableList<Patient> data = FXCollections.<Patient>observableArrayList();
-        data.addAll(patients);
+        data.addAll(doctors_patients);
         table.setItems(data);
         table.refresh();
         
@@ -131,5 +111,4 @@ public class PatientLookupController implements Initializable{
             return row;
         });
     }
-    
 }

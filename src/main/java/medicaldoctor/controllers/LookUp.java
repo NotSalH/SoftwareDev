@@ -22,7 +22,7 @@ public class LookUp {
     public static final String PATIENT_LOOKUP = "PatientLookup";
     public static final String DOCTOR_LOOKUP = "DoctorLookup";
     public static final String USER_LOOKUP = "UserLookup";
-    public static final String MY_PATIENT = "MyPatients";
+    public static final String MY_PATIENT = "MyPatient";
     public static final String MY_LAB_REQUESTS = "MyLabRequests";
     public static final String LAB_REQUESTS = "LabRequests";
     public static final String LOG = "Log";

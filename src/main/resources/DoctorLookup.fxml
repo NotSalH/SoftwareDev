@@ -40,6 +40,7 @@
                   <TableColumn fx:id="c_department" prefWidth="75.0" text="Department" />
               </columns>
             </TableView>
+            <Label layoutX="710.0" layoutY="102.0" text="Double click the row to select Entry" />
    </children>
    
 </AnchorPane>
