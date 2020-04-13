@@ -32,13 +32,13 @@
                                       <TextField fx:id="filterTextBox" prefHeight="29.0" prefWidth="237.0" promptText="by Patient ID, First Name, or Last Name" />
                                    </children>
                                 </HBox>
-                                <TableView fx:id="returningPatientTable" prefHeight="340.0" prefWidth="816.0">
+                                <TableView fx:id="table" prefHeight="340.0" prefWidth="816.0">
                                    <columns>
-                                      <TableColumn fx:id="patientIDReturningPatientColumn" prefWidth="163.0" text="Patient ID" />
-                                      <TableColumn fx:id="firstNameReturningPatientColumn" minWidth="0.0" prefWidth="144.0" text="First Name" />
-                                      <TableColumn fx:id="lastNameReturningPatientColumn" prefWidth="175.0" text="Last Name" />
-                                      <TableColumn fx:id="DOBReturningPatientColumn" prefWidth="94.0" text="DOB" />
-                                      <TableColumn fx:id="primaryDoctorReturningPatientColumn" prefWidth="241.0" text="Primary Doctor" />
+                                      <TableColumn fx:id="patientId" prefWidth="163.0" text="Patient ID" />
+                                      <TableColumn fx:id="firstName" minWidth="0.0" prefWidth="144.0" text="First Name" />
+                                      <TableColumn fx:id="lastName" prefWidth="175.0" text="Last Name" />
+                                      <TableColumn fx:id="DOB" prefWidth="94.0" text="DOB" />
+                                      <TableColumn fx:id="PrimaryDoctor" prefWidth="241.0" text="Primary Doctor" />
                                    </columns>
                                 </TableView>
                                 <Button fx:id="selectButton" mnemonicParsing="false" onAction="#selectButtonClick" text="Select">
@@ -255,7 +255,7 @@
                                                         <Font size="14.0" />
                                                      </font>
                                                   </Label>
-                                                  <TextField fx:id="textDoctor" prefHeight="29.0" prefWidth="206.0" />
+                                                <ChoiceBox fx:id="doctor_dropdown" prefWidth="150.0" />
                                                </children>
                                             </VBox>
                                             <VBox prefHeight="179.0" prefWidth="224.0">

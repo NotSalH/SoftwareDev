@@ -21,7 +21,7 @@ public class DoctorDashboardController implements Initializable {
 
     @FXML
     private TableColumn<Patient, String> columnId, columnName;
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         List<Patient> patients;

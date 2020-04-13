@@ -84,7 +84,11 @@ public class User extends AbstractEntity {
     public String getLastName() {
         return lastName;
     }
-
+    
+    public String getFullName(){
+        return this.firstName + " " + this.lastName;
+    }
+    
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -192,7 +196,7 @@ public class User extends AbstractEntity {
         q.setParameter("usertype", usertype);
         return q.uniqueResult();
     }
-
+    
     public static List<User> getAll() {
         Query<User> q = DatabaseScope._getSession()
                 .createQuery("FROM User", User.class);
