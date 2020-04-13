@@ -24,6 +24,7 @@ public class DoctorDashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // should be RecentView not Patient, but we don't have viewing implemented yet.
         List<Patient> patients;
         try (DatabaseScope scope = new DatabaseScope()) {
             patients = Patient.getAll();

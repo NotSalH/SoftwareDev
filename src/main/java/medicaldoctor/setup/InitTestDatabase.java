@@ -24,8 +24,6 @@ public final class InitTestDatabase {
     private InitTestDatabase() {
     }
 
-    private static final Encryption ENCRYPTION = AppSession.ENCRYPTION;
-
     private static DatabaseScope s;
 
     public static void main(String[] args) throws Exception {
@@ -78,7 +76,7 @@ public final class InitTestDatabase {
             userType.addPermission(permission);
         }
     }
-    
+
     private static void insertUserTypes() {
         UserType.ADMIN.save();
         UserType.EXECUTIVE.save();
@@ -94,13 +92,13 @@ public final class InitTestDatabase {
         PatientVisit visit;
         PatientLabRecord labRecord;
         PatientPrescription prescription;
-        
+
         user = new User();
         user.setFirstName("Network");
         user.setLastName("Admin");
         user.setUserName("admin");
-        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("password123"));
-        user.setAdditionalPasswordHashAndSalt(ENCRYPTION.hashPassword("secure@123"));
+        user.setPasswordHashAndSalt(AppSession.ENCRYPTION.hashPassword("password123"));
+        user.setAdditionalPasswordHashAndSalt(AppSession.ENCRYPTION.hashPassword("secure@123"));
         user.setType(UserType.ADMIN);
         user.setDepartment("Administration");
         user.setOfficeNum(145);
@@ -111,7 +109,7 @@ public final class InitTestDatabase {
         user.setFirstName("Front");
         user.setLastName("Desk");
         user.setUserName("fdesk");
-        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("sitaround"));
+        user.setPasswordHashAndSalt(AppSession.ENCRYPTION.hashPassword("sitaround"));
         user.setType(UserType.STAFF);
         user.setDepartment("Lobby");
         user.setOfficeNum(1);
@@ -122,31 +120,31 @@ public final class InitTestDatabase {
         user.setFirstName("Medicalus");
         user.setLastName("Doctorus");
         user.setUserName("mdoctorus");
-        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("ihaveMD"));
+        user.setPasswordHashAndSalt(AppSession.ENCRYPTION.hashPassword("ihaveMD"));
         user.setType(UserType.DOCTOR);
         user.setDepartment("Heart Department");
         user.setOfficeNum(545);
         user.setEmail(AppSession.EMAIL_GENERATOR.generateEmail(user.getUserName()));
         user.save();
-        
+
         User doctor = user;
         user = new User();
         user.setFirstName("Vampire");
         user.setLastName("Bat");
         user.setUserName("vbat");
-        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("where_is_blood"));
+        user.setPasswordHashAndSalt(AppSession.ENCRYPTION.hashPassword("where_is_blood"));
         user.setType(UserType.HEMATOLOGIC_LAB_WORKER);
         user.setDepartment("Hemo Lab");
         user.setOfficeNum(222);
         user.setEmail(AppSession.EMAIL_GENERATOR.generateEmail(user.getUserName()));
         user.save();
-        
+
         User hemoLabWorker = user;
         user = new User();
         user.setFirstName("Space");
         user.setLastName("Machine");
         user.setUserName("smachine");
-        user.setPasswordHashAndSalt(ENCRYPTION.hashPassword("radiowaves"));
+        user.setPasswordHashAndSalt(AppSession.ENCRYPTION.hashPassword("radiowaves"));
         user.setType(UserType.RADIOLOGIC_LAB_WORKER);
         user.setDepartment("Radio Lab");
         user.setOfficeNum(234);
@@ -196,7 +194,7 @@ public final class InitTestDatabase {
         visit.setImpression("looks really bad: cancer?");
         visit.setAdditionalNotes("need to do lab tests");
         visit.save();
-        
+
         Patient patient = new Patient();
         patient.setFirstName("John");
         patient.setLastName("Doe");
