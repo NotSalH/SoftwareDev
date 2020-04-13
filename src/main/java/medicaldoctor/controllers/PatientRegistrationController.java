@@ -14,11 +14,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
-import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.Patient;
 import medicaldoctor.entities.User;
 
-public class PatientRegistrationController implements Initializable, ParentController {
+public class PatientRegistrationController implements Initializable {
 
     @FXML
     private TitledPane newPatientTiltedPane, returningPatientTiltedPane;
@@ -80,11 +79,6 @@ public class PatientRegistrationController implements Initializable, ParentContr
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    }
-
-    @Override
-    public void setScreenParent(ControllerManager page) {
-        AppSession.CONTROLLER_MANAGER = page;
     }
 
 }

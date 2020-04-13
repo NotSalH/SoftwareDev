@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 import medicaldoctor.backend.data.NewUserRequest;
 import medicaldoctor.core.AppSession;
 
-public class NewUserController implements Initializable, ParentController {
+public class NewUserController implements Initializable {
 
     @FXML
     TextField textFirstName, textLastName, textDepartment, textOfficeNumber;
@@ -40,11 +40,6 @@ public class NewUserController implements Initializable, ParentController {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    }
-
-    @Override
-    public void setScreenParent(ControllerManager page) {
-        AppSession.CONTROLLER_MANAGER = page;
     }
 
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package medicaldoctor.controllers;
 
 import java.net.URL;
@@ -13,28 +8,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import medicaldoctor.core.AppSession;
 
-public class LogOutController implements Initializable, ParentController{
-    
+public class LogOutController implements Initializable {
+
     @FXML
-    void exitButtonClicked(ActionEvent event){
+    void exitButtonClicked(ActionEvent event) {
         Platform.exit();
     }
-    
+
     @FXML
-    void loginPageButtonClicked(ActionEvent event) throws Exception{
+    void loginPageButtonClicked(ActionEvent event) throws Exception {
         AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LOGIN_SCREEN);
         AppSession.setActiveUser(null);
-        
-    }
-    
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        
     }
 
     @Override
-    public void setScreenParent(ControllerManager page) {
-        AppSession.CONTROLLER_MANAGER = page;
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
-    
+
 }

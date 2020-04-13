@@ -12,7 +12,7 @@ import medicaldoctor.backend.LoginService;
 import medicaldoctor.backend.data.LoginResult;
 import medicaldoctor.core.AppSession;
 
-public class AdditionalLoginController implements Initializable, ParentController {
+public class AdditionalLoginController implements Initializable {
 
     @FXML
     private Button loginButton;
@@ -36,11 +36,6 @@ public class AdditionalLoginController implements Initializable, ParentControlle
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }
-
-    @Override
-    public void setScreenParent(ControllerManager page) {
-        AppSession.CONTROLLER_MANAGER = page;
     }
 
 }

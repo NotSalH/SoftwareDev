@@ -13,7 +13,7 @@ import medicaldoctor.backend.data.LoginResult;
 import medicaldoctor.backend.LoginService;
 import medicaldoctor.core.AppSession;
 
-public class LoginController implements Initializable, ParentController {
+public class LoginController implements Initializable {
 
     @FXML
     private TextField textUsername;
@@ -44,7 +44,7 @@ public class LoginController implements Initializable, ParentController {
                 textPassword.setText("");
                 AppSession.CONTROLLER_MANAGER.loadAndShowScreen(
                         AppSession.getActiveUser().getType().getDashboardName());
-        }
+            }
         } else if (result == LoginResult.WRONG_USERNAME) {
             i_label.setText("Wrong Username!");
             i_label.setVisible(true);
@@ -57,11 +57,6 @@ public class LoginController implements Initializable, ParentController {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-    }
-
-    @Override
-    public void setScreenParent(ControllerManager page) {
-        AppSession.CONTROLLER_MANAGER = page;
     }
 
 }

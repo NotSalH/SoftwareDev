@@ -11,30 +11,30 @@ import javafx.scene.control.TextField;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.Permission;
 
-public class ProfileController implements Initializable, ParentController{
-    
+public class ProfileController implements Initializable {
+
     @FXML
-    TextField username_tf, first_name_tf, last_name_tf, employee_id_t, email_tf, phone_tf, office_tf,employee_type_tf, sex_tf;
-    
+    TextField username_tf, first_name_tf, last_name_tf, employee_id_t, email_tf, phone_tf, office_tf, employee_type_tf, sex_tf;
+
     @FXML
     Label no_field;
-    
+
     @FXML
     Button conformation, new_user_id, employee_id_tf;
-    
+
     @FXML
-    void new_user(ActionEvent event) throws Exception{
+    void new_user(ActionEvent event) throws Exception {
         AppSession.CONTROLLER_MANAGER.load(LookUp.REGISTER_NEW_USER);
         AppSession.CONTROLLER_MANAGER.showScreen(LookUp.REGISTER_NEW_USER);
     }
-    
+
     @FXML
-    void change_password(ActionEvent event){
-        
+    void change_password(ActionEvent event) {
+
     }
-    
+
     @Override
-    public void initialize(URL location, ResourceBundle resources){
+    public void initialize(URL location, ResourceBundle resources) {
         buttonMustHaveThisPermission(conformation, Permission.REGISTER_NEW_USER);
         buttonMustHaveThisPermission(new_user_id, Permission.REGISTER_NEW_USER);
         buttonMustHaveThisPermission(employee_id_tf, Permission.REGISTER_NEW_USER);
@@ -46,16 +46,11 @@ public class ProfileController implements Initializable, ParentController{
         office_tf.setText(AppSession.getActiveUser().getDepartment());
         employee_type_tf.setText(AppSession.getActiveUser().getType().getName());
     }
-    
+
     private void buttonMustHaveThisPermission(Button button, Permission permission) {
         if (AppSession.getActiveUser().hasPermission(permission) == false) {
             button.setManaged(false);
         }
     }
-    
-    @Override
-    public void setScreenParent(ControllerManager page){
-        AppSession.CONTROLLER_MANAGER = page;
-    }
-    
+
 }
