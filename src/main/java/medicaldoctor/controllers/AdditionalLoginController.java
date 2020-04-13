@@ -12,7 +12,7 @@ import medicaldoctor.backend.LoginService;
 import medicaldoctor.backend.data.LoginResult;
 import medicaldoctor.core.AppSession;
 
-public class AdditionalLoginController implements Initializable, ParentController{
+public class AdditionalLoginController implements Initializable, ParentController {
 
     @FXML
     private Button loginButton;
@@ -20,28 +20,27 @@ public class AdditionalLoginController implements Initializable, ParentControlle
     private PasswordField password;
     @FXML
     private Label i_label;
-    
+
     @FXML
-    void loginButtonClicked(ActionEvent event) throws Exception{
+    void loginButtonClicked(ActionEvent event) throws Exception {
         LoginResult result = LoginService.checkAdditionalPassword(password.getText());
-        if(result == LoginResult.SUCCESS){
+        if (result == LoginResult.SUCCESS) {
             AppSession.CONTROLLER_MANAGER.load(AppSession.getActiveUser().getType().getDashboardName());
             AppSession.CONTROLLER_MANAGER.showScreen(AppSession.getActiveUser().getType().getDashboardName());
-        }
-        else{
+        } else {
             i_label.setText("Wrong Password!");
             i_label.setVisible(true);
         }
     }
-    
+
     @Override
-    public void initialize(URL location, ResourceBundle resources){
-        
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 
     @Override
-    public void setScreenParent(ControllerManager page){
+    public void setScreenParent(ControllerManager page) {
         AppSession.CONTROLLER_MANAGER = page;
     }
-    
+
 }
