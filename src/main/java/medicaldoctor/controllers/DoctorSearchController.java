@@ -4,17 +4,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.Patient;
+import medicaldoctor.entities.User;
 import medicaldoctor.util.InitializeException;
 
 public class DoctorSearchController implements Initializable{
@@ -67,6 +71,23 @@ public class DoctorSearchController implements Initializable{
         data.addAll(doctors_patients);
         table.setItems(data);
         table.refresh();
+        
+        table.setRowFactory(tv -> {
+            TableRow<Patient> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    Patient rowData = row.getItem();
+                    AppSession.setPatientSelection(rowData);
+                    AppSession.setPatientFlag(1);
+                    try {
+                        AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.PATIENT_PROFILE);
+                    } catch (Exception ex) {
+                        Logger.getLogger(DoctorSearchController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            });
+            return row;
+        });
     }
     
     

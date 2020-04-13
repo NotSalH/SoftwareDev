@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import medicaldoctor.core.AppSession;
-import medicaldoctor.core.Permission;
 
 public class ProfileController implements Initializable {
     

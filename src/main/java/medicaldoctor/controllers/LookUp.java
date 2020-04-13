@@ -39,6 +39,8 @@ public class LookUp {
     public static final String MRI = "Mri";
     public static final String PROFILE = "Profile";
     public static final String DOCTOR_SEARCH = "DoctorSearch";
+    public static final String PATIENT_PROFILE = "PatientProfile";
+    
     public static ObservableList<String> STATES = FXCollections.observableArrayList(
             "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA",
             "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MP", "MS", "MT",

@@ -39,6 +39,7 @@ public class DoctorLookupController implements Initializable{
     private List<User> user;
     
     private List<User> doctors;
+    
     void getTableResults(User user){
         table.getItems().clear();
         c_first_name.setCellValueFactory(new PropertyValueFactory("firstName"));

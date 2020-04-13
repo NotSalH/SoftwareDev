@@ -38,14 +38,23 @@ public final class AppSession {
     private static Integer adminFlag;
     private static User doctorSelection;
     private static Integer doctorFlag;
-    
+    private static Patient patientSelection;
+    private static Integer patientFlag;
     public static User getActiveUser() {
         if (activeUser == null) {
             throw new IllegalStateException("User is not logged on");
         }
         return activeUser;
     }
-
+    
+    public static void setPatientSelection(Patient patient){
+        patientSelection = patient;
+    }
+    
+    public static void setPatientFlag(int flag){
+        patientFlag = flag;
+    }
+    
     public static void setActiveUser(User user) {
         activeUser = user;
     }
@@ -68,6 +77,14 @@ public final class AppSession {
     
     public static User getAdminUserSelection(){
         return adminUserSelection;
+    }
+    
+    public static Patient getPatientSelection(){
+        return patientSelection;
+    }
+    
+    public static Integer getPatientFlag(){
+        return patientFlag;
     }
     
     public static User getDoctorSelection(){
