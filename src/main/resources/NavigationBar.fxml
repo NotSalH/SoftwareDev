@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ToolBar prefHeight="160.0" prefWidth="1933.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.NavigationBarController">
+<ToolBar fx:id="toolBar" prefHeight="160.0" prefWidth="1933.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.NavigationBarController">
   <items>
       <ImageView fitHeight="149.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -34,7 +34,7 @@
       <Button fx:id="buttonXRay" mnemonicParsing="false" onAction="#xRay" prefHeight="42.0" prefWidth="90.0" text="X-Ray" />
       <Button fx:id="buttonCT" mnemonicParsing="false" onAction="#ct" prefHeight="42.0" prefWidth="73.0" text="CT" />
       <Button fx:id="buttonMRI" mnemonicParsing="false" onAction="#mri" prefHeight="42.0" prefWidth="87.0" text="MRI" />
-      <VBox prefHeight="119.0" prefWidth="100.0" spacing="10.0">
+      <VBox fx:id="vBox" prefHeight="119.0" prefWidth="100.0" spacing="10.0">
          <children>
             <ImageView fitHeight="89.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
                <image>

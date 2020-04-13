@@ -15,7 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import medicaldoctor.controllers.LookUp;
+import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.core.Permission;
+import org.hibernate.query.Query;
 
 @Entity
 @Table(name = "UserType", uniqueConstraints = {
@@ -42,10 +44,10 @@ public class UserType extends AbstractEntity {
 
     @Column(name = "dashboardName", nullable = false, length = 50)
     private String dashboardName;
-    
+
     @Column(name = "HasAdditionalPassword", nullable = false)
     private boolean hasAdditionalPassword;
-    
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "UserTypeId", nullable = false)
     private List<UserTypePermission> permissions = new LinkedList<>();
@@ -70,6 +72,10 @@ public class UserType extends AbstractEntity {
 
     public boolean hasAdditionalPassword() {
         return hasAdditionalPassword;
+    }
+
+    public String getDashboardName() {
+        return this.dashboardName;
     }
 
     public void addPermission(Permission permission) {
@@ -109,9 +115,12 @@ public class UserType extends AbstractEntity {
         }
         return true;
     }
-    
-    public String getDashboardName(){
-        return this.dashboardName;
+
+    public static UserType byName(String usertype) {
+        Query<UserType> q = DatabaseScope._getSession()
+                .createQuery("FROM UserType WHERE Name = :usertype", UserType.class);
+        q.setParameter("usertype", usertype);
+        return q.uniqueResult();
     }
 
 }

@@ -40,6 +40,9 @@ public class User extends AbstractEntity {
     @Column(name = "UserName", nullable = false, length = 50, unique = true)
     private String userName;
 
+    @Column(name = "Email", nullable = false, length = 50)
+    private String email;
+
     @Column(name = "PasswordHash", nullable = false, length = 128)
     private String passwordHash;
 
@@ -82,8 +85,20 @@ public class User extends AbstractEntity {
         return lastName;
     }
 
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return this.email;
     }
 
     public String getUserName() {

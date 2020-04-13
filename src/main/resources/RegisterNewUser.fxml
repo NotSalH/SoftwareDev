@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.UserRegistrationInputController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.NewUserController">
    <center>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="1129.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
            <children>
@@ -24,7 +24,7 @@
                        <children>
                           <VBox prefHeight="63.0" prefWidth="191.0">
                              <children>
-                                <Label text="First Name:">
+                                <Label fx:id="first_name_label" text="First Name:">
                                    <font>
                                       <Font size="14.0" />
                                    </font>
@@ -34,7 +34,7 @@
                           </VBox>
                           <VBox prefHeight="63.0" prefWidth="174.0">
                              <children>
-                                <Label text="Last Name:">
+                                <Label fx:id="last_name_label" text="Last Name:">
                                    <font>
                                       <Font size="14.0" />
                                    </font>
@@ -44,7 +44,7 @@
                           </VBox>
                           <VBox prefHeight="63.0" prefWidth="109.0">
                              <children>
-                                <Label text="Employee Type;">
+                                <Label fx:id="employee_type_label" text="Employee Type;">
                                    <font>
                                       <Font size="14.0" />
                                    </font>
@@ -54,7 +54,7 @@
                           </VBox>
                           <VBox prefHeight="63.0" prefWidth="97.0">
                              <children>
-                                <Label text="Department:">
+                                <Label fx:id="department_label" text="Department:">
                                    <font>
                                       <Font size="14.0" />
                                    </font>
@@ -64,7 +64,7 @@
                           </VBox>
                           <VBox prefHeight="63.0" prefWidth="60.0">
                              <children>
-                                <Label text="Office #:">
+                                <Label fx:id="office_label" text="Office #:">
                                    <font>
                                       <Font size="14.0" />
                                    </font>
