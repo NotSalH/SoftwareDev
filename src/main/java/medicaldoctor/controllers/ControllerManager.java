@@ -25,6 +25,7 @@ public class ControllerManager extends StackPane {
 
     public void load(String name) throws IOException {
         String path = name + ".fxml";
+        System.out.println(path);
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(path));
         Parent parentLoader = (Parent) loader.load();
         ParentController pc = ((ParentController) loader.getController());
@@ -41,7 +42,7 @@ public class ControllerManager extends StackPane {
                 getChildren().add(screen.get(name));
             }
         } else {
-            //File has not been loaded
+            throw new Exception("File has not been loaded");
         }
     }
 
