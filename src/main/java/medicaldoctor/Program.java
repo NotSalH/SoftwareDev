@@ -10,7 +10,7 @@ import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 
 public class Program extends Application {
-
+    
     @Override
     public void start(Stage stage) throws Exception {
         AppSession.CONTROLLER_MANAGER.load(LookUp.LOGIN_SCREEN);
