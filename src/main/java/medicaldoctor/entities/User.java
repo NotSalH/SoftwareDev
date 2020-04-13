@@ -39,10 +39,10 @@ public class User extends AbstractEntity {
 
     @Column(name = "UserName", nullable = false, length = 50, unique = true)
     private String userName;
-    
+
     @Column(name = "Email", nullable = false, length = 50)
     private String email;
-    
+
     @Column(name = "PasswordHash", nullable = false, length = 128)
     private String passwordHash;
 
@@ -84,23 +84,23 @@ public class User extends AbstractEntity {
     public String getLastName() {
         return lastName;
     }
-    
-    public String getFullName(){
+
+    public String getFullName() {
         return this.firstName + " " + this.lastName;
     }
-    
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
-    public void setEmail(String email){
+
+    public void setEmail(String email) {
         this.email = email;
     }
-    
-    public String getEmail(){
+
+    public String getEmail() {
         return this.email;
     }
-    
+
     public String getUserName() {
         return userName;
     }
@@ -154,7 +154,7 @@ public class User extends AbstractEntity {
     public void setOfficeNum(Integer officeNum) {
         this.officeNum = officeNum;
     }
-    
+
     public boolean hasPermission(Permission permission) {
         return getType().hasPermission(permission);
     }
@@ -182,21 +182,14 @@ public class User extends AbstractEntity {
         q.setParameter("type", recentViewType.ordinal());
         return q.getResultStream().map(mapper).collect(Collectors.toList());
     }
-    
+
     public static User byUsername(String username) {
         Query<User> q = DatabaseScope._getSession()
                 .createQuery("FROM User WHERE UserName = :username", User.class);
         q.setParameter("username", username);
         return q.uniqueResult();
     }
-    
-    public static UserType byName(String usertype) {
-        Query<UserType> q = DatabaseScope._getSession()
-                .createQuery("FROM UserType WHERE UserTypeId = :usertype", UserType.class);
-        q.setParameter("usertype", usertype);
-        return q.uniqueResult();
-    }
-    
+
     public static List<User> getAll() {
         Query<User> q = DatabaseScope._getSession()
                 .createQuery("FROM User", User.class);
