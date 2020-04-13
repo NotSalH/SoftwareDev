@@ -1,23 +1,22 @@
 package medicaldoctor;
 
 import medicaldoctor.controllers.LookUp;
-import medicaldoctor.controllers.ControllerManager;
 import com.sun.glass.ui.Screen;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 
 public class Program extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
-        ControllerManager cm = new ControllerManager();
-        cm.load(LookUp.LOGIN_SCREEN);
-        cm.showScreen(LookUp.LOGIN_SCREEN);
+        AppSession.CONTROLLER_MANAGER.load(LookUp.LOGIN_SCREEN);
+        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LOGIN_SCREEN);
         Group root = new Group();
-        root.getChildren().addAll(cm);
+        root.getChildren().addAll(AppSession.CONTROLLER_MANAGER);
         Scene scene = new Scene(root);
         stage.setWidth(Screen.getMainScreen().getWidth());
         stage.setHeight(Screen.getMainScreen().getHeight());
