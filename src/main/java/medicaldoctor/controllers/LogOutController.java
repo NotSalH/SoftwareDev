@@ -17,7 +17,7 @@ public class LogOutController implements Initializable {
 
     @FXML
     void loginPageButtonClicked(ActionEvent event) throws Exception {
-        AppSession.CONTROLLER_MANAGER.showScreen(LookUp.LOGIN_SCREEN);
+        AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.LOGIN_SCREEN);
     }
 
     @Override

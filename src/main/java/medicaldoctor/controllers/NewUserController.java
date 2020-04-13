@@ -14,45 +14,49 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import medicaldoctor.backend.UserService;
 import medicaldoctor.backend.data.NewUserRequest;
+import medicaldoctor.backend.data.NewUserResult;
+import medicaldoctor.core.AppSession;
 import medicaldoctor.entities.UserType;
 
 public class NewUserController implements Initializable {
-
+    
     @FXML
     TextField textFirstName, textLastName, textDepartment, textOfficeNumber;
-
+    
     @FXML
     ChoiceBox employeeTypeChoiceBox;
-
+    
     @FXML
     Button submitButton;
-
+    
     @FXML
     Label success, first_name_label, last_name_label, employee_type_label, department_label, office_label;
-
+    
     HashMap<TextField, Label> textfield_hash = new HashMap<>();
-
+    
     NewUserRequest new_user_request = new NewUserRequest();
-
+    
     @FXML
     void submitButtonClick(ActionEvent event) throws Exception {
         // these check methods display message to users if they fail.
         if (areTextFieldsFilled()) {
             if (isSelectionFilled(employeeTypeChoiceBox, employee_type_label)) {
-                makeNewUser();
+                NewUserResult result = makeNewUser();
+                AppSession.setNewUserResult(result);
+                AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.REGISTER_NEW_USER_RESULT);
             }
         }
     }
-
-    private void makeNewUser() throws Exception {
+    
+    private NewUserResult makeNewUser() throws Exception {
         new_user_request.firstName = textFirstName.getText();
         new_user_request.lastName = textLastName.getText();
         new_user_request.userType = (String) employeeTypeChoiceBox.getValue();
         new_user_request.officeNum = Integer.parseInt(isInteger(textOfficeNumber.getText()));
         new_user_request.department = textDepartment.getText();
-        UserService.createNewUser(new_user_request);
+        return UserService.createNewUser(new_user_request);
     }
-
+    
     boolean isSelectionFilled(ChoiceBox cb, Label label) {
         if (cb.getSelectionModel().isEmpty()) {
             label.setTextFill(Color.RED);
@@ -61,9 +65,9 @@ public class NewUserController implements Initializable {
             label.setTextFill(Color.GREEN);
             return true;
         }
-
+        
     }
-
+    
     public static String isInteger(String str) {
         if (str == null) {
             return "0";
@@ -87,7 +91,7 @@ public class NewUserController implements Initializable {
         }
         return str;
     }
-
+    
     private boolean areTextFieldsFilled() {
         boolean areAllFilled = true;
         for (Map.Entry<TextField, Label> entry : textfield_hash.entrySet()) {
@@ -100,7 +104,7 @@ public class NewUserController implements Initializable {
         }
         return areAllFilled;
     }
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         for (UserType userType : UserType.ALL) {
@@ -111,5 +115,5 @@ public class NewUserController implements Initializable {
         textfield_hash.put(textDepartment, department_label);
         textfield_hash.put(textOfficeNumber, office_label);
     }
-
+    
 }

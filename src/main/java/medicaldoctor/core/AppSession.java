@@ -2,6 +2,7 @@ package medicaldoctor.core;
 
 import java.time.LocalDateTime;
 import static medicaldoctor.backend.LoginService.MESSAGE_USER_LOGGED_OUT;
+import medicaldoctor.backend.data.NewUserResult;
 import medicaldoctor.controllers.ControllerManager;
 import medicaldoctor.entities.LogRecord;
 import medicaldoctor.entities.Patient;
@@ -32,6 +33,7 @@ public final class AppSession {
     private static User activeUser;
     private static Patient currentPatient;
     private static PatientVisit currentVisit;
+    private static NewUserResult newUserResult;
 
     public static User getActiveUser() {
         if (activeUser == null) {
@@ -62,6 +64,24 @@ public final class AppSession {
 
     public static void setCurrentVisit(PatientVisit currentVisit) {
         AppSession.currentVisit = currentVisit;
+    }
+
+    public static NewUserResult getNewUserResult() {
+        return newUserResult;
+    }
+
+    public static void setNewUserResult(NewUserResult newUserResult) {
+        AppSession.newUserResult = newUserResult;
+    }
+
+    /**
+     * Load the dashboard, depending on the UserType.
+     *
+     * @throws Exception
+     */
+    public static void loadDashboard() throws Exception {
+        AppSession.CONTROLLER_MANAGER.loadAndShowScreen(
+                AppSession.getActiveUser().getType().getDashboardName());
     }
 
     /**

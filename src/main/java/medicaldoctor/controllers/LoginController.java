@@ -42,8 +42,7 @@ public class LoginController implements Initializable {
             } else {
                 textUsername.setText("");
                 textPassword.setText("");
-                AppSession.CONTROLLER_MANAGER.loadAndShowScreen(
-                        AppSession.getActiveUser().getType().getDashboardName());
+                AppSession.loadDashboard();
             }
         } else if (result == LoginResult.WRONG_USERNAME) {
             i_label.setText("Wrong Username!");
