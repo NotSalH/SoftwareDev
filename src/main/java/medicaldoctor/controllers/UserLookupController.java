@@ -3,6 +3,8 @@ package medicaldoctor.controllers;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,6 +15,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.Patient;
 import medicaldoctor.entities.User;
@@ -100,7 +103,13 @@ public class UserLookupController implements Initializable{
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     User rowData = row.getItem();
-                    System.out.println("Double click on: "+rowData.getFirstName());
+                    AppSession.setAdminUserSelection(rowData);
+                    AppSession.setAdminFlag(1);
+                    try {
+                        AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.PROFILE);
+                    } catch (Exception ex) {
+                        Logger.getLogger(UserLookupController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             });
             return row;

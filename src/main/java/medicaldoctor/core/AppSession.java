@@ -34,7 +34,11 @@ public final class AppSession {
     private static Patient currentPatient;
     private static PatientVisit currentVisit;
     private static NewUserResult newUserResult;
-
+    private static User adminUserSelection;
+    private static Integer adminFlag;
+    private static User doctorSelection;
+    private static Integer doctorFlag;
+    
     public static User getActiveUser() {
         if (activeUser == null) {
             throw new IllegalStateException("User is not logged on");
@@ -45,7 +49,39 @@ public final class AppSession {
     public static void setActiveUser(User user) {
         activeUser = user;
     }
-
+    
+    public static void setAdminUserSelection(User user){
+        adminUserSelection = user;
+    }
+    
+    public static void setDoctorSelction(User user){
+        doctorSelection = user;
+    }
+    
+    public static void setDoctorFlag(int flag){
+        doctorFlag = flag;
+    }
+    
+    public static void setAdminFlag(int flag){
+        adminFlag = flag;
+    }
+    
+    public static User getAdminUserSelection(){
+        return adminUserSelection;
+    }
+    
+    public static User getDoctorSelection(){
+        return doctorSelection;
+    }
+    
+    public static Integer getAdminFlag(){
+        return adminFlag;
+    }
+    
+    public static Integer getDoctorFlag(){
+        return doctorFlag;
+    }
+    
     public static boolean isLoggedIn() {
         return activeUser != null;
     }

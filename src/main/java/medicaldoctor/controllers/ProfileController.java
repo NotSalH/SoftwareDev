@@ -35,14 +35,27 @@ public class ProfileController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        first_name_tf.setText(AppSession.getActiveUser().getFirstName());
-        last_name_tf.setText(AppSession.getActiveUser().getLastName());
-        username_tf.setText(AppSession.getActiveUser().getUserName());
-        employee_id_t.setText(AppSession.getActiveUser().getId() + "");
-        email_tf.setText(AppSession.getActiveUser().getEmail());
-        department_tf.setText(AppSession.getActiveUser().getDepartment());
-        office_tf.setText(AppSession.getActiveUser().getOfficeNum() + "");
-        employee_type_tf.setText(AppSession.getActiveUser().getType().getName());
+        if(AppSession.getAdminFlag() == 1){
+            first_name_tf.setText(AppSession.getAdminUserSelection().getFirstName());
+            last_name_tf.setText(AppSession.getAdminUserSelection().getLastName());
+            username_tf.setText(AppSession.getAdminUserSelection().getUserName());
+            employee_id_t.setText(AppSession.getAdminUserSelection().getId() + "");
+            email_tf.setText(AppSession.getAdminUserSelection().getEmail());
+            department_tf.setText(AppSession.getAdminUserSelection().getDepartment());
+            office_tf.setText(AppSession.getAdminUserSelection().getOfficeNum() + "");
+            employee_type_tf.setText(AppSession.getAdminUserSelection().getType().getName());
+        }
+        else{
+            first_name_tf.setText(AppSession.getActiveUser().getFirstName());
+            last_name_tf.setText(AppSession.getActiveUser().getLastName());
+            username_tf.setText(AppSession.getActiveUser().getUserName());
+            employee_id_t.setText(AppSession.getActiveUser().getId() + "");
+            email_tf.setText(AppSession.getActiveUser().getEmail());
+            department_tf.setText(AppSession.getActiveUser().getDepartment());
+            office_tf.setText(AppSession.getActiveUser().getOfficeNum() + "");
+            employee_type_tf.setText(AppSession.getActiveUser().getType().getName());
+        }
+        AppSession.setAdminFlag(0);
     }
     
 }

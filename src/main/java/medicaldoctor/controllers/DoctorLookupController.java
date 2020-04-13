@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.Patient;
 import medicaldoctor.entities.User;
@@ -34,6 +37,7 @@ public class DoctorLookupController implements Initializable{
     private TableColumn<Patient, Integer> c_office;
     
     private List<User> user;
+    
     private List<User> doctors;
     void getTableResults(User user){
         table.getItems().clear();
@@ -108,7 +112,13 @@ public class DoctorLookupController implements Initializable{
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     User rowData = row.getItem();
-                    System.out.println("Double click on: " + rowData.getFirstName());
+                    AppSession.setDoctorSelction(rowData);
+                    AppSession.setDoctorFlag(1);
+                    try {
+                        AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.DOCTOR_SEARCH);
+                    } catch (Exception ex) {
+                        Logger.getLogger(DoctorLookupController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             });
             return row;
