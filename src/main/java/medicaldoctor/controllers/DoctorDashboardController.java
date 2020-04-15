@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.Patient;
 import medicaldoctor.util.InitializeException;
@@ -24,6 +25,7 @@ public class DoctorDashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        AppSession.setAdminFlag(0);
         // should be RecentView not Patient, but we don't have viewing implemented yet.
         List<Patient> patients;
         try (DatabaseScope scope = new DatabaseScope()) {

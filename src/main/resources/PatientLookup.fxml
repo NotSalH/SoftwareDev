@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.MyPatientController">
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="1139.0">
+   <children>
+      <Label layoutX="96.0" layoutY="129.0" text="First Name:" />
+      <TextField fx:id="first_name_tf" layoutX="101.0" layoutY="170.0" prefHeight="57.0" prefWidth="232.0" />
+      <TextField fx:id="last_name_tf" layoutX="346.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
+      <Label layoutX="346.0" layoutY="129.0" text="Last Name:" />
+      <Label layoutX="102.0" layoutY="230.0" text="Doctors:" />
+            <TableView fx:id="table" layoutX="710.0" layoutY="134.0" prefHeight="303.0" prefWidth="379.0">
+              <columns>
+                <TableColumn fx:id="c_first_name" prefWidth="75.0" text="First Name" />
+                <TableColumn fx:id="c_last_name" prefWidth="75.0" text="Last Name" />
+                  <TableColumn fx:id="c_age" prefWidth="75.0" text="Age" />
+                  <TableColumn fx:id="c_sex" prefWidth="75.0" text="Sex" />
+                  <TableColumn fx:id="c_ins" prefWidth="75.0" text="Insurence" />
+              </columns>
+            </TableView>
+            <ChoiceBox fx:id="doctor_cb" layoutX="97.0" layoutY="259.0" prefWidth="150.0" />
+            <Button layoutX="315.0" layoutY="255.0" mnemonicParsing="false" onAction="#search_patient" text="Search!" />
+            <Label layoutX="82.0" layoutY="47.0" text="Please enter in any field to search for a patient">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="710.0" layoutY="91.0" text="Double click the row to select Entry" />
+   </children>
+   
+</AnchorPane>
+   </center>
+   <top>
+       <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
+   </top>
+</BorderPane>
