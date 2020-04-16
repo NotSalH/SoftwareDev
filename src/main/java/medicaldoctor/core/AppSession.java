@@ -40,65 +40,66 @@ public final class AppSession {
     private static Integer doctorFlag;
     private static Patient patientSelection;
     private static Integer patientFlag;
+
     public static User getActiveUser() {
         if (activeUser == null) {
             throw new IllegalStateException("User is not logged on");
         }
         return activeUser;
     }
-    
-    public static void setPatientSelection(Patient patient){
+
+    public static void setPatientSelection(Patient patient) {
         patientSelection = patient;
     }
-    
-    public static void setPatientFlag(int flag){
+
+    public static void setPatientFlag(int flag) {
         patientFlag = flag;
     }
-    
+
     public static void setActiveUser(User user) {
         activeUser = user;
     }
-    
-    public static void setAdminUserSelection(User user){
+
+    public static void setAdminUserSelection(User user) {
         adminUserSelection = user;
     }
-    
-    public static void setDoctorSelction(User user){
+
+    public static void setDoctorSelction(User user) {
         doctorSelection = user;
     }
-    
-    public static void setDoctorFlag(int flag){
+
+    public static void setDoctorFlag(int flag) {
         doctorFlag = flag;
     }
-    
-    public static void setAdminFlag(int flag){
+
+    public static void setAdminFlag(int flag) {
         adminFlag = flag;
     }
-    
-    public static User getAdminUserSelection(){
+
+    public static User getAdminUserSelection() {
         return adminUserSelection;
     }
-    
-    public static Patient getPatientSelection(){
+
+    public static Patient getPatientSelection() {
         return patientSelection;
     }
-    
-    public static Integer getPatientFlag(){
+
+    public static Integer getPatientFlag() {
         return patientFlag;
     }
-    
-    public static User getDoctorSelection(){
+
+    public static User getDoctorSelection() {
         return doctorSelection;
     }
-    
-    public static Integer getAdminFlag(){
+
+    public static Integer getAdminFlag() {
         return adminFlag;
     }
-    
-    public static Integer getDoctorFlag(){
+
+    public static Integer getDoctorFlag() {
         return doctorFlag;
     }
-    
+
     public static boolean isLoggedIn() {
         return activeUser != null;
     }
