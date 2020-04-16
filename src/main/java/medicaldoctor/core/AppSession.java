@@ -34,12 +34,12 @@ public final class AppSession {
     private static Patient currentPatient;
     private static PatientVisit currentVisit;
     private static NewUserResult newUserResult;
-    private static User adminUserSelection;
-    private static Integer adminFlag;
     private static User doctorSelection;
     private static Integer doctorFlag;
     private static Patient patientSelection;
     private static Integer patientFlag;
+
+    private static User viewingUserSelection = null;
 
     public static User getActiveUser() {
         if (activeUser == null) {
@@ -60,8 +60,8 @@ public final class AppSession {
         activeUser = user;
     }
 
-    public static void setAdminUserSelection(User user) {
-        adminUserSelection = user;
+    public static void setViewingUserSelection(User user) {
+        viewingUserSelection = user;
     }
 
     public static void setDoctorSelction(User user) {
@@ -72,12 +72,8 @@ public final class AppSession {
         doctorFlag = flag;
     }
 
-    public static void setAdminFlag(int flag) {
-        adminFlag = flag;
-    }
-
-    public static User getAdminUserSelection() {
-        return adminUserSelection;
+    public static User getViewingUserSelection() {
+        return viewingUserSelection;
     }
 
     public static Patient getPatientSelection() {
@@ -90,10 +86,6 @@ public final class AppSession {
 
     public static User getDoctorSelection() {
         return doctorSelection;
-    }
-
-    public static Integer getAdminFlag() {
-        return adminFlag;
     }
 
     public static Integer getDoctorFlag() {

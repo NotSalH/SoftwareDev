@@ -9,52 +9,49 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import medicaldoctor.core.AppSession;
+import medicaldoctor.entities.User;
 
 public class ProfileController implements Initializable {
-    
+
     @FXML
     TextField username_tf, first_name_tf, last_name_tf, employee_id_t, email_tf, department_tf, office_tf, employee_type_tf;
-    
+
     @FXML
     Label no_field;
-    
+
     @FXML
-    Button conformation, new_user_id, employee_id_tf;
-    
+    Button conformation, new_user_id, employee_id_tf, buttonChangePassword;
+
     @FXML
     void new_user(ActionEvent event) throws Exception {
         AppSession.CONTROLLER_MANAGER.load(LookUp.REGISTER_NEW_USER);
         AppSession.CONTROLLER_MANAGER.showScreen(LookUp.REGISTER_NEW_USER);
     }
-    
+
     @FXML
-    void change_password(ActionEvent event) {
-        
+    void buttonChangePasswordClick(ActionEvent event) throws Exception {
+        AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.CHANGE_PASSWORD);
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(AppSession.getAdminFlag() == 1){
-            first_name_tf.setText(AppSession.getAdminUserSelection().getFirstName());
-            last_name_tf.setText(AppSession.getAdminUserSelection().getLastName());
-            username_tf.setText(AppSession.getAdminUserSelection().getUserName());
-            employee_id_t.setText(AppSession.getAdminUserSelection().getId() + "");
-            email_tf.setText(AppSession.getAdminUserSelection().getEmail());
-            department_tf.setText(AppSession.getAdminUserSelection().getDepartment());
-            office_tf.setText(AppSession.getAdminUserSelection().getOfficeNum() + "");
-            employee_type_tf.setText(AppSession.getAdminUserSelection().getType().getName());
+        User userToDisplay = null;
+        if (AppSession.getViewingUserSelection() == null) {
+            userToDisplay = AppSession.getActiveUser();
+        } else {
+            userToDisplay = AppSession.getViewingUserSelection();
+            buttonChangePassword.setManaged(false);
         }
-        else{
-            first_name_tf.setText(AppSession.getActiveUser().getFirstName());
-            last_name_tf.setText(AppSession.getActiveUser().getLastName());
-            username_tf.setText(AppSession.getActiveUser().getUserName());
-            employee_id_t.setText(AppSession.getActiveUser().getId() + "");
-            email_tf.setText(AppSession.getActiveUser().getEmail());
-            department_tf.setText(AppSession.getActiveUser().getDepartment());
-            office_tf.setText(AppSession.getActiveUser().getOfficeNum() + "");
-            employee_type_tf.setText(AppSession.getActiveUser().getType().getName());
-        }
-        AppSession.setAdminFlag(0);
+        first_name_tf.setText(userToDisplay.getFirstName());
+        last_name_tf.setText(userToDisplay.getLastName());
+        username_tf.setText(userToDisplay.getUserName());
+        employee_id_t.setText(userToDisplay.getId() + "");
+        email_tf.setText(userToDisplay.getEmail());
+        department_tf.setText(userToDisplay.getDepartment());
+        office_tf.setText(userToDisplay.getOfficeNum() + "");
+        employee_type_tf.setText(userToDisplay.getType().getName());
+
+        AppSession.setViewingUserSelection(null);
     }
-    
+
 }
