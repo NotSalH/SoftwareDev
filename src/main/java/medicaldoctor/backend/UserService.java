@@ -91,7 +91,7 @@ public class UserService {
         user.setPasswordHashAndSalt(newHash);
         try (DatabaseScope t = new DatabaseScope()) {
             t.beginTransaction();
-            user.save();
+            user.update();
             AppSession.logEvent(MESSAGE_USER_PASSWORD_CHANGED);
             t.commit();
         } catch (Exception e) {

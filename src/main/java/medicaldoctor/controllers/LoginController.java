@@ -31,7 +31,8 @@ public class LoginController implements Initializable {
     void buttonSubmitClick(ActionEvent event) throws Exception {
         LoginResult result = LoginService.checkLogin(
                 textUsername.getText(),
-                textPassword.getText());
+                textPassword.getText(),
+                true);
 
         if (result == LoginResult.SUCCESS) {
             if (AppSession.getActiveUser().hasAdditionalPassword()) {

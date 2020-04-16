@@ -15,4 +15,11 @@ public abstract class AbstractEntity implements Serializable {
         DatabaseScope._getSession().save(this);
     }
 
+    /**
+     * Update the corresponding database record.
+     */
+    public void update() {
+        DatabaseScope._getSession().update(this);
+    }
+
 }

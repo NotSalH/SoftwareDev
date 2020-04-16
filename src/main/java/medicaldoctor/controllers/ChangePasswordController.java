@@ -33,7 +33,8 @@ public class ChangePasswordController implements Initializable {
     void buttonSubmitClick(ActionEvent event) throws Exception {
         LoginResult loginResult = LoginService.checkLogin(
                 AppSession.getActiveUser().getUserName(),
-                textOldPassword.getText());
+                textOldPassword.getText(),
+                false);
         if (loginResult == LoginResult.SUCCESS) {
             ChangePasswordResult result = UserService.changePassword(
                     textNewPassword.getText(),

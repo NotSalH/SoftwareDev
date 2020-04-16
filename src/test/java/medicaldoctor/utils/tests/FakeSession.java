@@ -60,6 +60,11 @@ public class FakeSession implements Session {
     }
 
     @Override
+    public void update(Object o) {
+        save(o);
+    }
+
+    @Override
     public void close() throws HibernateException {
     }
 
@@ -206,11 +211,6 @@ public class FakeSession implements Session {
 
     @Override
     public void saveOrUpdate(String string, Object o) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void update(Object o) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
