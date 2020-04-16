@@ -27,7 +27,6 @@
                   <TableColumn fx:id="c_ins" prefWidth="150.0" text="Insurance" />
               </columns>
             </TableView>
-            <ChoiceBox fx:id="doctor_cb" layoutX="97.0" layoutY="259.0" prefWidth="150.0" />
             <Button layoutX="315.0" layoutY="255.0" mnemonicParsing="false" onAction="#search_patient" text="Search!" />
             <Label layoutX="82.0" layoutY="47.0" text="Please enter in any field to search for a patient">
                <font>
@@ -35,6 +34,8 @@
                </font>
             </Label>
             <Label layoutX="598.0" layoutY="61.0" text="Double click the row to select Entry" />
+            <Label layoutX="710.0" layoutY="91.0" text="Double click the row to select Entry" />
+            <ChoiceBox fx:id="doctor_choicebox" layoutX="101.0" layoutY="265.0" prefWidth="150.0" />
    </children>
    
 </AnchorPane>

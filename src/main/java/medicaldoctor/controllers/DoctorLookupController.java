@@ -98,6 +98,7 @@ public class DoctorLookupController implements Initializable{
                 doctors.add(user.get(i));
             }
         }
+        
         c_first_name.setCellValueFactory(new PropertyValueFactory("firstName"));
         c_last_name.setCellValueFactory(new PropertyValueFactory("lastName"));
         c_email.setCellValueFactory(new PropertyValueFactory("email"));

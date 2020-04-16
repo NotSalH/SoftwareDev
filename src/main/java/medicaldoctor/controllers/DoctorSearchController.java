@@ -18,7 +18,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import medicaldoctor.core.AppSession;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.Patient;
-import medicaldoctor.entities.User;
 import medicaldoctor.util.InitializeException;
 
 public class DoctorSearchController implements Initializable{
@@ -48,8 +47,8 @@ public class DoctorSearchController implements Initializable{
         email_tf.setText(AppSession.getDoctorSelection().getEmail());
         dep_tf.setText(AppSession.getDoctorSelection().getDepartment());
         office_tf.setText(AppSession.getDoctorSelection().getOfficeNum() + "");
-   
         doctors_patients = new ArrayList<>();
+        
         try (DatabaseScope scope = new DatabaseScope()) {
             patients = Patient.getAll();
         } catch (Exception ex) {
@@ -80,7 +79,7 @@ public class DoctorSearchController implements Initializable{
                     AppSession.setPatientSelection(rowData);
                     AppSession.setPatientFlag(1);
                     try {
-                        //AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.PATIENT_PROFILE);
+                        AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.PATIENT_PROFILE);
                     } catch (Exception ex) {
                         Logger.getLogger(DoctorSearchController.class.getName()).log(Level.SEVERE, null, ex);
                     }

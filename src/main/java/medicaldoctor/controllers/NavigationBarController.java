@@ -195,7 +195,7 @@ public class NavigationBarController implements Initializable {
         buttonMustHaveThisPermission(buttonPatientLookup, Permission.ACCESS_PATIENT_LOOKUP);
         buttonMustHaveThisPermission(buttonDoctorLookup, Permission.ACCESS_DOCTOR_LOOKUP);
         buttonMustHaveThisPermission(buttonUserLookup, Permission.ACCESS_USER_LOOKUP);
-        //buttonMustHaveThisPermission(buttonMyLabRequests, Permission.ACCESS_MY_LAB_REQUESTS);
+        buttonMustHaveThisPermission(buttonMyLabRequests, Permission.ACCESS_MY_LAB_REQUESTS);
         buttonMustHaveThisPermission(buttonRegisterNewUser, Permission.REGISTER_NEW_USER);
         //buttonMustHaveThisPermission(buttonLabRequests, Permission.ACCESS_ALL_LAB_REQUESTS);
         //buttonMustHaveThisPermission(buttonLogs, Permission.ACCESS_LOGS);

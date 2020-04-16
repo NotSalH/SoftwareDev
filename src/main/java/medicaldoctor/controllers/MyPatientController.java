@@ -104,7 +104,7 @@ public class MyPatientController implements Initializable{
                     AppSession.setPatientSelection(rowData);
                     AppSession.setPatientFlag(1);
                     try {
-                        //AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.PATIENT_PROFILE);
+                        AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.PATIENT_PROFILE);
                     } catch (Exception ex) {
                         Logger.getLogger(DoctorSearchController.class.getName()).log(Level.SEVERE, null, ex);
                     }

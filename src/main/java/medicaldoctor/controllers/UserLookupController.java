@@ -100,6 +100,7 @@ public class UserLookupController implements Initializable{
         
         table.setRowFactory(tv -> {
             TableRow<User> row = new TableRow<>();
+            
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     User rowData = row.getItem();
