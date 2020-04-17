@@ -30,7 +30,7 @@ public class PatientLookupController implements Initializable{
     private TableColumn<Patient, String> c_first_name, c_last_name, c_sex, c_ins;
     
     @FXML
-    private ChoiceBox doctor_cb;
+    private ChoiceBox doctor_choicebox;
     
     @FXML
     private TextField first_name_tf, last_name_tf;
@@ -50,7 +50,7 @@ public class PatientLookupController implements Initializable{
                 getTableResults(patients.get(i));
             if(patients.get(i).getLastName().toLowerCase().equals(tf.getText().toLowerCase()))
                 getTableResults(patients.get(i));
-            
+  
         }
     }
     
@@ -79,29 +79,17 @@ public class PatientLookupController implements Initializable{
         for(int i =0; i < patients.size(); i++){
             search(first_name_tf,i);
             search(last_name_tf,i);
-            search((String) doctor_cb.getValue(), i);
+            search((String) doctor_choicebox.getValue(), i);
         }
     }
     
     @Override
     public void initialize(URL location, ResourceBundle resources){
-      
+        
         try (DatabaseScope scope = new DatabaseScope()) {
             patients = Patient.getAll();
         } catch (Exception ex) {
            throw new InitializeException(ex);
-        }
-        
-        try (DatabaseScope scope = new DatabaseScope()) {
-            doctors = User.getAll();
-        } catch (Exception ex) {
-           throw new InitializeException(ex);
-        }
-        
-        for(int i = 0; i<doctors.size(); i++){
-            if(doctors.get(i).getType().getDashboardName().equals("DoctorDashboard")){
-                doctor_cb.getItems().add(doctors.get(i).getFullName());
-            }
         }
         
         c_first_name.setCellValueFactory(new PropertyValueFactory("firstName"));
@@ -114,15 +102,27 @@ public class PatientLookupController implements Initializable{
         table.setItems(data);
         table.refresh();
         
+        try (DatabaseScope scope = new DatabaseScope()) {
+            doctors = User.getAll();
+        } catch (Exception ex) {
+           throw new InitializeException(ex);
+        }
+        
+        for(int i = 0; i < doctors.size(); i++){
+            if(doctors.get(i).getType().getDashboardName().equals("DoctorDashboard")){
+                doctor_choicebox.getItems().add(doctors.get(i).getFullName());
+            }
+        }
+        
         table.setRowFactory(tv -> {
             TableRow<Patient> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                if (event.getClickCount() == 2 && (!row.isEmpty()) ) {
                     Patient rowData = row.getItem();
                     AppSession.setPatientSelection(rowData);
                     AppSession.setPatientFlag(1);
                     try {
-                        //AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.PATIENT_PROFILE);
+                        AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.PATIENT_PROFILE);
                     } catch (Exception ex) {
                         Logger.getLogger(DoctorSearchController.class.getName()).log(Level.SEVERE, null, ex);
                     }
