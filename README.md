@@ -9,7 +9,7 @@ CS460 Software Development: MedicalDoctor.
     3. Choose the download file, and accept whatever pops up.
     4. Click "Install".
 
-2. Download this repository.
+2. Download this repository and open the project in Netbeans.
 
 3. Install MySQL with the following configuration:
 * Running locally with TCP/IP port `3306`.
