@@ -63,8 +63,8 @@ public class PatientRegistrationController implements Initializable {
     private Label bill_street_id, bill_city_id, bill_state_id, bill_zip_id;
 
     @FXML
-    private Label doctor_id, visit_id, cheif_id, cheig_id, pres_id;
-    
+    private Label doctor_id, visit_id, cheif_id, cheig_id, pres_id, success_label;
+
     @FXML
     private TableView<Patient> table;
 
@@ -115,7 +115,11 @@ public class PatientRegistrationController implements Initializable {
         patient.lastName = textLastName.getText() ;
         patient.age = Integer.parseInt(isInteger(ageNumber.getText()));
         patient.sex =textSex.getText();
-        patient.dateOfBirth = LocalDate.of(1997, 10, 1);
+        try{
+            patient.dateOfBirth = LocalDate.parse(textBirthdate.getText());
+        } catch (Exception e){
+            success_label.setText("Birth Date is not in a correct format.");
+        }
         patient.medicalInsurance = (textMedicalInsurance.getText());
         patient.addressCity =(textStreetMailingAddress.getText());
         patient.addressCity = (textCityMailingAddress.getText());
@@ -182,6 +186,8 @@ public class PatientRegistrationController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        success_label.setText("");
+        
         stateMailingAddressChoiceBox.getItems().addAll(LookUp.STATES);
         stateBillingAddressChoiceBox.getItems().addAll(LookUp.STATES);
       
