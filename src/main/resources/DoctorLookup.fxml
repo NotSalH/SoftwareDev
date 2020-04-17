@@ -9,9 +9,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.DoctorLookupController">
-   <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="1139.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.DoctorLookupController">
+   <top>
+       <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
+   </top>
+   <left>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="903.0" prefWidth="1932.0" BorderPane.alignment="CENTER">
    <children>
       <Label layoutX="37.0" layoutY="37.0" text="Please Fill any Field to search for a doctor">
                <font>
@@ -31,21 +34,18 @@
                <font>
                   <Font size="22.0" />
                </font></Button>
-            <TableView fx:id="table" layoutX="710.0" layoutY="134.0" prefHeight="303.0" prefWidth="379.0">
+            <TableView fx:id="table" layoutX="606.0" layoutY="145.0" prefHeight="573.0" prefWidth="737.0">
               <columns>
-                <TableColumn fx:id="c_first_name" prefWidth="75.0" text="First Name" />
-                <TableColumn fx:id="c_last_name" prefWidth="75.0" text="Last Name" />
-                  <TableColumn fx:id="c_email" prefWidth="75.0" text="Email" />
-                  <TableColumn fx:id="c_office" prefWidth="75.0" text="Office" />
-                  <TableColumn fx:id="c_department" prefWidth="75.0" text="Department" />
+                <TableColumn fx:id="c_first_name" prefWidth="153.0" text="First Name" />
+                <TableColumn fx:id="c_last_name" prefWidth="149.0" text="Last Name" />
+                  <TableColumn fx:id="c_email" prefWidth="146.0" text="Email" />
+                  <TableColumn fx:id="c_office" prefWidth="113.0" text="Office" />
+                  <TableColumn fx:id="c_department" prefWidth="175.0" text="Department" />
               </columns>
             </TableView>
-            <Label layoutX="710.0" layoutY="102.0" text="Double click the row to select Entry" />
+            <Label layoutX="606.0" layoutY="113.0" text="Double click the row to select Entry" />
    </children>
    
 </AnchorPane>
-   </center>
-   <top>
-       <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
-   </top>
+   </left>
 </BorderPane>

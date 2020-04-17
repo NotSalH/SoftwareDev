@@ -9,36 +9,36 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.NurseDashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.NurseDashboardController">
    <center>
        <AnchorPane prefHeight="625.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
             <children>
-               <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="199.0">
+               <VBox layoutX="984.0" layoutY="105.0" prefHeight="630.0" prefWidth="535.0">
                   <children>
                      <Label text="Recent Viewed Doctors">
                         <font>
                            <Font size="16.0" />
                         </font>
                      </Label>
-                     <TableView fx:id="recentViewedDoctorsTable" prefHeight="275.0" prefWidth="199.0">
+                     <TableView fx:id="recentViewedDoctorsTable" prefHeight="615.0" prefWidth="410.0">
                         <columns>
                            <TableColumn fx:id="nameRecentViewedDoctorsColumn" prefWidth="199.0" text="Name" />
                         </columns>
                      </TableView>
                   </children>
                </VBox>
-               <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
+               <VBox layoutX="118.0" layoutY="105.0" prefHeight="625.0" prefWidth="833.0">
                   <children>
                      <Label text="Recent Viewed Patients">
                         <font>
                            <Font size="16.0" />
                         </font>
                      </Label>
-                     <TableView fx:id="recentViewedPatientsTable" prefHeight="247.0" prefWidth="371.0">
+                     <TableView fx:id="recentViewedPatientsTable" prefHeight="607.0" prefWidth="715.0">
                         <columns>
-                           <TableColumn fx:id="nameRecentViewedPatientsColumn" prefWidth="127.0" text="Name" />
-                           <TableColumn fx:id="doctorRecentViewedPatientsColumn" minWidth="0.0" prefWidth="161.0" text="Doctor" />
-                           <TableColumn fx:id="dateRecentViewedPatientsColumn" prefWidth="84.0" text="Date" />
+                           <TableColumn fx:id="nameRecentViewedPatientsColumn" prefWidth="330.0" text="Name" />
+                           <TableColumn fx:id="doctorRecentViewedPatientsColumn" minWidth="0.0" prefWidth="322.0" text="Doctor" />
+                           <TableColumn fx:id="dateRecentViewedPatientsColumn" minWidth="0.0" prefWidth="180.0" text="Date" />
                         </columns>
                      </TableView>
                   </children>

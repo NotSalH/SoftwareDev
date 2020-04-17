@@ -9,9 +9,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.UserLookupController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.UserLookupController">
    <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="1139.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="899.0" prefWidth="1920.0">
    <children>
       <Label layoutX="37.0" layoutY="37.0" text="Please Fill any Field to search for a user">
                <font>
@@ -27,20 +27,20 @@
       <TextField fx:id="office_tf" layoutX="370.0" layoutY="373.0" prefHeight="57.0" prefWidth="211.0" />
       <TextField fx:id="phone_tf" layoutX="102.0" layoutY="374.0" prefHeight="57.0" prefWidth="239.0" />
       <Label layoutX="107.0" layoutY="336.0" text="Phone #:" />
-      <Button fx:id="employee_id_tf" layoutX="105.0" layoutY="491.0" mnemonicParsing="false" onAction="#employee_search" text="Search!">
+      <Button fx:id="employee_id_tf" layoutX="105.0" layoutY="491.0" mnemonicParsing="false" onAction="#employee_search" text="Search">
                <font>
                   <Font size="22.0" />
                </font></Button>
-            <TableView fx:id="table" layoutX="710.0" layoutY="134.0" prefHeight="303.0" prefWidth="379.0">
+            <TableView fx:id="table" layoutX="606.0" layoutY="133.0" prefHeight="600.0" prefWidth="886.0">
               <columns>
-                <TableColumn fx:id="c_first_name" prefWidth="75.0" text="First Name" />
-                <TableColumn fx:id="c_last_name" prefWidth="75.0" text="Last Name" />
-                  <TableColumn fx:id="c_email" prefWidth="75.0" text="Email" />
-                  <TableColumn fx:id="c_office" prefWidth="75.0" text="Office" />
-                  <TableColumn fx:id="c_department" prefWidth="75.0" text="Department" />
+                <TableColumn fx:id="c_first_name" prefWidth="181.0" text="First Name" />
+                <TableColumn fx:id="c_last_name" prefWidth="222.0" text="Last Name" />
+                  <TableColumn fx:id="c_email" prefWidth="192.0" text="Email" />
+                  <TableColumn fx:id="c_office" minWidth="0.0" prefWidth="124.0" text="Office" />
+                  <TableColumn fx:id="c_department" prefWidth="166.0" text="Department" />
               </columns>
             </TableView>
-            <Label layoutX="710.0" layoutY="94.0" text="Double click the row to select Entry" />
+            <Label layoutX="606.0" layoutY="93.0" text="Double click the row to select Entry" />
    </children>
    
 </AnchorPane>
