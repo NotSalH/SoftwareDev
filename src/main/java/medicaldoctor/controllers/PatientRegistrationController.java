@@ -36,7 +36,7 @@ public class PatientRegistrationController implements Initializable {
     private TitledPane newPatientTiltedPane, returningPatientTiltedPane;
 
     @FXML
-    private TextField textFirstName, textLastName, ageNumber, textSex;
+    private TextField textFirstName, textLastName, ageNumber, textSex, textSocial;
 
     @FXML
     private TextField textMedicalInsurance, textBirthdate, textPrimaryDoctory;
@@ -130,7 +130,7 @@ public class PatientRegistrationController implements Initializable {
         patient.billingAddressState = ((String) stateBillingAddressChoiceBox.getValue());
         patient.billingAddressZipCode = (zipCodeBillingAddressNumber.getText());
         patient.primaryDoctor = (user_hash.get((String) prime_doctor_dropdown.getValue()));
-        patient.socialSecurityNumber = social_label.getText();
+        patient.socialSecurityNumber = textSocial.getText();
         PatientService.registerNewPatient(patient);
     }
    

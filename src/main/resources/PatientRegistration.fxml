@@ -109,7 +109,6 @@
                                             </VBox>
                                          </children>
                                       </HBox>
-                                    <TextField fx:id="social_label" promptText="Enter Social" />
                                       <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
                                          <children>
                                             <VBox prefHeight="179.0" prefWidth="224.0">
@@ -122,17 +121,17 @@
                                                   <TextField fx:id="textMedicalInsurance" prefHeight="29.0" prefWidth="206.0" />
                                                </children>
                                             </VBox>
-                                            <VBox prefHeight="63.0" prefWidth="111.0">
+                                            <VBox prefHeight="63.0" prefWidth="200.0">
                                                <children>
-                                                  <Label fx:id="dob_id" prefHeight="20.0" prefWidth="132.0" text="Birth Date (YYYY-MM-DD):">
+                                                  <Label fx:id="dob_id" prefHeight="20.0" prefWidth="174.0" text="Birth Date (YYYY-MM-DD):">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
                                                   </Label>
-                                                  <TextField fx:id="textBirthdate" prefHeight="29.0" prefWidth="6.0" />
+                                                  <TextField fx:id="textBirthdate" prefHeight="31.0" prefWidth="128.0" />
                                                </children>
                                             </VBox>
-                                            <VBox prefHeight="63.0" prefWidth="275.0">
+                                            <VBox prefHeight="63.0" prefWidth="193.0">
                                                <children>
                                                   <Label fx:id="prime_doctor_id" text="Primary Doctor:">
                                                      <font>
@@ -142,6 +141,16 @@
                                                 <ChoiceBox fx:id="prime_doctor_dropdown" prefWidth="150.0" />
                                                </children>
                                             </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="193.0">
+                                             <children>
+                                                <Label fx:id="prime_doctor_id1" text="Social Security:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="textSocial" />
+                                             </children>
+                                          </VBox>
                                          </children>
                                       </HBox>
                                       <Label text="Mailing Address:">
