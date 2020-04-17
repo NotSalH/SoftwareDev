@@ -1,3 +1,4 @@
+  
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.image.*?>
@@ -14,12 +15,8 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-    <Button fx:id="buttonPatientRegistration" mnemonicParsing="false" onAction="#patientRegistration" text="Patient&#10;Registeration" />
-      <Button fx:id="buttonPatientLookup" mnemonicParsing="false" onAction="#patientLookup" text="Patient&#10;Lookup" />
       <Button fx:id="buttonDoctorLookup" mnemonicParsing="false" onAction="#doctorLookup" text="Doctor&#10;Lookup" />
       <Button fx:id="buttonUserLookup" mnemonicParsing="false" onAction="#userLookup" text="User&#10;Lookup" />
-      <Button fx:id="buttonMyPatients" mnemonicParsing="false" onAction="#myPatients" prefHeight="42.0" prefWidth="78.0" text="My Patients" />
-      <Button fx:id="buttonMyLabRequests" mnemonicParsing="false" onAction="#myLabRequests" text="My Lab&#10;Requests" />
       <Button fx:id="buttonRegisterNewUser" mnemonicParsing="false" onAction="#registerNewUser" text="Register&#10;New User" />
       <Button fx:id="profile_id" mnemonicParsing="false" onAction="#profile" prefHeight="57.0" prefWidth="126.0" text="Profile" />
       <Button fx:id="l_out" mnemonicParsing="false" onAction="#logout" prefHeight="57.0" prefWidth="127.0" text="Logout" />
