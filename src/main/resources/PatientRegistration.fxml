@@ -272,7 +272,7 @@
                                          <children>
                                             <Pane prefHeight="58.0" prefWidth="620.0">
                                              <children>
-                                                <Label fx:id="success_label" layoutX="66.0" layoutY="9.0" prefHeight="70.0" prefWidth="164.0" text="Success!">
+                                                <Label fx:id="success_label" layoutX="66.0" layoutY="9.0" prefHeight="70.0" prefWidth="522.0" text="Success!">
                                                    <font>
                                                       <Font size="24.0" />
                                                    </font>

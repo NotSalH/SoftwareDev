@@ -111,7 +111,6 @@ public class PatientRegistrationController implements Initializable {
     }
     
    private void makePatient() throws Exception{
-       System.out.println("TEIOSNGIDSNGIOS");
         PatientRegistrationRequest request = new PatientRegistrationRequest();
         request.firstName = textFirstName.getText();
         request.lastName = textLastName.getText() ;
@@ -124,6 +123,7 @@ public class PatientRegistrationController implements Initializable {
             }
         } catch (Exception e){
             success_label.setText("Birth Date is not in a correct format.");
+            return;
         }
         request.medicalInsurance = (textMedicalInsurance.getText());
         request.addressStreet =(textStreetMailingAddress.getText());
