@@ -109,6 +109,7 @@
                                             </VBox>
                                          </children>
                                       </HBox>
+                                    <TextField fx:id="social_label" promptText="Enter Social" />
                                       <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
                                          <children>
                                             <VBox prefHeight="179.0" prefWidth="224.0">
@@ -123,7 +124,7 @@
                                             </VBox>
                                             <VBox prefHeight="63.0" prefWidth="111.0">
                                                <children>
-                                                  <Label fx:id="dob_id" text="Birth Date:">
+                                                  <Label fx:id="dob_id" prefHeight="20.0" prefWidth="132.0" text="Birth Date (YYYY-MM-DD):">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
@@ -322,7 +323,4 @@
         </tabs>
       </TabPane>
    </center>
-   <right>
-      <TextField fx:id="social_label" promptText="Enter Social" BorderPane.alignment="CENTER" />
-   </right>
 </BorderPane>
