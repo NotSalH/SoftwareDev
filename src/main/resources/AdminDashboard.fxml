@@ -33,6 +33,6 @@
       </AnchorPane>
    </center>
    <top>
-      <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
+      <fx:include fx:id="navigationBar" source="NavigationBar.fxml"/>
    </top>
 </BorderPane>
