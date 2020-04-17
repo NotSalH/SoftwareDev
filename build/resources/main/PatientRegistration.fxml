@@ -138,7 +138,7 @@
                                                         <Font size="14.0" />
                                                      </font>
                                                   </Label>
-                                                  <TextField fx:id="textPrimaryDoctory" />
+                                                <ChoiceBox fx:id="prime_doctor_dropdown" prefWidth="150.0" />
                                                </children>
                                             </VBox>
                                          </children>
@@ -296,7 +296,14 @@
                                       </HBox>
                                       <HBox alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="814.0">
                                          <children>
-                                            <Pane prefHeight="58.0" prefWidth="620.0" />
+                                            <Pane prefHeight="58.0" prefWidth="620.0">
+                                             <children>
+                                                <Label fx:id="success_label" layoutX="66.0" layoutY="9.0" prefHeight="70.0" prefWidth="164.0" text="Success!">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children></Pane>
                                             <Button fx:id="submitButton" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#submitButtonClick" text="Submit">
                                                <font>
                                                   <Font size="14.0" />
@@ -315,4 +322,7 @@
         </tabs>
       </TabPane>
    </center>
+   <right>
+      <TextField fx:id="social_label" promptText="Enter Social" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>
