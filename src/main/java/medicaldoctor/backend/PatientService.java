@@ -67,7 +67,11 @@ public class PatientService {
 
         try (DatabaseScope t = new DatabaseScope()) {
             t.beginTransaction();
-            patient.save();
+            if (isNew) {
+                patient.save();
+            } else {
+                patient.update();
+            }
             if (isNew) {
                 AppSession.logEvent(String.format(MESSAGE_REGISTER_NEW_PATIENT,
                         patient.getFullName()));
