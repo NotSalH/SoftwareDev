@@ -103,8 +103,7 @@ public class UserLookupController implements Initializable{
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     User rowData = row.getItem();
-                    AppSession.setAdminUserSelection(rowData);
-                    AppSession.setAdminFlag(1);
+                    AppSession.setViewingUserSelection(rowData);
                     try {
                         AppSession.CONTROLLER_MANAGER.loadAndShowScreen(LookUp.PROFILE);
                     } catch (Exception ex) {

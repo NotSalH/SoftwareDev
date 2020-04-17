@@ -17,6 +17,7 @@ public class LookUp {
     public static final String PATIENT_REGISTRATION = "PatientRegistration";
     public static final String REGISTER_NEW_USER = "RegisterNewUser";
     public static final String REGISTER_NEW_USER_RESULT = "UserRegistrationOutput";
+    public static final String CHANGE_PASSWORD = "ChangePassword";
 
     //FXML File does not exist
     public static final String PATIENT_LOOKUP = "PatientLookup";

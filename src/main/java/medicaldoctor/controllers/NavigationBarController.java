@@ -198,7 +198,7 @@ public class NavigationBarController implements Initializable {
         //buttonMustHaveThisPermission(buttonMyLabRequests, Permission.ACCESS_MY_LAB_REQUESTS);
         buttonMustHaveThisPermission(buttonRegisterNewUser, Permission.REGISTER_NEW_USER);
         //buttonMustHaveThisPermission(buttonLabRequests, Permission.ACCESS_ALL_LAB_REQUESTS);
-        buttonMustHaveThisPermission(buttonLogs, Permission.ACCESS_LOGS);
+        //buttonMustHaveThisPermission(buttonLogs, Permission.ACCESS_LOGS);
         //buttonMustHaveThisPermission(buttonLabPatients, Permission.ACCESS_ALL_LAB_PATIENTS);
         //buttonMustHaveThisPermission(buttonRedBloodCell, Permission.VIEW_HEMOTOLOGIC_BUTTONS);
         //buttonMustHaveThisPermission(buttonWhiteBloodCell, Permission.VIEW_HEMOTOLOGIC_BUTTONS);
@@ -211,7 +211,7 @@ public class NavigationBarController implements Initializable {
         //buttonMustHaveThisPermission(buttonCT, Permission.VIEW_RADIOLOGIC_BUTTONS);
         //buttonMustHaveThisPermission(buttonMRI, Permission.VIEW_RADIOLOGIC_BUTTONS);
     }
-    
+
     private void buttonMustHaveThisPermission(Button button, Permission permission) {
         if (AppSession.getActiveUser().hasPermission(permission) == false) {
             button.setManaged(false);
