@@ -22,6 +22,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
+import medicaldoctor.backend.PatientService;
+import medicaldoctor.backend.data.PatientRegistrationRequest;
 import medicaldoctor.core.DatabaseScope;
 import medicaldoctor.entities.Patient;
 import medicaldoctor.entities.PatientPrescription;
@@ -78,7 +80,11 @@ public class PatientRegistrationController implements Initializable {
     private HashMap<TextField, Label> textfeild_hash = new HashMap<>();
     
     private HashMap<String, User> user_hash = new HashMap<>();
-
+    
+    PatientRegistrationRequest patient;
+    //PatientVisit visit = new PatientVisit();
+    //PatientPrescription prescription = new PatientPrescription();
+           
     private boolean isFieldsEmpty(Map<TextField, Label> map){
         int flag = 0;
         for(Map.Entry<TextField, Label> entry : map.entrySet()){
@@ -93,59 +99,35 @@ public class PatientRegistrationController implements Initializable {
         return flag == 0;
     }
     @FXML
-    void submitButtonClick(ActionEvent event) {
+    void submitButtonClick(ActionEvent event) throws Exception{
         if(isFieldsEmpty(textfeild_hash) &
            checkFields(textAreaChiefComplaint, cheif_id) &
            checkFields(textAreaPresentIllness, pres_id) &
            checkFields(stateMailingAddressChoiceBox, mail_state_id) &
            checkFields(stateBillingAddressChoiceBox, bill_state_id) &
            checkFields(doctor_dropdown, doctor_id)){
-           Patient patient = new Patient();
-           PatientVisit visit = new PatientVisit();
-           PatientPrescription prescription = new PatientPrescription();
-           makePatient(patient, visit, prescription);
+           makePatient();
         }
     }
     
-   void makePatient(Patient patient, PatientVisit visit, PatientPrescription prescription) {
-        patient.setFirstName(textFirstName.getText());
-        patient.setLastName(textLastName.getText());
-        patient.setAge(Integer.parseInt(isInteger(ageNumber.getText())));
-        patient.setSex(textSex.getText());
-        patient.setDateOfBirth(LocalDate.of(1997, 10, 1));
-        patient.setMedicalInsurance(textMedicalInsurance.getText());
-        patient.setAddressStreet(textStreetMailingAddress.getText());
-        patient.setAddressCity(textCityMailingAddress.getText());
-        patient.setAddressState((String) stateMailingAddressChoiceBox.getValue());
-        patient.setAddressZipCode(zipCodeMailingAddressNumber.getText());
-        patient.setBillingAddressStreet(textStreetBillingAddress.getText());
-        patient.setBillingAddressCity(textCityBillingAddress.getText());
-        patient.setBillingAddressState((String) stateBillingAddressChoiceBox.getValue());
-        patient.setBillingAddressZipCode(zipCodeBillingAddressNumber.getText());
-        patient.setPrimaryDoctor(user_hash.get((String) doctor_dropdown.getValue()));
-        patient.setSocialSecurityNumber("123-56-7890");
-        prescription.setPrescription("");
-        prescription.setInstructions("");
-        prescription.getPharmacy().setStreet("");
-        prescription.getPharmacy().setCity("");
-        prescription.getPharmacy().setState("");
-        prescription.getPharmacy().setZipCode("");
-        prescription.getPharmacy().setEmail("");
-        prescription.getPharmacy().setPhone("");
-        prescription.getPharmacy().setFax("");
-        visit.addPrescription(prescription);
-        visit.setDoctor(user_hash.get((String) doctor_dropdown.getValue()));
-        visit.setVisitDateTime(LocalDateTime.of(2020, 4, 1, 2, 2, 2));
-        visit.setChiefComplaint("");
-        visit.setPresentIllness("");
-        visit.setSymptoms("");
-        visit.setPhysicalExamNotes("");
-        visit.setDiagnosis("");
-        visit.setImpression("");
-        visit.setAdditionalNotes("");
-        visit.save();
-        patient.addVisit(visit);
-        patient.save();
+   private void makePatient() throws Exception{
+        patient.firstName = textFirstName.getText();
+        patient.lastName = textLastName.getText() ;
+        patient.age = Integer.parseInt(isInteger(ageNumber.getText()));
+        patient.sex =textSex.getText();
+        patient.dateOfBirth = LocalDate.of(1997, 10, 1);
+        patient.medicalInsurance = (textMedicalInsurance.getText());
+        patient.addressCity =(textStreetMailingAddress.getText());
+        patient.addressCity = (textCityMailingAddress.getText());
+        patient.addressState =((String) stateMailingAddressChoiceBox.getValue());
+        patient.addressZipCode = (zipCodeMailingAddressNumber.getText());
+        patient.billingAddressStreet = (textStreetBillingAddress.getText());
+        patient.billingAddressCity = (textCityBillingAddress.getText());
+        patient.billingAddressState = ((String) stateBillingAddressChoiceBox.getValue());
+        patient.billingAddressZipCode = (zipCodeBillingAddressNumber.getText());
+        patient.primaryDoctor = (user_hash.get((String) doctor_dropdown.getValue()));
+        patient.socialSecurityNumber = ("123-56-7890");
+        PatientService.registerNewPatient(patient);
     }
    
     @FXML
