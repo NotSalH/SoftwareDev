@@ -17,7 +17,8 @@
       <Button fx:id="buttonDoctorLookup" mnemonicParsing="false" onAction="#doctorLookup" text="Doctor&#10;Lookup" />
       <Button fx:id="buttonUserLookup" mnemonicParsing="false" onAction="#userLookup" text="User&#10;Lookup" />
       <Button fx:id="buttonRegisterNewUser" mnemonicParsing="false" onAction="#registerNewUser" text="Register&#10;New User" />
-      <Button fx:id="buttonRegisterNewUser" mnemonicParsing="false" onAction="#patientRegistration" text="Register&#10;New Patient" />
+      <Button fx:id="buttonPatientRegistration" mnemonicParsing="false" onAction="#patientRegistration" text="Register&#10;New Patient" />
+      <Button fx:id="buttonPatientLookup" mnemonicParsing="false" onAction="#patientLookup" prefHeight="48.0" prefWidth="109.0" text="Lookup a Patient&#10;" />
       <Button fx:id="profile_id" mnemonicParsing="false" onAction="#profile" prefHeight="57.0" prefWidth="126.0" text="Profile" />
       <Button fx:id="l_out" mnemonicParsing="false" onAction="#logout" prefHeight="57.0" prefWidth="127.0" text="Logout" />
       <ImageView fitHeight="89.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
