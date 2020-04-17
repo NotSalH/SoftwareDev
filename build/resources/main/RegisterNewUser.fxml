@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.NewUserController">
+   <center>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="1129.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+           <children>
+              <VBox layoutX="169.0" layoutY="95.0" prefHeight="313.0" prefWidth="779.0" spacing="10.0">
+                 <children>
+                    <Label text="User Registration:">
+                       <font>
+                          <Font size="18.0" />
+                       </font>
+                    </Label>
+                    <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
+                       <children>
+                          <VBox prefHeight="63.0" prefWidth="191.0">
+                             <children>
+                                <Label fx:id="first_name_label" text="First Name:">
+                                   <font>
+                                      <Font size="14.0" />
+                                   </font>
+                                </Label>
+                                <TextField fx:id="textFirstName" prefHeight="29.0" prefWidth="196.0" />
+                             </children>
+                          </VBox>
+                          <VBox prefHeight="63.0" prefWidth="174.0">
+                             <children>
+                                <Label fx:id="last_name_label" text="Last Name:">
+                                   <font>
+                                      <Font size="14.0" />
+                                   </font>
+                                </Label>
+                                <TextField fx:id="textLastName" />
+                             </children>
+                          </VBox>
+                          <VBox prefHeight="63.0" prefWidth="109.0">
+                             <children>
+                                <Label fx:id="employee_type_label" text="Employee Type;">
+                                   <font>
+                                      <Font size="14.0" />
+                                   </font>
+                                </Label>
+                                <ChoiceBox fx:id="employeeTypeChoiceBox" prefHeight="25.0" prefWidth="109.0" />
+                             </children>
+                          </VBox>
+                          <VBox prefHeight="63.0" prefWidth="97.0">
+                             <children>
+                                <Label fx:id="department_label" text="Department:">
+                                   <font>
+                                      <Font size="14.0" />
+                                   </font>
+                                </Label>
+                                <TextField fx:id="textDepartment" prefHeight="29.0" prefWidth="6.0" />
+                             </children>
+                          </VBox>
+                          <VBox prefHeight="63.0" prefWidth="60.0">
+                             <children>
+                                <Label fx:id="office_label" text="Office #:">
+                                   <font>
+                                      <Font size="14.0" />
+                                   </font>
+                                </Label>
+                                <TextField fx:id="textOfficeNumber" />
+                             </children>
+                          </VBox>
+                       </children>
+                    </HBox>
+                    <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="779.0">
+                       <children>
+                          <Button fx:id="submitButton" mnemonicParsing="false" onAction="#submitButtonClick" text="Submit" />
+                       </children>
+                    </HBox>
+                 </children>
+              </VBox>
+           </children>
+        </AnchorPane>
+   </center>
+   <top>
+       <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
+   </top>
+</BorderPane>

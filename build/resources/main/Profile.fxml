@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.ProfileController">
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="1139.0">
+   <children>
+      <Label layoutX="37.0" layoutY="37.0" text="Profile" />
+      <Label layoutX="96.0" layoutY="129.0" text="Username:" />
+      <TextField fx:id="username_tf" disable="true" editable="false" layoutX="96.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
+      <TextField fx:id="first_name_tf" disable="true" editable="false" layoutX="346.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
+      <Label layoutX="346.0" layoutY="129.0" text="First Name:" />
+      <Label layoutX="596.0" layoutY="129.0" text="Last Name:" />
+      <TextField fx:id="last_name_tf" disable="true" editable="false" layoutX="596.0" layoutY="170.0" prefHeight="57.0" prefWidth="237.0" />
+      <TextField fx:id="employee_id_t" disable="true" editable="false" layoutX="96.0" layoutY="280.0" prefHeight="57.0" prefWidth="486.0" />
+      <Label layoutX="96.0" layoutY="239.0" text="Employee ID:" />
+      <Label layoutX="596.0" layoutY="239.0" text="Employee Type:" />
+      <Label layoutX="96.0" layoutY="359.0" text="Contact Information:" />
+      <Label layoutX="96.0" layoutY="399.0" text="Email" />
+      <TextField fx:id="email_tf" disable="true" editable="false" layoutX="96.0" layoutY="440.0" prefHeight="57.0" prefWidth="486.0" />
+      <Label layoutX="846.0" layoutY="399.0" text="Office #:" />
+      <TextField fx:id="office_tf" disable="true" editable="false" layoutX="846.0" layoutY="440.0" prefHeight="57.0" prefWidth="237.0" />
+      <TextField fx:id="department_tf" disable="true" editable="false" layoutX="596.0" layoutY="440.0" prefHeight="57.0" prefWidth="237.0" />
+      <Label layoutX="596.0" layoutY="399.0" text="Department" />
+      <Button fx:id="buttonChangePassword" layoutX="854.0" layoutY="521.0" mnemonicParsing="false" onAction="#buttonChangePasswordClick" text="Change Password" />
+      <TextField fx:id="employee_type_tf" disable="true" editable="false" layoutX="596.0" layoutY="279.0" prefHeight="57.0" prefWidth="237.0" />
+   </children>
+   
+</AnchorPane>
+   </center>
+   <top>
+       <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
+   </top>
+</BorderPane>
