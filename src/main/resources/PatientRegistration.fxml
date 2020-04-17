@@ -16,42 +16,6 @@
    <center>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab text="Returning Patient">
-               <content>
-                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                       <children>
-                          <VBox alignment="TOP_RIGHT" layoutX="143.0" layoutY="14.0" prefHeight="657.0" prefWidth="1316.0" spacing="10.0">
-                             <children>
-                                <HBox alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="777.0" spacing="10.0">
-                                   <children>
-                                      <Label text="Filter:">
-                                         <font>
-                                            <Font size="18.0" />
-                                         </font>
-                                      </Label>
-                                      <TextField fx:id="filterTextBox" prefHeight="29.0" prefWidth="237.0" promptText="by Patient ID, First Name, or Last Name" />
-                                   </children>
-                                </HBox>
-                                <TableView fx:id="table" prefHeight="623.0" prefWidth="1666.0">
-                                   <columns>
-                                      <TableColumn fx:id="patientId" prefWidth="174.0" text="Patient ID" />
-                                      <TableColumn fx:id="firstName" minWidth="0.0" prefWidth="300.0" text="First Name" />
-                                      <TableColumn fx:id="lastName" prefWidth="308.0" text="Last Name" />
-                                      <TableColumn fx:id="DOB" prefWidth="244.0" text="DOB" />
-                                      <TableColumn fx:id="PrimaryDoctor" prefWidth="288.0" text="Primary Doctor" />
-                                   </columns>
-                                </TableView>
-                                <Button fx:id="selectButton" mnemonicParsing="false" onAction="#selectButtonClick" text="Select">
-                                   <font>
-                                      <Font size="14.0" />
-                                   </font>
-                                </Button>
-                             </children>
-                          </VBox>
-                       </children>
-                    </AnchorPane>
-               </content>
-            </Tab>
           <Tab text="New Patient">
                <content>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
@@ -109,7 +73,6 @@
                                             </VBox>
                                          </children>
                                       </HBox>
-                                    <TextField fx:id="social_label" promptText="Enter Social" />
                                       <HBox prefHeight="63.0" prefWidth="814.0" spacing="35.0">
                                          <children>
                                             <VBox prefHeight="179.0" prefWidth="224.0">
@@ -122,17 +85,17 @@
                                                   <TextField fx:id="textMedicalInsurance" prefHeight="29.0" prefWidth="206.0" />
                                                </children>
                                             </VBox>
-                                            <VBox prefHeight="63.0" prefWidth="111.0">
+                                            <VBox prefHeight="63.0" prefWidth="200.0">
                                                <children>
-                                                  <Label fx:id="dob_id" prefHeight="20.0" prefWidth="132.0" text="Birth Date (YYYY-MM-DD):">
+                                                  <Label fx:id="dob_id" prefHeight="20.0" prefWidth="174.0" text="Birth Date (YYYY-MM-DD):">
                                                      <font>
                                                         <Font size="14.0" />
                                                      </font>
                                                   </Label>
-                                                  <TextField fx:id="textBirthdate" prefHeight="29.0" prefWidth="6.0" />
+                                                  <TextField fx:id="textBirthdate" prefHeight="31.0" prefWidth="128.0" />
                                                </children>
                                             </VBox>
-                                            <VBox prefHeight="63.0" prefWidth="275.0">
+                                            <VBox prefHeight="63.0" prefWidth="193.0">
                                                <children>
                                                   <Label fx:id="prime_doctor_id" text="Primary Doctor:">
                                                      <font>
@@ -142,6 +105,16 @@
                                                 <ChoiceBox fx:id="prime_doctor_dropdown" prefWidth="150.0" />
                                                </children>
                                             </VBox>
+                                          <VBox prefHeight="63.0" prefWidth="193.0">
+                                             <children>
+                                                <Label fx:id="social_label" text="Social Security:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="textSocial" />
+                                             </children>
+                                          </VBox>
                                          </children>
                                       </HBox>
                                       <Label text="Mailing Address:">
@@ -299,7 +272,7 @@
                                          <children>
                                             <Pane prefHeight="58.0" prefWidth="620.0">
                                              <children>
-                                                <Label fx:id="success_label" layoutX="66.0" layoutY="9.0" prefHeight="70.0" prefWidth="164.0" text="Success!">
+                                                <Label fx:id="success_label" layoutX="66.0" layoutY="9.0" prefHeight="70.0" prefWidth="522.0" text="Success!">
                                                    <font>
                                                       <Font size="24.0" />
                                                    </font>
