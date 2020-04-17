@@ -107,7 +107,7 @@
                                             </VBox>
                                           <VBox prefHeight="63.0" prefWidth="193.0">
                                              <children>
-                                                <Label fx:id="prime_doctor_id1" text="Social Security:">
+                                                <Label fx:id="social_label" text="Social Security:">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>

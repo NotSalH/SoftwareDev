@@ -42,7 +42,7 @@ public class PatientRegistrationController implements Initializable {
     private TextField textMedicalInsurance, textBirthdate, textPrimaryDoctory;
 
     @FXML
-    private TextField textStreetMailingAddress, textCityMailingAddress, social_label;
+    private TextField textStreetMailingAddress, textCityMailingAddress;
 
     @FXML
     private ChoiceBox stateMailingAddressChoiceBox, stateBillingAddressChoiceBox, doctor_dropdown, prime_doctor_dropdown;
@@ -54,7 +54,7 @@ public class PatientRegistrationController implements Initializable {
     private TextArea textAreaChiefComplaint, textAreaPresentIllness;
 
     @FXML
-    private Label first_name_id, last_id, age_id, sex_id, med_id, dob_id, prime_doctor_id;
+    private Label first_name_id, last_id, age_id, sex_id, med_id, dob_id, prime_doctor_id, social_label;
 
     @FXML
     private Label mail_street_id, mail_city_id, mail_state_id, mail_zip_id;
@@ -81,7 +81,6 @@ public class PatientRegistrationController implements Initializable {
     
     private HashMap<String, User> user_hash = new HashMap<>();
     
-    PatientRegistrationRequest patient;
     //PatientVisit visit = new PatientVisit();
     //PatientPrescription prescription = new PatientPrescription();
            
@@ -105,33 +104,44 @@ public class PatientRegistrationController implements Initializable {
            checkFields(textAreaPresentIllness, pres_id) &
            checkFields(stateMailingAddressChoiceBox, mail_state_id) &
            checkFields(stateBillingAddressChoiceBox, bill_state_id) &
-           checkFields(doctor_dropdown, doctor_id)){
+           checkFields(doctor_dropdown, doctor_id) &
+           checkFields(prime_doctor_dropdown, prime_doctor_id)){
            makePatient();
         }
     }
     
    private void makePatient() throws Exception{
-        patient.firstName = textFirstName.getText();
-        patient.lastName = textLastName.getText() ;
-        patient.age = Integer.parseInt(isInteger(ageNumber.getText()));
-        patient.sex =textSex.getText();
+       System.out.println("TEIOSNGIDSNGIOS");
+        PatientRegistrationRequest request = new PatientRegistrationRequest();
+        request.firstName = textFirstName.getText();
+        request.lastName = textLastName.getText() ;
+        request.age = Integer.parseInt(isInteger(ageNumber.getText()));
+        request.sex =textSex.getText();
         try{
-            patient.dateOfBirth = LocalDate.parse(textBirthdate.getText());
+            request.dateOfBirth = LocalDate.parse(textBirthdate.getText());
+            if (request.dateOfBirth == null){
+                throw new Exception();
+            }
         } catch (Exception e){
             success_label.setText("Birth Date is not in a correct format.");
         }
-        patient.medicalInsurance = (textMedicalInsurance.getText());
-        patient.addressCity =(textStreetMailingAddress.getText());
-        patient.addressCity = (textCityMailingAddress.getText());
-        patient.addressState =((String) stateMailingAddressChoiceBox.getValue());
-        patient.addressZipCode = (zipCodeMailingAddressNumber.getText());
-        patient.billingAddressStreet = (textStreetBillingAddress.getText());
-        patient.billingAddressCity = (textCityBillingAddress.getText());
-        patient.billingAddressState = ((String) stateBillingAddressChoiceBox.getValue());
-        patient.billingAddressZipCode = (zipCodeBillingAddressNumber.getText());
-        patient.primaryDoctor = (user_hash.get((String) prime_doctor_dropdown.getValue()));
-        patient.socialSecurityNumber = textSocial.getText();
-        PatientService.registerNewPatient(patient);
+        request.medicalInsurance = (textMedicalInsurance.getText());
+        request.addressStreet =(textStreetMailingAddress.getText());
+        request.addressCity = (textCityMailingAddress.getText());
+        request.addressState =((String) stateMailingAddressChoiceBox.getValue());
+        request.addressZipCode = (zipCodeMailingAddressNumber.getText());
+        request.billingAddressStreet = (textStreetBillingAddress.getText());
+        request.billingAddressCity = (textCityBillingAddress.getText());
+        request.billingAddressState = ((String) stateBillingAddressChoiceBox.getValue());
+        request.billingAddressZipCode = (zipCodeBillingAddressNumber.getText());
+        request.primaryDoctor = (user_hash.get((String) prime_doctor_dropdown.getValue()));
+        request.socialSecurityNumber = textSocial.getText();
+        request.doctor = (user_hash.get((String) doctor_dropdown.getValue()));
+        request.visitDateTime = LocalDateTime.now();
+        request.chiefComplaint = textAreaChiefComplaint.getText();
+        request.presentIllness = textAreaPresentIllness.getText();
+        PatientService.registerNewPatient(request);
+        success_label.setText("Success!");
     }
    
     @FXML
@@ -176,10 +186,10 @@ public class PatientRegistrationController implements Initializable {
     boolean checkFields(TextArea ta, Label label) {
         if (ta.getText().isEmpty()) {
             label.setTextFill(Color.GREEN);
-            return true;
+            return false;
         } else {
             label.setTextFill(Color.BLACK);
-            return false;
+            return true;
         }
     }
     
@@ -198,23 +208,6 @@ public class PatientRegistrationController implements Initializable {
             user = new ArrayList<>();
         }
 
-        List<Patient> patients;
-        try (DatabaseScope scope = new DatabaseScope()) {
-            patients = Patient.getAll();
-        } catch (Exception ex) {
-            patients = new ArrayList<>();
-        }
-
-        patientId.setCellValueFactory(new PropertyValueFactory("id"));
-        firstName.setCellValueFactory(new PropertyValueFactory("firstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory("lastName"));
-        DOB.setCellValueFactory(new PropertyValueFactory("dateOfBirth"));
-        PrimaryDoctor.setCellValueFactory(new PropertyValueFactory("primaryDoctor"));
-        ObservableList<Patient> data = FXCollections.<Patient>observableArrayList();
-        data.addAll(patients);
-        table.setItems(data);
-        table.refresh();
-
         for (int i = 0; i < user.size(); i++) {
             if (user.get(i).getType().getDashboardName().equals("DoctorDashboard")) {
                 doctor_dropdown.getItems().add(user.get(i).getFullName());
@@ -229,16 +222,13 @@ public class PatientRegistrationController implements Initializable {
         textfeild_hash.put(textSex, sex_id);
         textfeild_hash.put(textMedicalInsurance, med_id);
         textfeild_hash.put(textBirthdate, dob_id);
-        textfeild_hash.put(textPrimaryDoctory, prime_doctor_id);
+        textfeild_hash.put(textSocial, social_label);
         textfeild_hash.put(textStreetMailingAddress, mail_street_id);
         textfeild_hash.put(textCityMailingAddress, mail_city_id);
         textfeild_hash.put(zipCodeMailingAddressNumber, mail_zip_id);
         textfeild_hash.put(textStreetBillingAddress, bill_street_id);
         textfeild_hash.put(textCityBillingAddress, bill_city_id);
         textfeild_hash.put(zipCodeBillingAddressNumber, bill_zip_id);
-        textfeild_hash.put(textVisitDate, visit_id);
-        
-        
     }
     
 }
