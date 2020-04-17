@@ -42,10 +42,10 @@ public class PatientRegistrationController implements Initializable {
     private TextField textMedicalInsurance, textBirthdate, textPrimaryDoctory;
 
     @FXML
-    private TextField textStreetMailingAddress, textCityMailingAddress;
+    private TextField textStreetMailingAddress, textCityMailingAddress, social_label;
 
     @FXML
-    private ChoiceBox stateMailingAddressChoiceBox, stateBillingAddressChoiceBox, doctor_dropdown;
+    private ChoiceBox stateMailingAddressChoiceBox, stateBillingAddressChoiceBox, doctor_dropdown, prime_doctor_dropdown;
 
     @FXML
     private TextField zipCodeMailingAddressNumber, textStreetBillingAddress, textCityBillingAddress, zipCodeBillingAddressNumber, textDoctor, textVisitDate;
@@ -64,7 +64,7 @@ public class PatientRegistrationController implements Initializable {
 
     @FXML
     private Label doctor_id, visit_id, cheif_id, cheig_id, pres_id;
-
+    
     @FXML
     private TableView<Patient> table;
 
@@ -125,8 +125,8 @@ public class PatientRegistrationController implements Initializable {
         patient.billingAddressCity = (textCityBillingAddress.getText());
         patient.billingAddressState = ((String) stateBillingAddressChoiceBox.getValue());
         patient.billingAddressZipCode = (zipCodeBillingAddressNumber.getText());
-        patient.primaryDoctor = (user_hash.get((String) doctor_dropdown.getValue()));
-        patient.socialSecurityNumber = ("123-56-7890");
+        patient.primaryDoctor = (user_hash.get((String) prime_doctor_dropdown.getValue()));
+        patient.socialSecurityNumber = social_label.getText();
         PatientService.registerNewPatient(patient);
     }
    
@@ -179,6 +179,7 @@ public class PatientRegistrationController implements Initializable {
         }
     }
     
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         stateMailingAddressChoiceBox.getItems().addAll(LookUp.STATES);
@@ -212,6 +213,7 @@ public class PatientRegistrationController implements Initializable {
             if (user.get(i).getType().getDashboardName().equals("DoctorDashboard")) {
                 doctor_dropdown.getItems().add(user.get(i).getFullName());
                 user_hash.put(user.get(i).getFullName(), user.get(i));
+                prime_doctor_dropdown.getItems().add(user.get(i).getFullName());
             }
         }
 
@@ -229,6 +231,8 @@ public class PatientRegistrationController implements Initializable {
         textfeild_hash.put(textCityBillingAddress, bill_city_id);
         textfeild_hash.put(zipCodeBillingAddressNumber, bill_zip_id);
         textfeild_hash.put(textVisitDate, visit_id);
+        
+        
     }
     
 }

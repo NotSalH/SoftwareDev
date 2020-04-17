@@ -138,7 +138,7 @@
                                                         <Font size="14.0" />
                                                      </font>
                                                   </Label>
-                                                  <TextField fx:id="textPrimaryDoctory" />
+                                                <ChoiceBox fx:id="prime_doctor_dropdown" prefWidth="150.0" />
                                                </children>
                                             </VBox>
                                          </children>
@@ -322,4 +322,7 @@
         </tabs>
       </TabPane>
    </center>
+   <right>
+      <TextField fx:id="social_label" promptText="Enter Social" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>
