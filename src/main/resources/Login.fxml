@@ -5,39 +5,14 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.LoginController">
    <children>
-      <HBox layoutX="53.0" layoutY="83.0" prefHeight="275.0" prefWidth="456.0" spacing="15.0">
-         <children>
-            <VBox prefHeight="137.0" prefWidth="292.0" spacing="15.0">
-               <children>
-                  <Label text="MedicalDoctor Login" />
-                  <HBox prefHeight="17.0" prefWidth="209.0" spacing="10.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="83.0" text="Username:" />
-                        <TextField fx:id="textUsername" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="19.0" prefWidth="297.0" spacing="11.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="77.0" text="Password:" />
-                        <PasswordField fx:id="textPassword" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="29.0" prefWidth="220.0">
-                     <children>
-                        <Pane prefHeight="29.0" prefWidth="158.0">
-                           <children>
-                              <Label fx:id="i_label" layoutX="7.0" layoutY="7.0" text="INCORRECT!" textFill="RED" visible="false" />
-                           </children></Pane>
-                        <Button fx:id="buttonSubmit" mnemonicParsing="false" onAction="#buttonSubmitClick" prefHeight="25.0" prefWidth="55.0" text="Login" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <ImageView fitHeight="188.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </HBox>
+      <Label layoutX="281.0" layoutY="186.0" text="MedicalDoctor Login" />
+      <Label layoutX="219.0" layoutY="262.0" prefHeight="48.0" prefWidth="134.0" text="Username:" />
+      <TextField fx:id="textUsername" layoutX="362.0" layoutY="267.0" />
+      <PasswordField fx:id="textPassword" layoutX="362.0" layoutY="346.0" />
+      <Label layoutX="219.0" layoutY="341.0" prefHeight="48.0" prefWidth="134.0" text="Password:" />
+      <Button fx:id="buttonSubmit" layoutX="323.0" layoutY="446.0" mnemonicParsing="false" onAction="#buttonSubmitClick" prefHeight="25.0" prefWidth="157.0" text="Login" />
+      <Label fx:id="i_label" layoutX="374.0" layoutY="560.0" />
    </children>
 </AnchorPane>

@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.PatientRegistrationController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.PatientRegistrationController">
    <top>
        <fx:include fx:id="navigationBar" source="NavigationBar.fxml" />
    </top>
@@ -20,7 +20,7 @@
                <content>
                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
                        <children>
-                          <VBox alignment="TOP_RIGHT" layoutX="143.0" layoutY="14.0" prefHeight="441.0" prefWidth="816.0" spacing="10.0">
+                          <VBox alignment="TOP_RIGHT" layoutX="143.0" layoutY="14.0" prefHeight="657.0" prefWidth="1316.0" spacing="10.0">
                              <children>
                                 <HBox alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="777.0" spacing="10.0">
                                    <children>
@@ -32,13 +32,13 @@
                                       <TextField fx:id="filterTextBox" prefHeight="29.0" prefWidth="237.0" promptText="by Patient ID, First Name, or Last Name" />
                                    </children>
                                 </HBox>
-                                <TableView fx:id="table" prefHeight="340.0" prefWidth="816.0">
+                                <TableView fx:id="table" prefHeight="623.0" prefWidth="1666.0">
                                    <columns>
-                                      <TableColumn fx:id="patientId" prefWidth="163.0" text="Patient ID" />
-                                      <TableColumn fx:id="firstName" minWidth="0.0" prefWidth="144.0" text="First Name" />
-                                      <TableColumn fx:id="lastName" prefWidth="175.0" text="Last Name" />
-                                      <TableColumn fx:id="DOB" prefWidth="94.0" text="DOB" />
-                                      <TableColumn fx:id="PrimaryDoctor" prefWidth="241.0" text="Primary Doctor" />
+                                      <TableColumn fx:id="patientId" prefWidth="174.0" text="Patient ID" />
+                                      <TableColumn fx:id="firstName" minWidth="0.0" prefWidth="300.0" text="First Name" />
+                                      <TableColumn fx:id="lastName" prefWidth="308.0" text="Last Name" />
+                                      <TableColumn fx:id="DOB" prefWidth="244.0" text="DOB" />
+                                      <TableColumn fx:id="PrimaryDoctor" prefWidth="288.0" text="Primary Doctor" />
                                    </columns>
                                 </TableView>
                                 <Button fx:id="selectButton" mnemonicParsing="false" onAction="#selectButtonClick" text="Select">

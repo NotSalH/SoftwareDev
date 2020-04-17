@@ -9,42 +9,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.LabWorkerDashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicaldoctor.controllers.LabWorkerDashboardController">
    <center>
         <AnchorPane prefHeight="625.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
             <children>
-                <VBox layoutX="678.0" layoutY="105.0" prefHeight="273.0" prefWidth="222.0">
-                    <children>
-                        <Label text="Order">
-                            <font>
-                                 <Font size="16.0" />
-                            </font>
-                        </Label>
-                        <TableView fx:id="orderTable" prefHeight="248.0" prefWidth="278.0">
-                            <columns>
-                                <TableColumn fx:id="patientNameOrdersColumn" prefWidth="127.0" text="Patient Name" />
-                                <TableColumn fx:id="requesterOrdersColumn" prefWidth="95.0" text="Requester" />
-                                <TableColumn prefWidth="106.0" text="Type of Test" />
-                            </columns>
-                        </TableView>
-                    </children>
-                </VBox>
-                <VBox layoutX="118.0" layoutY="105.0" prefHeight="273.0" prefWidth="371.0">
-                    <children>
-                        <Label text="Recent Orders">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </Label>
-                    <TableView fx:id="recentOrdersTable" prefHeight="247.0" prefWidth="371.0">
-                       <columns>
-                          <TableColumn fx:id="patientNameRecentOrdersColumn" prefWidth="119.0" text="Patient Name" />
-                          <TableColumn fx:id="requesterRecentOrdersColumn" minWidth="0.0" prefWidth="144.0" text="Requester" />
-                          <TableColumn fx:id="typeOfTestrRecentOrdersColumn" prefWidth="109.0" text="Type of Test" />
-                       </columns>
-                    </TableView>
-                 </children>
-                </VBox>
+                  <TableView fx:id="orderTable" layoutX="750.0" layoutY="154.0" prefHeight="543.0" prefWidth="585.0">
+                      <columns>
+                          <TableColumn fx:id="patientNameOrdersColumn" prefWidth="203.0" text="Patient Name" />
+                          <TableColumn fx:id="requesterOrdersColumn" minWidth="0.0" prefWidth="164.0" text="Requester" />
+                          <TableColumn minWidth="0.0" prefWidth="230.0" text="Type of Test" />
+                      </columns>
+                  </TableView>
+                  <Label layoutX="111.0" layoutY="129.0" text="Recent Orders">
+                      <font>
+                          <Font size="16.0" />
+                      </font>
+                  </Label>
+              <TableView fx:id="recentOrdersTable" layoutX="111.0" layoutY="154.0" prefHeight="541.0" prefWidth="591.0">
+                 <columns>
+                    <TableColumn fx:id="patientNameRecentOrdersColumn" prefWidth="214.0" text="Patient Name" />
+                    <TableColumn fx:id="requesterRecentOrdersColumn" minWidth="0.0" prefWidth="199.0" text="Requester" />
+                    <TableColumn fx:id="typeOfTestrRecentOrdersColumn" prefWidth="171.0" text="Type of Test" />
+                 </columns>
+              </TableView>
+                  <Label layoutX="750.0" layoutY="129.0" text="Order">
+                      <font>
+                           <Font size="16.0" />
+                      </font>
+                  </Label>
             </children>
         </AnchorPane>
    </center>
