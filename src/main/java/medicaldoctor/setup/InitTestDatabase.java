@@ -56,10 +56,10 @@ public final class InitTestDatabase {
                 Permission.ACCESS_PATIENT_LOOKUP,
                 Permission.ACCESS_DOCTOR_LOOKUP);
         update(UserType.NURSE,
+                Permission.REGISTER_PATIENT,
                 Permission.ACCESS_PATIENT_LOOKUP,
                 Permission.ACCESS_DOCTOR_LOOKUP);
         update(UserType.DOCTOR,
-                Permission.REGISTER_PATIENT,
                 Permission.ACCESS_PATIENT_LOOKUP,
                 Permission.ACCESS_DOCTOR_LOOKUP,
                 Permission.ACCESS_MY_PATIENTS,
@@ -101,6 +101,29 @@ public final class InitTestDatabase {
         user.setType(UserType.ADMIN);
         user.setDepartment("Administration");
         user.setOfficeNum(145);
+        user.setEmail(AppSession.EMAIL_GENERATOR.generateEmail(user.getUserName()));
+        user.save();
+        
+        user = new User();
+        user.setFirstName("CEO");
+        user.setLastName("Jung");
+        user.setUserName("exec");
+        user.setPasswordHashAndSalt(AppSession.ENCRYPTION.hashPassword("ceo"));
+        user.setAdditionalPasswordHashAndSalt(AppSession.ENCRYPTION.hashPassword("money"));
+        user.setType(UserType.EXECUTIVE);
+        user.setDepartment("Administration");
+        user.setOfficeNum(337);
+        user.setEmail(AppSession.EMAIL_GENERATOR.generateEmail(user.getUserName()));
+        user.save();
+        
+        user = new User();
+        user.setFirstName("Corona");
+        user.setLastName("Virus");
+        user.setUserName("cvirus");
+        user.setPasswordHashAndSalt(AppSession.ENCRYPTION.hashPassword("rip"));
+        user.setType(UserType.NURSE);
+        user.setDepartment("Nurses");
+        user.setOfficeNum(154);
         user.setEmail(AppSession.EMAIL_GENERATOR.generateEmail(user.getUserName()));
         user.save();
 
