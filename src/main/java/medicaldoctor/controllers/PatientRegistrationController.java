@@ -185,10 +185,10 @@ public class PatientRegistrationController implements Initializable {
 
     boolean checkFields(TextArea ta, Label label) {
         if (ta.getText().isEmpty()) {
-            label.setTextFill(Color.GREEN);
+            label.setTextFill(Color.RED);
             return false;
         } else {
-            label.setTextFill(Color.BLACK);
+            label.setTextFill(Color.GREEN);
             return true;
         }
     }
